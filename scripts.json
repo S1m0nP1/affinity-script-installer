@@ -5,7 +5,17 @@
       "title": "Hello World Example",
       "description": "A small starter script for checking that installation into the Affinity script library works.",
       "path": "scripts/hello-world-example.js",
-      "tags": ["example", "starter"]
+      "tags": [
+        "example",
+        "starter"
+      ]
+    },
+    {
+      "id": "vector-pattern-fx-final",
+      "title": "Vector Pattern Fx Final",
+      "description": "No description provided yet.",
+      "path": "scripts/vector-pattern-fx-final.js",
+      "tags": []
     }
   ]
 }
