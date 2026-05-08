@@ -26,6 +26,7 @@ file:
 // @title My Script
 // @description What the script does.
 // @tags layout, utility
+// @image images/my-script.png
 ```
 
 Then regenerate `scripts.json`:
@@ -45,6 +46,10 @@ Supported metadata:
 - `@title My Script`
 - `@description What the script does.`
 - `@tags layout, utility`
+- `@image images/my-script.png`
+
+The optional `@image` field appears as a thumbnail on the script card. Store
+PNG previews in the repository, for example under `images/`.
 
 ## Publish On GitHub Pages
 
@@ -75,3 +80,6 @@ http://127.0.0.1:6767/sse
 When hosted on GitHub Pages, the browser connects from an HTTPS website to a
 local HTTP loopback server. Affinity's MCP server must allow CORS requests and,
 in some browsers, private-network preflight requests.
+
+This is an independent project and is not affiliated with Canva, Serif, or
+Affinity.

@@ -5,6 +5,7 @@
       "title": "Hello World Example",
       "description": "A small starter script for checking that installation into the Affinity script library works.",
       "path": "scripts/hello-world-example.js",
+      "image": "",
       "tags": [
         "example",
         "starter"
@@ -15,6 +16,7 @@
       "title": "Vector Pattern FX",
       "description": "Generates editable vector pattern effects from selected Affinity artwork.",
       "path": "scripts/vector-pattern-fx-final.js",
+      "image": "",
       "tags": [
         "vector",
         "pattern",
