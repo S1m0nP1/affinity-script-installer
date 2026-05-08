@@ -1,869 +1,354 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Affinity Script Installer</title>
-    <style>
-      :root {
-        color-scheme: light;
-        --bg: #f5f3ee;
-        --surface: #fffdf8;
-        --surface-2: #eef6f5;
-        --ink: #202629;
-        --muted: #657074;
-        --line: #d8d0c2;
-        --accent: #0d777b;
-        --accent-dark: #084f53;
-        --accent-soft: #dcefee;
-        --ok: #1f7351;
-        --warn: #9b3f1f;
-        --shadow: 0 18px 46px rgba(31, 36, 40, 0.11);
-      }
-
-      * {
-        box-sizing: border-box;
-      }
-
-      body {
-        margin: 0;
-        min-height: 100vh;
-        font-family:
-          Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
-          "Segoe UI", sans-serif;
-        background: var(--bg);
-        color: var(--ink);
-      }
-
-      button,
-      input,
-      select,
-      textarea {
-        font: inherit;
-      }
-
-      .app {
-        width: min(1240px, calc(100vw - 32px));
-        margin: 0 auto;
-        padding: 28px 0;
-      }
-
-      header {
-        display: grid;
-        grid-template-columns: minmax(0, 1fr) minmax(300px, 420px);
-        gap: 22px;
-        align-items: end;
-        margin-bottom: 18px;
-      }
-
-      h1 {
-        margin: 0;
-        max-width: 760px;
-        font-size: clamp(2rem, 5vw, 5rem);
-        line-height: 0.95;
-        letter-spacing: 0;
-      }
-
-      .subtitle {
-        margin: 12px 0 0;
-        max-width: 760px;
-        color: var(--muted);
-        line-height: 1.5;
-      }
-
-      .connection,
-      .panel {
-        border: 1px solid var(--line);
-        border-radius: 8px;
-        background: var(--surface);
-        box-shadow: var(--shadow);
-      }
-
-      .connection {
-        display: grid;
-        gap: 12px;
-        padding: 14px;
-      }
-
-      .status-row {
-        display: flex;
-        align-items: center;
-        gap: 10px;
-        color: var(--muted);
-        font-size: 0.92rem;
-      }
-
-      .dot {
-        width: 10px;
-        height: 10px;
-        border-radius: 50%;
-        background: #8b9499;
-        flex: 0 0 auto;
-      }
-
-      .dot.connected {
-        background: var(--ok);
-      }
-
-      .dot.error {
-        background: var(--warn);
-      }
-
-      .endpoint-grid {
-        display: grid;
-        grid-template-columns: 145px minmax(0, 1fr);
-        gap: 8px;
-      }
-
-      input,
-      select,
-      textarea {
-        width: 100%;
-        border: 1px solid var(--line);
-        border-radius: 6px;
-        background: #fff;
-        color: var(--ink);
-        outline: none;
-      }
-
-      input,
-      select {
-        min-height: 40px;
-        padding: 0 11px;
-      }
-
-      textarea {
-        min-height: 104px;
-        resize: vertical;
-        padding: 11px 12px;
-        line-height: 1.45;
-      }
-
-      input:focus,
-      select:focus,
-      textarea:focus {
-        border-color: var(--accent);
-        box-shadow: 0 0 0 3px var(--accent-soft);
-      }
-
-      .actions {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 10px;
-        align-items: center;
-      }
-
-      button {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        min-height: 40px;
-        padding: 0 14px;
-        border: 1px solid transparent;
-        border-radius: 6px;
-        background: var(--accent);
-        color: #fff;
-        cursor: pointer;
-        font-weight: 750;
-      }
-
-      button.secondary {
-        background: transparent;
-        border-color: var(--line);
-        color: var(--ink);
-      }
-
-      button:disabled {
-        cursor: not-allowed;
-        opacity: 0.55;
-      }
-
-      .layout {
-        display: grid;
-        grid-template-columns: minmax(300px, 390px) minmax(0, 1fr);
-        gap: 18px;
-      }
-
-      .sidebar,
-      .detail {
-        min-height: 680px;
-      }
-
-      .sidebar {
-        display: grid;
-        grid-template-rows: auto auto 1fr;
-        overflow: hidden;
-      }
-
-      .toolbar {
-        display: grid;
-        gap: 12px;
-        padding: 14px;
-        border-bottom: 1px solid var(--line);
-      }
-
-      .script-list {
-        display: grid;
-        align-content: start;
-        gap: 8px;
-        overflow: auto;
-        padding: 12px;
-      }
-
-      .script-card {
-        display: grid;
-        gap: 8px;
-        width: 100%;
-        padding: 12px;
-        border: 1px solid var(--line);
-        border-radius: 8px;
-        background: #fff;
-        color: var(--ink);
-        text-align: left;
-        cursor: pointer;
-      }
-
-      .script-card.active {
-        border-color: var(--accent);
-        background: var(--surface-2);
-      }
-
-      .script-card h2 {
-        margin: 0;
-        font-size: 1rem;
-        line-height: 1.25;
-      }
-
-      .script-card p {
-        margin: 0;
-        color: var(--muted);
-        font-size: 0.9rem;
-        line-height: 1.4;
-      }
-
-      .meta {
-        display: flex;
-        gap: 8px;
-        flex-wrap: wrap;
-        color: var(--accent-dark);
-        font-size: 0.78rem;
-        font-weight: 700;
-      }
-
-      .detail {
-        display: grid;
-        grid-template-rows: auto auto 1fr auto;
-        overflow: hidden;
-      }
-
-      .detail-head {
-        display: grid;
-        gap: 10px;
-        padding: 16px;
-        border-bottom: 1px solid var(--line);
-      }
-
-      .detail-title {
-        margin: 0;
-        font-size: clamp(1.35rem, 2.2vw, 2rem);
-        line-height: 1.1;
-      }
-
-      .detail-description {
-        margin: 0;
-        color: var(--muted);
-        line-height: 1.48;
-      }
-
-      .fields {
-        display: grid;
-        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-        gap: 12px;
-        padding: 14px 16px;
-        border-bottom: 1px solid var(--line);
-      }
-
-      label {
-        display: grid;
-        gap: 7px;
-        color: var(--muted);
-        font-size: 0.8rem;
-        font-weight: 700;
-        letter-spacing: 0.02em;
-        text-transform: uppercase;
-      }
-
-      .preview-wrap {
-        min-height: 0;
-      }
-
-      #codePreview {
-        display: block;
-        height: 100%;
-        min-height: 350px;
-        margin: 0;
-        padding: 16px;
-        overflow: auto;
-        background: #172023;
-        color: #edf7f4;
-        font-family:
-          "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
-        font-size: 13px;
-        line-height: 1.55;
-        white-space: pre;
-      }
-
-      .log {
-        min-height: 44px;
-        padding: 12px 16px;
-        border-top: 1px solid var(--line);
-        color: var(--muted);
-        font-size: 0.92rem;
-        line-height: 1.45;
-      }
-
-      .log.ok {
-        color: var(--ok);
-      }
-
-      .log.error {
-        color: var(--warn);
-      }
-
-      .dropzone {
-        display: grid;
-        place-items: center;
-        min-height: 108px;
-        padding: 14px;
-        border: 2px dashed #9eb8b7;
-        border-radius: 8px;
-        background: var(--surface-2);
-        color: var(--muted);
-        text-align: center;
-        line-height: 1.4;
-      }
-
-      .dropzone.dragging {
-        border-color: var(--accent);
-        background: #dcefee;
-      }
-
-      .dropzone input {
-        position: absolute;
-        inline-size: 1px;
-        block-size: 1px;
-        overflow: hidden;
-        clip: rect(0 0 0 0);
-      }
-
-      .empty {
-        padding: 18px;
-        color: var(--muted);
-        line-height: 1.45;
-      }
-
-      @media (max-width: 900px) {
-        header,
-        .layout,
-        .fields {
-          grid-template-columns: 1fr;
-        }
-
-        .sidebar,
-        .detail {
-          min-height: auto;
-        }
-
-        .script-list {
-          max-height: 360px;
-        }
-
-        #codePreview {
-          min-height: 420px;
-        }
-      }
-    </style>
-  </head>
-  <body>
-    <main class="app">
-      <header>
-        <div>
-          <h1>Affinity Script Installer</h1>
-          <p class="subtitle">
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Affinity Script Installer</title><style>:root{color-scheme:light;--bg:#f5f3ee;--surface:#fffdf8;--surface-2:#eef6f5;--ink:#202629;--muted:#657074;--line:#d8d0c2;--accent:#0d777b;--accent-dark:#084f53;--accent-soft:#dcefee;--ok:#1f7351;--warn:#9b3f1f;--shadow:0 18px 46px rgba(31,36,40,0.11)}*{box-sizing:border-box}body{margin:0;min-height:100vh;font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:var(--bg);color:var(--ink)}button,input,select,textarea{font:inherit}.app{width:min(1240px,calc(100vw - 32px));margin:0 auto;padding:28px 0}header{display:grid;grid-template-columns:minmax(0,1fr) minmax(300px,420px);gap:22px;align-items:end;margin-bottom:18px}h1{margin:0;max-width:760px;font-size:clamp(2rem,5vw,5rem);line-height:0.95;letter-spacing:0}.subtitle{margin:12px 0 0;max-width:760px;color:var(--muted);line-height:1.5}.connection,.panel{border:1px solid var(--line);border-radius:8px;background:var(--surface);box-shadow:var(--shadow)}.connection{display:grid;gap:12px;padding:14px}.status-row{display:flex;align-items:center;gap:10px;color:var(--muted);font-size:0.92rem}.dot{width:10px;height:10px;border-radius:50%;background:#8b9499;flex:0 0 auto}.dot.connected{background:var(--ok)}.dot.error{background:var(--warn)}.endpoint-grid{display:grid;grid-template-columns:145px minmax(0,1fr);gap:8px}input,select,textarea{width:100%;border:1px solid var(--line);border-radius:6px;background:#fff;color:var(--ink);outline:none}input,select{min-height:40px;padding:0 11px}textarea{min-height:104px;resize:vertical;padding:11px 12px;line-height:1.45}input:focus,select:focus,textarea:focus{border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-soft)}.actions{display:flex;flex-wrap:wrap;gap:10px;align-items:center}button{display:inline-flex;align-items:center;justify-content:center;min-height:40px;padding:0 14px;border:1px solid transparent;border-radius:6px;background:var(--accent);color:#fff;cursor:pointer;font-weight:750}button.secondary{background:transparent;border-color:var(--line);color:var(--ink)}button:disabled{cursor:not-allowed;opacity:0.55}.layout{display:grid;grid-template-columns:minmax(300px,390px) minmax(0,1fr);gap:18px}.sidebar,.detail{min-height:680px}.sidebar{display:grid;grid-template-rows:auto auto 1fr;overflow:hidden}.toolbar{display:grid;gap:12px;padding:14px;border-bottom:1px solid var(--line)}.script-list{display:grid;align-content:start;gap:8px;overflow:auto;padding:12px}.script-card{display:grid;gap:8px;width:100%;padding:12px;border:1px solid var(--line);border-radius:8px;background:#fff;color:var(--ink);text-align:left;cursor:pointer}.script-card.active{border-color:var(--accent);background:var(--surface-2)}.script-card h2{margin:0;font-size:1rem;line-height:1.25}.script-card p{margin:0;color:var(--muted);font-size:0.9rem;line-height:1.4}.meta{display:flex;gap:8px;flex-wrap:wrap;color:var(--accent-dark);font-size:0.78rem;font-weight:700}.detail{display:grid;grid-template-rows:auto auto 1fr auto;overflow:hidden}.detail-head{display:grid;gap:10px;padding:16px;border-bottom:1px solid var(--line)}.detail-title{margin:0;font-size:clamp(1.35rem,2.2vw,2rem);line-height:1.1}.detail-description{margin:0;color:var(--muted);line-height:1.48}.fields{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:12px;padding:14px 16px;border-bottom:1px solid var(--line)}label{display:grid;gap:7px;color:var(--muted);font-size:0.8rem;font-weight:700;letter-spacing:0.02em;text-transform:uppercase}.preview-wrap{min-height:0}#codePreview{display:block;height:100%;min-height:350px;margin:0;padding:16px;overflow:auto;background:#172023;color:#edf7f4;font-family:"SFMono-Regular",Consolas,"Liberation Mono",Menlo,monospace;font-size:13px;line-height:1.55;white-space:pre}.log{min-height:44px;padding:12px 16px;border-top:1px solid var(--line);color:var(--muted);font-size:0.92rem;line-height:1.45}.log.ok{color:var(--ok)}.log.error{color:var(--warn)}.dropzone{display:grid;place-items:center;min-height:108px;padding:14px;border:2px dashed #9eb8b7;border-radius:8px;background:var(--surface-2);color:var(--muted);text-align:center;line-height:1.4}.dropzone.dragging{border-color:var(--accent);background:#dcefee}.dropzone input{position:absolute;inline-size:1px;block-size:1px;overflow:hidden;clip:rect(0 0 0 0)}.empty{padding:18px;color:var(--muted);line-height:1.45}@media (max-width:900px){header,.layout,.fields{grid-template-columns:1fr}.sidebar,.detail{min-height:auto}.script-list{max-height:360px}#codePreview{min-height:420px}}</style></head><body><main class="app"><header><div><h1>Affinity Script Installer</h1><p class="subtitle">
             Pick a script from this repository, review the source, and install it
-            into the local Affinity v3.2 script library.
-          </p>
-        </div>
-
-        <section class="connection" aria-label="Affinity connection">
-          <div class="status-row">
-            <span class="dot" id="statusDot" aria-hidden="true"></span>
-            <span id="statusText">Not connected</span>
-          </div>
-          <div class="endpoint-grid">
-            <select id="endpointPreset" aria-label="Endpoint preset">
-              <option value="http://[::1]:6767/sse">[::1]:6767</option>
-              <option value="http://localhost:6767/sse">localhost:6767</option>
-              <option value="http://127.0.0.1:6767/sse">127.0.0.1:6767</option>
-              <option value="custom">Custom</option>
-            </select>
-            <input id="endpointInput" type="url" value="http://[::1]:6767/sse" aria-label="Affinity MCP endpoint">
-          </div>
-          <div class="actions">
-            <button id="connectButton" type="button">Connect to Affinity</button>
-            <button class="secondary" id="reloadButton" type="button">Reload Scripts</button>
-          </div>
-        </section>
-      </header>
-
-      <section class="layout">
-        <aside class="panel sidebar" aria-label="Repository scripts">
-          <div class="toolbar">
-            <input id="searchInput" type="search" placeholder="Search scripts" aria-label="Search scripts">
-            <label class="dropzone" id="dropzone">
-              <input id="fileInput" type="file" accept=".js,.mjs,.txt,text/javascript,application/javascript,text/plain">
-              Drop a local script here, or click to choose one
-            </label>
-          </div>
-          <div id="scriptList" class="script-list"></div>
-        </aside>
-
-        <section class="panel detail" aria-label="Selected script">
-          <div class="detail-head">
-            <h2 class="detail-title" id="selectedTitle">Loading scripts...</h2>
-            <p class="detail-description" id="selectedDescription">Reading scripts.json from this repository.</p>
-            <div class="actions">
-              <button id="installButton" type="button" disabled>Install to Affinity</button>
-              <button class="secondary" id="copyButton" type="button" disabled>Copy Source</button>
-            </div>
-          </div>
-
-          <div class="fields">
-            <label>
-              Library title
-              <input id="libraryTitle" type="text" autocomplete="off">
-            </label>
-            <label>
-              Library description
-              <textarea id="libraryDescription"></textarea>
-            </label>
-          </div>
-
-          <div class="preview-wrap">
-            <pre id="codePreview">// Select a script to preview it here.</pre>
-          </div>
-          <div class="log" id="log">Open Affinity v3.2, then connect before installing.</div>
-        </section>
-      </section>
-    </main>
-
-    <script>
-      const PROTOCOL_VERSION = "2025-11-25";
-      const MANIFEST_URL = "scripts.json";
-
-      const state = {
-        eventSource: null,
-        endpointBase: "",
-        endpointUrl: "",
-        initialized: false,
-        nextId: 1,
-        pending: new Map(),
-        scripts: [],
-        selected: null,
-        selectedCode: ""
-      };
-
-      const els = {
-        statusDot: document.querySelector("#statusDot"),
-        statusText: document.querySelector("#statusText"),
-        endpointPreset: document.querySelector("#endpointPreset"),
-        endpointInput: document.querySelector("#endpointInput"),
-        connectButton: document.querySelector("#connectButton"),
-        reloadButton: document.querySelector("#reloadButton"),
-        searchInput: document.querySelector("#searchInput"),
-        dropzone: document.querySelector("#dropzone"),
-        fileInput: document.querySelector("#fileInput"),
-        scriptList: document.querySelector("#scriptList"),
-        selectedTitle: document.querySelector("#selectedTitle"),
-        selectedDescription: document.querySelector("#selectedDescription"),
-        installButton: document.querySelector("#installButton"),
-        copyButton: document.querySelector("#copyButton"),
-        libraryTitle: document.querySelector("#libraryTitle"),
-        libraryDescription: document.querySelector("#libraryDescription"),
-        codePreview: document.querySelector("#codePreview"),
-        log: document.querySelector("#log")
-      };
-
-      function setStatus(kind, text) {
-        els.statusDot.className = `dot ${kind || ""}`.trim();
-        els.statusText.textContent = text;
-      }
-
-      function setLog(text, kind = "") {
-        els.log.className = `log ${kind}`.trim();
-        els.log.textContent = text;
-      }
-
-      function setButtons() {
-        const hasScript = Boolean(state.selectedCode.trim());
-        const hasTitle = Boolean(els.libraryTitle.value.trim());
-        els.installButton.disabled = !state.initialized || !hasScript || !hasTitle;
-        els.copyButton.disabled = !hasScript;
-      }
-
-      function escapeHtml(value) {
-        return value
-          .replaceAll("&", "&amp;")
-          .replaceAll("<", "&lt;")
-          .replaceAll(">", "&gt;");
-      }
-
-      function endpointValue() {
-        return els.endpointInput.value.trim().replace(/\/+$/, "") || "http://[::1]:6767/sse";
-      }
-
-      function contentText(item) {
-        if (!item) return "";
-        if (typeof item.text === "string") return item.text;
-        return JSON.stringify(item);
-      }
-
-      function renderList() {
-        const query = els.searchInput.value.trim().toLowerCase();
-        const scripts = state.scripts.filter((script) => {
-          const haystack = `${script.title} ${script.description || ""} ${(script.tags || []).join(" ")}`.toLowerCase();
-          return haystack.includes(query);
-        });
-
-        if (!scripts.length) {
-          els.scriptList.innerHTML = '<div class="empty">No matching scripts.</div>';
-          return;
-        }
-
-        els.scriptList.innerHTML = scripts.map((script) => {
-          const active = state.selected && state.selected.id === script.id ? " active" : "";
-          const tags = (script.tags || []).slice(0, 4).map((tag) => `<span>${escapeHtml(tag)}</span>`).join("");
-          return `
-            <button class="script-card${active}" type="button" data-id="${escapeHtml(script.id)}">
-              <h2>${escapeHtml(script.title)}</h2>
-              <p>${escapeHtml(script.description || "No description provided.")}</p>
-              <div class="meta">${tags}<span>${escapeHtml(script.path || "local file")}</span></div>
-            </button>
-          `;
-        }).join("");
-      }
-
-      async function loadManifest() {
-        setLog("Loading repository scripts...");
-        const response = await fetch(MANIFEST_URL, { cache: "no-store" });
-        if (!response.ok) {
-          throw new Error(`Could not load ${MANIFEST_URL}: HTTP ${response.status}`);
-        }
-
-        const manifest = await response.json();
-        state.scripts = manifest.scripts.map((script, index) => ({
-          id: script.id || script.path || `script-${index}`,
-          tags: [],
-          ...script
-        }));
-
-        renderList();
-        if (state.scripts[0]) {
-          await selectScript(state.scripts[0].id);
-        } else {
-          els.selectedTitle.textContent = "No scripts in manifest";
-          els.selectedDescription.textContent = "Add entries to scripts.json.";
-          setLog("No scripts found in scripts.json.", "error");
-        }
-      }
-
-      async function selectScript(id) {
-        const script = state.scripts.find((item) => item.id === id);
-        if (!script) return;
-
-        state.selected = script;
-        state.selectedCode = "";
-        renderList();
-
-        els.selectedTitle.textContent = script.title;
-        els.selectedDescription.textContent = script.description || "No description provided.";
-        els.libraryTitle.value = script.title;
-        els.libraryDescription.value = script.description || "";
-        els.codePreview.textContent = "Loading source...";
-        setButtons();
-
-        try {
-          const response = await fetch(script.path, { cache: "no-store" });
-          if (!response.ok) {
-            throw new Error(`Could not load ${script.path}: HTTP ${response.status}`);
-          }
-          state.selectedCode = await response.text();
-          els.codePreview.textContent = state.selectedCode;
-          setLog(`Ready: ${script.title}`, "ok");
-        } catch (error) {
-          state.selectedCode = "";
-          els.codePreview.textContent = `// ${error.message}`;
-          setLog(error.message, "error");
-        }
-
-        setButtons();
-      }
-
-      function handleMcpMessage(event) {
-        let message;
-        try {
-          message = JSON.parse(event.data);
-        } catch (error) {
-          setLog(`Could not parse MCP message: ${error.message}`, "error");
-          return;
-        }
-
-        if (!message.id || !state.pending.has(message.id)) return;
-        const pending = state.pending.get(message.id);
-        state.pending.delete(message.id);
-
-        if (message.error) {
-          pending.reject(new Error(message.error.message || JSON.stringify(message.error)));
-        } else {
-          pending.resolve(message.result);
-        }
-      }
-
-      async function postMcp(payload) {
-        if (!state.endpointUrl) {
-          throw new Error("Affinity message endpoint is not ready.");
-        }
-
-        const response = await fetch(state.endpointUrl, {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            "Accept": "application/json, text/event-stream"
-          },
-          body: JSON.stringify(payload)
-        });
-
-        if (!response.ok) {
-          throw new Error(`MCP POST failed with HTTP ${response.status}`);
-        }
-      }
-
-      function request(method, params = {}) {
-        const id = state.nextId++;
-        const payload = { jsonrpc: "2.0", id, method, params };
-        const result = new Promise((resolve, reject) => {
-          const timeout = window.setTimeout(() => {
-            state.pending.delete(id);
-            reject(new Error(`Timed out waiting for ${method}`));
-          }, 15000);
-
-          state.pending.set(id, {
-            resolve: (value) => {
-              window.clearTimeout(timeout);
-              resolve(value);
-            },
-            reject: (error) => {
-              window.clearTimeout(timeout);
-              reject(error);
-            }
-          });
-        });
-
-        postMcp(payload).catch((error) => {
-          const pending = state.pending.get(id);
-          if (pending) {
-            state.pending.delete(id);
-            pending.reject(error);
-          }
-        });
-
-        return result;
-      }
-
-      async function notify(method, params = {}) {
-        await postMcp({ jsonrpc: "2.0", method, params });
-      }
-
-      async function connect() {
-        if (state.eventSource) state.eventSource.close();
-
-        state.endpointBase = endpointValue();
-        state.endpointUrl = "";
-        state.initialized = false;
-        state.pending.clear();
-        els.connectButton.disabled = true;
-        setStatus("", "Connecting...");
-        setLog(`Opening ${state.endpointBase}...`);
-        setButtons();
-
-        try {
-          await new Promise((resolve, reject) => {
-            const source = new EventSource(state.endpointBase);
-            state.eventSource = source;
-
-            const failTimer = window.setTimeout(() => {
-              source.close();
-              reject(new Error("Could not reach Affinity MCP. Check that Affinity v3.2 is open and MCP is enabled."));
-            }, 9000);
-
-            source.addEventListener("endpoint", async (event) => {
-              window.clearTimeout(failTimer);
-              try {
-                state.endpointUrl = new URL(event.data, state.endpointBase).toString();
-                source.addEventListener("message", handleMcpMessage);
-                const init = await request("initialize", {
-                  protocolVersion: PROTOCOL_VERSION,
-                  capabilities: {},
-                  clientInfo: {
-                    name: "github-pages-affinity-script-installer",
-                    version: "0.1.0"
-                  }
-                });
-
-                await notify("notifications/initialized", {});
-                state.initialized = true;
-                setStatus("connected", `Connected to ${init.serverInfo?.name || "Affinity"}`);
-                setLog("Connected. Review a script, then install it to Affinity.", "ok");
-                resolve();
-              } catch (error) {
-                reject(error);
-              }
-            });
-
-            source.onerror = () => {
-              if (state.initialized) {
-                state.initialized = false;
-                setStatus("error", "Connection interrupted");
-                setLog("The Affinity MCP stream closed. Reconnect when Affinity is ready.", "error");
-                setButtons();
-              }
-            };
-          });
-        } catch (error) {
-          state.initialized = false;
-          setStatus("error", "Not connected");
-          setLog(`${error.message} If this is hosted on GitHub Pages, the browser may also require Affinity to allow private-network CORS preflights.`, "error");
-        } finally {
-          els.connectButton.disabled = false;
-          setButtons();
-        }
-      }
-
-      async function installSelected() {
-        const title = els.libraryTitle.value.trim();
-        const description = els.libraryDescription.value.trim() || "Installed from the Affinity Script Installer.";
-
-        if (!title || !state.selectedCode.trim()) {
-          setLog("Choose a script and title before installing.", "error");
-          return;
-        }
-
-        els.installButton.disabled = true;
-        setLog(`Installing "${title}"...`);
-
-        try {
-          const result = await request("tools/call", {
-            name: "save_script_to_library",
-            arguments: {
-              title,
-              description,
-              code: state.selectedCode
-            }
-          });
-          const details = result.content?.map(contentText).filter(Boolean).join(" ");
-          setLog(details || `Installed "${title}" into Affinity.`, "ok");
-        } catch (error) {
-          setLog(`Install failed: ${error.message}`, "error");
-        } finally {
-          setButtons();
-        }
-      }
-
-      async function copySource() {
-        try {
-          await navigator.clipboard.writeText(state.selectedCode);
-          setLog("Source copied.", "ok");
-        } catch (error) {
-          setLog(`Could not copy source: ${error.message}`, "error");
-        }
-      }
-
-      function titleFromFileName(name) {
-        return name.replace(/\.[^.]+$/, "").replace(/[-_]+/g, " ").trim();
-      }
-
-      async function loadLocalFile(file) {
-        const code = await file.text();
-        const script = {
-          id: `local-${Date.now()}`,
-          title: titleFromFileName(file.name) || file.name,
-          description: `Local file: ${file.name}`,
-          path: "local file",
-          tags: ["local"]
-        };
-        state.scripts = [script, ...state.scripts.filter((item) => !String(item.id).startsWith("local-"))];
-        state.selected = script;
-        state.selectedCode = code;
-        els.selectedTitle.textContent = script.title;
-        els.selectedDescription.textContent = script.description;
-        els.libraryTitle.value = script.title;
-        els.libraryDescription.value = script.description;
-        els.codePreview.textContent = code;
-        renderList();
-        setButtons();
-        setLog(`Loaded ${file.name}.`, "ok");
-      }
-
-      els.endpointPreset.addEventListener("change", () => {
-        if (els.endpointPreset.value !== "custom") {
-          els.endpointInput.value = els.endpointPreset.value;
-        }
-      });
-
-      els.endpointInput.addEventListener("input", () => {
-        const matching = [...els.endpointPreset.options].find((option) => option.value === els.endpointInput.value.trim());
-        els.endpointPreset.value = matching ? matching.value : "custom";
-      });
-
-      els.connectButton.addEventListener("click", connect);
-      els.reloadButton.addEventListener("click", () => loadManifest().catch((error) => setLog(error.message, "error")));
-      els.installButton.addEventListener("click", installSelected);
-      els.copyButton.addEventListener("click", copySource);
-      els.searchInput.addEventListener("input", renderList);
-      els.libraryTitle.addEventListener("input", setButtons);
-      els.libraryDescription.addEventListener("input", setButtons);
-
-      els.scriptList.addEventListener("click", (event) => {
-        const card = event.target.closest("[data-id]");
-        if (card) selectScript(card.dataset.id);
-      });
-
-      els.fileInput.addEventListener("change", () => {
-        const [file] = els.fileInput.files;
-        if (file) loadLocalFile(file);
-      });
-
-      els.dropzone.addEventListener("dragover", (event) => {
-        event.preventDefault();
-        els.dropzone.classList.add("dragging");
-      });
-
-      els.dropzone.addEventListener("dragleave", () => {
-        els.dropzone.classList.remove("dragging");
-      });
-
-      els.dropzone.addEventListener("drop", (event) => {
-        event.preventDefault();
-        els.dropzone.classList.remove("dragging");
-        const [file] = event.dataTransfer.files;
-        if (file) loadLocalFile(file);
-      });
-
-      loadManifest().catch((error) => {
-        els.selectedTitle.textContent = "Could not load scripts";
-        els.selectedDescription.textContent = "Check scripts.json and serve this folder with a local web server for testing.";
-        setLog(error.message, "error");
-      });
-    </script>
-  </body>
-</html>
+            into the local Affinity v3.2 script library.</p></div><section class="connection" aria-label="Affinity connection"><div class="status-row"><span class="dot" id="statusDot" aria-hidden="true"></span><span id="statusText">Not connected</span></div><div class="endpoint-grid"><select id="endpointPreset" aria-label="Endpoint preset"><option value="http://[::1]:6767/sse">[::1]:6767</option><option value="http://localhost:6767/sse">localhost:6767</option><option value="http://127.0.0.1:6767/sse">127.0.0.1:6767</option><option value="custom">Custom</option></select><input id="endpointInput" type="url" value="http://[::1]:6767/sse" aria-label="Affinity MCP endpoint"></div><div class="actions"><button id="connectButton" type="button">Connect to Affinity</button><button class="secondary" id="reloadButton" type="button">Reload Scripts</button></div></section></header><section class="layout"><aside class="panel sidebar" aria-label="Repository scripts"><div class="toolbar"><input id="searchInput" type="search" placeholder="Search scripts" aria-label="Search scripts"><label class="dropzone" id="dropzone"><input id="fileInput" type="file" accept=".js,.mjs,.txt,text/javascript,application/javascript,text/plain">
+              Drop a local script here, or click to choose one</label></div><div id="scriptList" class="script-list"></div></aside><section class="panel detail" aria-label="Selected script"><div class="detail-head"><h2 class="detail-title" id="selectedTitle">Loading scripts...</h2><p class="detail-description" id="selectedDescription">Reading scripts.json from this repository.</p><div class="actions"><button id="installButton" type="button" disabled>Install to Affinity</button><button class="secondary" id="copyButton" type="button" disabled>Copy Source</button></div></div><div class="fields"><label>
+              Library title<input id="libraryTitle" type="text" autocomplete="off"></label><label>
+              Library description<textarea id="libraryDescription"></textarea></label></div><div class="preview-wrap"><pre id="codePreview">// Select a script to preview it here.</pre></div><div class="log" id="log">Open Affinity v3.2, then connect before installing.</div></section></section></main><script>const PROTOCOL_VERSION = "2025-11-25";
+const MANIFEST_URL = "scripts.json";
+const state = {
+eventSource: null,
+endpointBase: "",
+endpointUrl: "",
+initialized: false,
+nextId: 1,
+pending: new Map(),
+scripts: [],
+selected: null,
+selectedCode: ""
+};
+const els = {
+statusDot: document.querySelector("#statusDot"),
+statusText: document.querySelector("#statusText"),
+endpointPreset: document.querySelector("#endpointPreset"),
+endpointInput: document.querySelector("#endpointInput"),
+connectButton: document.querySelector("#connectButton"),
+reloadButton: document.querySelector("#reloadButton"),
+searchInput: document.querySelector("#searchInput"),
+dropzone: document.querySelector("#dropzone"),
+fileInput: document.querySelector("#fileInput"),
+scriptList: document.querySelector("#scriptList"),
+selectedTitle: document.querySelector("#selectedTitle"),
+selectedDescription: document.querySelector("#selectedDescription"),
+installButton: document.querySelector("#installButton"),
+copyButton: document.querySelector("#copyButton"),
+libraryTitle: document.querySelector("#libraryTitle"),
+libraryDescription: document.querySelector("#libraryDescription"),
+codePreview: document.querySelector("#codePreview"),
+log: document.querySelector("#log")
+};
+function setStatus(kind, text) {
+els.statusDot.className = `dot ${kind || ""}`.trim();
+els.statusText.textContent = text;
+}
+function setLog(text, kind = "") {
+els.log.className = `log ${kind}`.trim();
+els.log.textContent = text;
+}
+function setButtons() {
+const hasScript = Boolean(state.selectedCode.trim());
+const hasTitle = Boolean(els.libraryTitle.value.trim());
+els.installButton.disabled = !state.initialized || !hasScript || !hasTitle;
+els.copyButton.disabled = !hasScript;
+}
+function escapeHtml(value) {
+return value
+.replaceAll("&", "&amp;")
+.replaceAll("<", "&lt;")
+.replaceAll(">", "&gt;");
+}
+function endpointValue() {
+return els.endpointInput.value.trim().replace(/\/+$/, "") || "http://[::1]:6767/sse";
+}
+function contentText(item) {
+if (!item) return "";
+if (typeof item.text === "string") return item.text;
+return JSON.stringify(item);
+}
+function renderList() {
+const query = els.searchInput.value.trim().toLowerCase();
+const scripts = state.scripts.filter((script) => {
+const haystack = `${script.title} ${script.description || ""} ${(script.tags || []).join(" ")}`.toLowerCase();
+return haystack.includes(query);
+});
+if (!scripts.length) {
+els.scriptList.innerHTML = '<div class="empty">No matching scripts.</div>';
+return;
+}
+els.scriptList.innerHTML = scripts.map((script) => {
+const active = state.selected && state.selected.id === script.id ? " active" : "";
+const tags = (script.tags || []).slice(0, 4).map((tag) => `<span>${escapeHtml(tag)}</span>`).join("");
+return `
+<button class="script-card${active}" type="button" data-id="${escapeHtml(script.id)}"><h2>${escapeHtml(script.title)}</h2><p>${escapeHtml(script.description || "No description provided.")}</p><div class="meta">${tags}<span>${escapeHtml(script.path || "local file")}</span></div></button>
+`;
+}).join("");
+}
+async function loadManifest() {
+setLog("Loading repository scripts...");
+const response = await fetch(MANIFEST_URL, { cache: "no-store" });
+if (!response.ok) {
+throw new Error(`Could not load ${MANIFEST_URL}: HTTP ${response.status}`);
+}
+const manifest = await response.json();
+state.scripts = manifest.scripts.map((script, index) => ({
+id: script.id || script.path || `script-${index}`,
+tags: [],
+...script
+}));
+renderList();
+if (state.scripts[0]) {
+await selectScript(state.scripts[0].id);
+} else {
+els.selectedTitle.textContent = "No scripts in manifest";
+els.selectedDescription.textContent = "Add entries to scripts.json.";
+setLog("No scripts found in scripts.json.", "error");
+}
+}
+async function selectScript(id) {
+const script = state.scripts.find((item) => item.id === id);
+if (!script) return;
+state.selected = script;
+state.selectedCode = "";
+renderList();
+els.selectedTitle.textContent = script.title;
+els.selectedDescription.textContent = script.description || "No description provided.";
+els.libraryTitle.value = script.title;
+els.libraryDescription.value = script.description || "";
+els.codePreview.textContent = "Loading source...";
+setButtons();
+try {
+const response = await fetch(script.path, { cache: "no-store" });
+if (!response.ok) {
+throw new Error(`Could not load ${script.path}: HTTP ${response.status}`);
+}
+state.selectedCode = await response.text();
+els.codePreview.textContent = state.selectedCode;
+setLog(`Ready: ${script.title}`, "ok");
+} catch (error) {
+state.selectedCode = "";
+els.codePreview.textContent = `// ${error.message}`;
+setLog(error.message, "error");
+}
+setButtons();
+}
+function handleMcpMessage(event) {
+let message;
+try {
+message = JSON.parse(event.data);
+} catch (error) {
+setLog(`Could not parse MCP message: ${error.message}`, "error");
+return;
+}
+if (!message.id || !state.pending.has(message.id)) return;
+const pending = state.pending.get(message.id);
+state.pending.delete(message.id);
+if (message.error) {
+pending.reject(new Error(message.error.message || JSON.stringify(message.error)));
+} else {
+pending.resolve(message.result);
+}
+}
+async function postMcp(payload) {
+if (!state.endpointUrl) {
+throw new Error("Affinity message endpoint is not ready.");
+}
+const response = await fetch(state.endpointUrl, {
+method: "POST",
+headers: {
+"Content-Type": "application/json",
+"Accept": "application/json, text/event-stream"
+},
+body: JSON.stringify(payload)
+});
+if (!response.ok) {
+throw new Error(`MCP POST failed with HTTP ${response.status}`);
+}
+}
+function request(method, params = {}) {
+const id = state.nextId++;
+const payload = { jsonrpc: "2.0", id, method, params };
+const result = new Promise((resolve, reject) => {
+const timeout = window.setTimeout(() => {
+state.pending.delete(id);
+reject(new Error(`Timed out waiting for ${method}`));
+}, 15000);
+state.pending.set(id, {
+resolve: (value) => {
+window.clearTimeout(timeout);
+resolve(value);
+},
+reject: (error) => {
+window.clearTimeout(timeout);
+reject(error);
+}
+});
+});
+postMcp(payload).catch((error) => {
+const pending = state.pending.get(id);
+if (pending) {
+state.pending.delete(id);
+pending.reject(error);
+}
+});
+return result;
+}
+async function notify(method, params = {}) {
+await postMcp({ jsonrpc: "2.0", method, params });
+}
+async function connect() {
+if (state.eventSource) state.eventSource.close();
+state.endpointBase = endpointValue();
+state.endpointUrl = "";
+state.initialized = false;
+state.pending.clear();
+els.connectButton.disabled = true;
+setStatus("", "Connecting...");
+setLog(`Opening ${state.endpointBase}...`);
+setButtons();
+try {
+await new Promise((resolve, reject) => {
+const source = new EventSource(state.endpointBase);
+state.eventSource = source;
+const failTimer = window.setTimeout(() => {
+source.close();
+reject(new Error("Could not reach Affinity MCP. Check that Affinity v3.2 is open and MCP is enabled."));
+}, 9000);
+source.addEventListener("endpoint", async (event) => {
+window.clearTimeout(failTimer);
+try {
+state.endpointUrl = new URL(event.data, state.endpointBase).toString();
+source.addEventListener("message", handleMcpMessage);
+const init = await request("initialize", {
+protocolVersion: PROTOCOL_VERSION,
+capabilities: {},
+clientInfo: {
+name: "github-pages-affinity-script-installer",
+version: "0.1.0"
+}
+});
+await notify("notifications/initialized", {});
+state.initialized = true;
+setStatus("connected", `Connected to ${init.serverInfo?.name || "Affinity"}`);
+setLog("Connected. Review a script, then install it to Affinity.", "ok");
+resolve();
+} catch (error) {
+reject(error);
+}
+});
+source.onerror = () => {
+if (state.initialized) {
+state.initialized = false;
+setStatus("error", "Connection interrupted");
+setLog("The Affinity MCP stream closed. Reconnect when Affinity is ready.", "error");
+setButtons();
+}
+};
+});
+} catch (error) {
+state.initialized = false;
+setStatus("error", "Not connected");
+setLog(`${error.message} If this is hosted on GitHub Pages, the browser may also require Affinity to allow private-network CORS preflights.`, "error");
+} finally {
+els.connectButton.disabled = false;
+setButtons();
+}
+}
+async function installSelected() {
+const title = els.libraryTitle.value.trim();
+const description = els.libraryDescription.value.trim() || "Installed from the Affinity Script Installer.";
+if (!title || !state.selectedCode.trim()) {
+setLog("Choose a script and title before installing.", "error");
+return;
+}
+els.installButton.disabled = true;
+setLog(`Installing "${title}"...`);
+try {
+const result = await request("tools/call", {
+name: "save_script_to_library",
+arguments: {
+title,
+description,
+code: state.selectedCode
+}
+});
+const details = result.content?.map(contentText).filter(Boolean).join(" ");
+setLog(details || `Installed "${title}" into Affinity.`, "ok");
+} catch (error) {
+setLog(`Install failed: ${error.message}`, "error");
+} finally {
+setButtons();
+}
+}
+async function copySource() {
+try {
+await navigator.clipboard.writeText(state.selectedCode);
+setLog("Source copied.", "ok");
+} catch (error) {
+setLog(`Could not copy source: ${error.message}`, "error");
+}
+}
+function titleFromFileName(name) {
+return name.replace(/\.[^.]+$/, "").replace(/[-_]+/g, " ").trim();
+}
+async function loadLocalFile(file) {
+const code = await file.text();
+const script = {
+id: `local-${Date.now()}`,
+title: titleFromFileName(file.name) || file.name,
+description: `Local file: ${file.name}`,
+path: "local file",
+tags: ["local"]
+};
+state.scripts = [script, ...state.scripts.filter((item) => !String(item.id).startsWith("local-"))];
+state.selected = script;
+state.selectedCode = code;
+els.selectedTitle.textContent = script.title;
+els.selectedDescription.textContent = script.description;
+els.libraryTitle.value = script.title;
+els.libraryDescription.value = script.description;
+els.codePreview.textContent = code;
+renderList();
+setButtons();
+setLog(`Loaded ${file.name}.`, "ok");
+}
+els.endpointPreset.addEventListener("change", () => {
+if (els.endpointPreset.value !== "custom") {
+els.endpointInput.value = els.endpointPreset.value;
+}
+});
+els.endpointInput.addEventListener("input", () => {
+const matching = [...els.endpointPreset.options].find((option) => option.value === els.endpointInput.value.trim());
+els.endpointPreset.value = matching ? matching.value : "custom";
+});
+els.connectButton.addEventListener("click", connect);
+els.reloadButton.addEventListener("click", () => loadManifest().catch((error) => setLog(error.message, "error")));
+els.installButton.addEventListener("click", installSelected);
+els.copyButton.addEventListener("click", copySource);
+els.searchInput.addEventListener("input", renderList);
+els.libraryTitle.addEventListener("input", setButtons);
+els.libraryDescription.addEventListener("input", setButtons);
+els.scriptList.addEventListener("click", (event) => {
+const card = event.target.closest("[data-id]");
+if (card) selectScript(card.dataset.id);
+});
+els.fileInput.addEventListener("change", () => {
+const [file] = els.fileInput.files;
+if (file) loadLocalFile(file);
+});
+els.dropzone.addEventListener("dragover", (event) => {
+event.preventDefault();
+els.dropzone.classList.add("dragging");
+});
+els.dropzone.addEventListener("dragleave", () => {
+els.dropzone.classList.remove("dragging");
+});
+els.dropzone.addEventListener("drop", (event) => {
+event.preventDefault();
+els.dropzone.classList.remove("dragging");
+const [file] = event.dataTransfer.files;
+if (file) loadLocalFile(file);
+});
+loadManifest().catch((error) => {
+els.selectedTitle.textContent = "Could not load scripts";
+els.selectedDescription.textContent = "Check scripts.json and serve this folder with a local web server for testing.";
+setLog(error.message, "error");
+});</script></body></html>
