@@ -75,7 +75,7 @@ if (!match) continue;
 const [, key, value] = match;
 if (key === "tags") {
 metadata.tags = parseTags(value);
-} else if (key === "id" || key === "title" || key === "description" || key === "image") {
+} else if (key === "id" || key === "title" || key === "description" || key === "image" || key === "author") {
 metadata[key] = value.trim();
 }
 }
@@ -94,13 +94,14 @@ return;
 els.scriptList.innerHTML = scripts.map((script) => {
 const active = state.selected && state.selected.id === script.id ? " active" : "";
 const tags = (script.tags || []).slice(0, 4).map((tag) => `<span>${escapeHtml(tag)}</span>`).join("");
+const author = script.author ? `<span>by ${escapeHtml(script.author)}</span>` : "";
 const thumb = script.image
 ? `<img class="script-thumb" src="${escapeHtml(script.image)}" alt="">`
 : '<span class="script-thumb placeholder" aria-hidden="true">JS</span>';
 return `
 <button class="script-card${active}" type="button" data-id="${escapeHtml(script.id)}">
 ${thumb}
-<span class="script-card-body"><h2>${escapeHtml(script.title)}</h2><p>${escapeHtml(script.description || "No description provided.")}</p><span class="meta">${tags}<span>${escapeHtml(script.path || "local file")}</span></span></span></button>
+<span class="script-card-body"><h2>${escapeHtml(script.title)}</h2><p>${escapeHtml(script.description || "No description provided.")}</p><span class="meta">${author}${tags}<span>${escapeHtml(script.path || "local file")}</span></span></span></button>
 `;
 }).join("");
 }
@@ -132,7 +133,9 @@ state.selected = script;
 state.selectedCode = "";
 renderList();
 els.selectedTitle.textContent = script.title;
-els.selectedDescription.textContent = script.description || "No description provided.";
+els.selectedDescription.textContent = script.author
+? `${script.description || "No description provided."} Author: ${script.author}.`
+: script.description || "No description provided.";
 els.libraryTitle.value = script.title;
 els.libraryDescription.value = script.description || "";
 els.codePreview.textContent = "Loading source...";
@@ -319,6 +322,7 @@ title: metadata.title || titleFromFileName(file.name) || file.name,
 description: metadata.description || `Local file: ${file.name}`,
 path: "local file",
 image: metadata.image || "",
+author: metadata.author || "",
 tags: Array.isArray(metadata.tags) ? ["local", ...metadata.tags] : ["local"],
 code
 };

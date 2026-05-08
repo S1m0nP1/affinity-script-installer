@@ -41,7 +41,7 @@ function parseMetadata(source) {
     const [, key, value] = match;
     if (key === "tags") {
       metadata.tags = parseTags(value);
-    } else if (key === "id" || key === "title" || key === "description" || key === "image") {
+    } else if (key === "id" || key === "title" || key === "description" || key === "image" || key === "author") {
       metadata[key] = value.trim();
     }
   }
@@ -78,6 +78,7 @@ async function main() {
         description: metadata.description || previous?.description || "No description provided yet.",
         path: scriptPath,
         image: metadata.image || previous?.image || "",
+        author: metadata.author || previous?.author || "",
         tags: Array.isArray(metadata.tags)
           ? metadata.tags
           : Array.isArray(previous?.tags)

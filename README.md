@@ -25,6 +25,7 @@ file:
 ```js
 // @title My Script
 // @description What the script does.
+// @author Your Name
 // @tags layout, utility
 // @image images/my-script.png
 ```
@@ -45,6 +46,7 @@ Supported metadata:
 - `@id my-script`
 - `@title My Script`
 - `@description What the script does.`
+- `@author Your Name`
 - `@tags layout, utility`
 - `@image images/my-script.png`
 

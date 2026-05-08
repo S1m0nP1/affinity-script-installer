@@ -6,6 +6,7 @@
       "description": "A small starter script for checking that installation into the Affinity script library works.",
       "path": "scripts/hello-world-example.js",
       "image": "",
+      "author": "Simon Perfitt",
       "tags": [
         "example",
         "starter"
@@ -17,6 +18,7 @@
       "description": "Generates editable vector pattern effects from selected Affinity artwork.",
       "path": "scripts/vector-pattern-fx-final.js",
       "image": "FX.png",
+      "author": "Simon Perfitt",
       "tags": [
         "vector",
         "pattern",
