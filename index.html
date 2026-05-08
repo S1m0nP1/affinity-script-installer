@@ -60,6 +60,27 @@ if (!item) return "";
 if (typeof item.text === "string") return item.text;
 return JSON.stringify(item);
 }
+function parseTags(value) {
+return value
+.split(",")
+.map((tag) => tag.trim())
+.filter(Boolean);
+}
+function parseScriptMetadata(source) {
+const metadata = {};
+const header = source.split(/\r?\n/).slice(0, 40);
+for (const line of header) {
+const match = line.match(/^\s*(?:\/\/|\/\*+|\*)\s*@(\w+)\s+(.+?)\s*(?:\*\/)?\s*$/);
+if (!match) continue;
+const [, key, value] = match;
+if (key === "tags") {
+metadata.tags = parseTags(value);
+} else if (key === "id" || key === "title" || key === "description" || key === "image") {
+metadata[key] = value.trim();
+}
+}
+return metadata;
+}
 function renderList() {
 const query = els.searchInput.value.trim().toLowerCase();
 const scripts = state.scripts.filter((script) => {
@@ -116,6 +137,13 @@ els.libraryTitle.value = script.title;
 els.libraryDescription.value = script.description || "";
 els.codePreview.textContent = "Loading source...";
 setButtons();
+if (typeof script.code === "string") {
+state.selectedCode = script.code;
+els.codePreview.textContent = state.selectedCode;
+setLog(`Ready: ${script.title}`, "ok");
+setButtons();
+return;
+}
 try {
 const response = await fetch(script.path, { cache: "no-store" });
 if (!response.ok) {
@@ -284,12 +312,15 @@ return name.replace(/\.[^.]+$/, "").replace(/[-_]+/g, " ").trim();
 }
 async function loadLocalFile(file) {
 const code = await file.text();
+const metadata = parseScriptMetadata(code);
 const script = {
 id: `local-${Date.now()}`,
-title: titleFromFileName(file.name) || file.name,
-description: `Local file: ${file.name}`,
+title: metadata.title || titleFromFileName(file.name) || file.name,
+description: metadata.description || `Local file: ${file.name}`,
 path: "local file",
-tags: ["local"]
+image: metadata.image || "",
+tags: Array.isArray(metadata.tags) ? ["local", ...metadata.tags] : ["local"],
+code
 };
 state.scripts = [script, ...state.scripts.filter((item) => !String(item.id).startsWith("local-"))];
 state.selected = script;

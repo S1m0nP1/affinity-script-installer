@@ -1,6 +1,7 @@
 // @title Vector Pattern FX
 // @description Generates editable vector pattern effects from selected Affinity artwork.
 // @tags vector, pattern, effects
+// @image FX.png
 
 "use strict";
 
