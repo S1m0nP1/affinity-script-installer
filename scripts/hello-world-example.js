@@ -1,4 +1,5 @@
-// Hello World Example
-// Install this script to confirm that the GitHub Pages installer can save to Affinity.
+// @title Hello World Example
+// @description A small starter script for checking that installation into the Affinity script library works.
+// @tags example, starter
 
 console.log("Hello from an installed Affinity script.");

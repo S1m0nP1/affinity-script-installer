@@ -12,10 +12,14 @@
     },
     {
       "id": "vector-pattern-fx-final",
-      "title": "Vector Pattern Fx Final",
-      "description": "No description provided yet.",
+      "title": "Vector Pattern FX",
+      "description": "Generates editable vector pattern effects from selected Affinity artwork.",
       "path": "scripts/vector-pattern-fx-final.js",
-      "tags": []
+      "tags": [
+        "vector",
+        "pattern",
+        "effects"
+      ]
     }
   ]
 }

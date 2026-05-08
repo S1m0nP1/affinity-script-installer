@@ -19,27 +19,32 @@ No backend, package manager, build step, or Codex tooling is required.
 
 ## Add Scripts
 
-Add a JavaScript file under `scripts/`, then regenerate `scripts.json`:
+Add a JavaScript file under `scripts/`. Put metadata comments at the top of the
+file:
+
+```js
+// @title My Script
+// @description What the script does.
+// @tags layout, utility
+```
+
+Then regenerate `scripts.json`:
 
 ```bash
 node tools/generate-scripts-json.mjs
 ```
 
-The generator scans `.js` and `.mjs` files in `scripts/`. If an entry already
-exists in `scripts.json`, its title, description, and tags are preserved. New
-files get defaults based on the filename.
+Run this locally from the repository root. The generator scans `.js` and `.mjs`
+files in `scripts/`. Metadata comments in the script file take priority. If a
+field is missing, the generator falls back to any existing value in
+`scripts.json`, then to filename-based defaults.
 
-You can then edit the generated metadata in `scripts.json`:
+Supported metadata:
 
-```json
-{
-  "id": "my-script",
-  "title": "My Script",
-  "description": "What the script does.",
-  "path": "scripts/my-script.js",
-  "tags": ["layout", "utility"]
-}
-```
+- `@id my-script`
+- `@title My Script`
+- `@description What the script does.`
+- `@tags layout, utility`
 
 ## Publish On GitHub Pages
 

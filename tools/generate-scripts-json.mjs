@@ -23,6 +23,32 @@ function idFromFileName(fileName) {
     .replace(/^-+|-+$/g, "");
 }
 
+function parseTags(value) {
+  return value
+    .split(",")
+    .map((tag) => tag.trim())
+    .filter(Boolean);
+}
+
+function parseMetadata(source) {
+  const metadata = {};
+  const header = source.split(/\r?\n/).slice(0, 40);
+
+  for (const line of header) {
+    const match = line.match(/^\s*(?:\/\/|\/\*+|\*)\s*@(\w+)\s+(.+?)\s*(?:\*\/)?\s*$/);
+    if (!match) continue;
+
+    const [, key, value] = match;
+    if (key === "tags") {
+      metadata.tags = parseTags(value);
+    } else if (key === "id" || key === "title" || key === "description") {
+      metadata[key] = value.trim();
+    }
+  }
+
+  return metadata;
+}
+
 async function readExistingManifest() {
   try {
     const manifest = JSON.parse(await readFile(manifestUrl, "utf8"));
@@ -41,20 +67,27 @@ async function main() {
   const scripts = entries
     .filter((entry) => entry.isFile() && scriptExtensions.has(path.extname(entry.name)))
     .sort((a, b) => a.name.localeCompare(b.name))
-    .map((entry) => {
+    .map(async (entry) => {
       const scriptPath = `scripts/${entry.name}`;
       const previous = existingByPath.get(scriptPath);
+      const source = await readFile(new URL(entry.name, scriptsDir), "utf8");
+      const metadata = parseMetadata(source);
       return {
-        id: previous?.id || idFromFileName(entry.name),
-        title: previous?.title || titleFromFileName(entry.name),
-        description: previous?.description || "No description provided yet.",
+        id: metadata.id || previous?.id || idFromFileName(entry.name),
+        title: metadata.title || previous?.title || titleFromFileName(entry.name),
+        description: metadata.description || previous?.description || "No description provided yet.",
         path: scriptPath,
-        tags: Array.isArray(previous?.tags) ? previous.tags : []
+        tags: Array.isArray(metadata.tags)
+          ? metadata.tags
+          : Array.isArray(previous?.tags)
+            ? previous.tags
+            : []
       };
     });
+  const resolvedScripts = await Promise.all(scripts);
 
-  await writeFile(manifestUrl, `${JSON.stringify({ scripts }, null, 2)}\n`);
-  console.log(`Wrote ${scripts.length} script${scripts.length === 1 ? "" : "s"} to scripts.json`);
+  await writeFile(manifestUrl, `${JSON.stringify({ scripts: resolvedScripts }, null, 2)}\n`);
+  console.log(`Wrote ${resolvedScripts.length} script${resolvedScripts.length === 1 ? "" : "s"} to scripts.json`);
 }
 
 main().catch((error) => {
