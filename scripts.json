@@ -16,7 +16,7 @@
       "title": "Vector Pattern FX",
       "description": "Generates editable vector pattern effects from selected Affinity artwork.",
       "path": "scripts/vector-pattern-fx-final.js",
-      "image": "",
+      "image": "FX.png",
       "tags": [
         "vector",
         "pattern",
