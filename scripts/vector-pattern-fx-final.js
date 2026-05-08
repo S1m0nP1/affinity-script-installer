@@ -1,6 +1,6 @@
 // @title Vector Pattern FX
 // @description Generates editable vector pattern effects from selected Affinity artwork.
-// @author Simon Perfitt
+// @author S1m0nP1
 // @tags vector, pattern, effects
 // @image FX.png
 
