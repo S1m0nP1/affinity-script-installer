@@ -1,0 +1,38 @@
+name: Bug report
+description: Report a problem with the installer or a script.
+title: "[Bug]: "
+labels: ["bug"]
+body:
+  - type: dropdown
+    id: area
+    attributes:
+      label: Area
+      options:
+        - Installer website
+        - Affinity connection
+        - Script install
+        - Specific script
+    validations:
+      required: true
+  - type: input
+    id: browser
+    attributes:
+      label: Browser and version
+      placeholder: Safari 18, Firefox 126, Edge 126
+  - type: input
+    id: affinity
+    attributes:
+      label: Affinity version
+      placeholder: 3.2
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      description: What did you do, what happened, and what did you expect?
+    validations:
+      required: true
+  - type: textarea
+    id: console
+    attributes:
+      label: Console or connection message
+      description: Paste any browser console errors or installer status messages.

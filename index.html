@@ -1,12 +1,13 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Affinity Script Installer</title><style>:root{color-scheme:light;--bg:#f5f3ee;--surface:#fffdf8;--surface-2:#eef6f5;--ink:#202629;--muted:#657074;--line:#d8d0c2;--accent:#0d777b;--accent-dark:#084f53;--accent-soft:#dcefee;--action:rgb(12,185,0);--ok:#1f7351;--warn:#9b3f1f;--fail:#e42d61;--shadow:0 18px 46px rgba(31,36,40,0.11)}*{box-sizing:border-box}body{margin:0;min-height:100vh;font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:var(--bg);color:var(--ink)}button,input,select,textarea{font:inherit}.app{width:min(1240px,calc(100vw - 32px));margin:0 auto;padding:28px 0}header{display:grid;grid-template-columns:minmax(0,1fr) minmax(230px,300px);gap:22px;align-items:end;margin-bottom:18px}h1{margin:0;max-width:760px;font-size:clamp(2rem,4.2vw,4.15rem);line-height:1;letter-spacing:0}.subtitle{margin:14px 0 0;max-width:760px;padding:14px 16px;border:1px solid var(--line);border-radius:8px;background:var(--surface);color:var(--muted);line-height:1.5;box-shadow:var(--shadow)}.disclaimer{margin:14px 0 0;padding:0 2px;color:var(--muted);font-size:0.88rem;line-height:1.45;text-align:center}.connection,.panel{border:1px solid var(--line);border-radius:8px;background:var(--surface);box-shadow:var(--shadow)}.connection{display:grid;gap:0;overflow:hidden;padding:0}.connection-banner{display:grid;place-items:center;min-height:40px;padding:0 14px;background:#8b9499;color:#fff;text-align:center;font-size:1rem;font-weight:750;line-height:1.2}.connection.connected .connection-banner{background:var(--action)}.connection.error .connection-banner{background:var(--fail)}.connection-detail{margin:0;padding:12px 16px;color:var(--muted);font-size:0.92rem;line-height:1.4}.connection.error .connection-detail{color:var(--warn)}input,select,textarea{width:100%;border:1px solid var(--line);border-radius:6px;background:#fff;color:var(--ink);outline:none}input,select{min-height:40px;padding:0 11px}textarea{min-height:104px;resize:vertical;padding:11px 12px;line-height:1.45}input:focus,select:focus,textarea:focus{border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-soft)}.actions{display:flex;flex-wrap:wrap;gap:10px;align-items:center}button{display:inline-flex;align-items:center;justify-content:center;min-height:40px;padding:0 14px;border:1px solid transparent;border-radius:6px;background:var(--action);color:#fff;cursor:pointer;font-weight:750}button.secondary{background:transparent;border-color:var(--line);color:var(--ink)}button:disabled{cursor:not-allowed;opacity:0.55}.layout{display:grid;grid-template-columns:minmax(420px,560px) minmax(0,1fr);gap:18px}.sidebar,.detail{min-height:680px}.sidebar{display:grid;grid-template-rows:auto auto 1fr;overflow:hidden}.toolbar{display:grid;gap:12px;padding:14px;border-bottom:1px solid var(--line)}.script-list{display:grid;align-content:start;gap:8px;overflow:auto;padding:12px}.script-card{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:12px;width:100%;padding:12px;border:1px solid var(--line);border-radius:8px;background:#fff;color:var(--ink);text-align:left;cursor:pointer}.script-thumb{width:100%;aspect-ratio:4 / 3;border:1px solid var(--line);border-radius:6px;background:var(--surface-2);object-fit:cover}.script-thumb.placeholder{display:grid;place-items:center;color:var(--accent-dark);font-size:0.75rem;font-weight:800}.script-card-body{min-width:0}.script-card.active{border-color:var(--accent);background:var(--surface-2)}.script-card h2{margin:0;font-size:1rem;line-height:1.25;overflow-wrap:anywhere}.script-card p{margin:0 0 8px;color:var(--muted);font-size:0.9rem;line-height:1.4;overflow-wrap:anywhere}.meta{display:flex;gap:8px;flex-wrap:wrap;color:var(--accent-dark);font-size:0.78rem;font-weight:700;overflow-wrap:anywhere}.detail{display:grid;grid-template-rows:auto auto 1fr auto;overflow:hidden}.detail-head{display:grid;gap:10px;padding:16px;border-bottom:1px solid var(--line)}.detail-title{margin:0;font-size:clamp(1.35rem,2.2vw,2rem);line-height:1.1}.detail-description{margin:0;color:var(--muted);line-height:1.48;overflow-wrap:anywhere}.fields{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);align-items:start;gap:12px;padding:14px 16px;border-bottom:1px solid var(--line)}label{display:grid;gap:7px;color:var(--muted);font-size:0.8rem;font-weight:700;letter-spacing:0.02em;text-transform:uppercase}.preview-wrap{min-height:0}#codePreview{display:block;height:100%;min-height:350px;margin:0;padding:16px;overflow:auto;background:#172023;color:#edf7f4;font-family:"SFMono-Regular",Consolas,"Liberation Mono",Menlo,monospace;font-size:13px;line-height:1.55;white-space:pre-wrap;overflow-wrap:anywhere}.log{min-height:44px;padding:12px 16px;border-top:1px solid var(--line);color:var(--muted);font-size:0.92rem;line-height:1.45}.log.ok{color:var(--ok)}.log.error{color:var(--warn)}.dropzone{display:grid;place-items:center;min-height:108px;padding:14px;border:2px dashed #9eb8b7;border-radius:8px;background:var(--surface-2);color:var(--muted);text-align:center;line-height:1.4}.dropzone.dragging{border-color:var(--accent);background:#dcefee}.dropzone input{position:absolute;inline-size:1px;block-size:1px;overflow:hidden;clip:rect(0 0 0 0)}.empty{padding:18px;color:var(--muted);line-height:1.45}@media (max-width:900px){header,.layout,.fields{grid-template-columns:1fr}.sidebar,.detail{min-height:auto}.script-list{max-height:360px}#codePreview{min-height:420px}}</style></head><body><main class="app"><header><div><h1>Affinity Script Installer</h1><p class="subtitle">
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Affinity Script Installer</title><style>:root{color-scheme:light;--bg:#f5f3ee;--surface:#fffdf8;--surface-2:#eef6f5;--ink:#202629;--muted:#657074;--line:#d8d0c2;--accent:#0d777b;--accent-dark:#084f53;--accent-soft:#dcefee;--action:rgb(12,185,0);--ok:#1f7351;--warn:#9b3f1f;--fail:#e42d61;--shadow:0 18px 46px rgba(31,36,40,0.11)}*{box-sizing:border-box}body{margin:0;min-height:100vh;font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:var(--bg);color:var(--ink)}button,input,select,textarea{font:inherit}.app{width:min(1240px,calc(100vw - 32px));margin:0 auto;padding:28px 0}header{display:grid;grid-template-columns:minmax(0,1fr) minmax(230px,300px);gap:22px;align-items:end;margin-bottom:18px}h1{margin:0;max-width:760px;font-size:clamp(2rem,4.2vw,4.15rem);line-height:1;letter-spacing:0}.subtitle{margin:14px 0 0;max-width:760px;padding:14px 16px;border:1px solid var(--line);border-radius:8px;background:var(--surface);color:var(--muted);line-height:1.5;box-shadow:var(--shadow)}.disclaimer{margin:14px 0 0;padding:0 2px;color:var(--muted);font-size:0.88rem;line-height:1.45;text-align:center}.connection,.panel{border:1px solid var(--line);border-radius:8px;background:var(--surface);box-shadow:var(--shadow)}.connection{display:grid;gap:0;overflow:hidden;padding:0}.connection-banner{display:grid;place-items:center;min-height:40px;padding:0 14px;background:#8b9499;color:#fff;text-align:center;font-size:1rem;font-weight:750;line-height:1.2}.connection.connected .connection-banner{background:var(--action)}.connection.error .connection-banner{background:var(--fail)}.connection-detail{margin:0;padding:12px 16px;color:var(--muted);font-size:0.92rem;line-height:1.4}.connection.error .connection-detail{color:var(--warn)}input,select,textarea{width:100%;border:1px solid var(--line);border-radius:6px;background:#fff;color:var(--ink);outline:none}input,select{min-height:40px;padding:0 11px}textarea{min-height:104px;resize:vertical;padding:11px 12px;line-height:1.45}input:focus,select:focus,textarea:focus{border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-soft)}.actions{display:flex;flex-wrap:wrap;gap:10px;align-items:center}button{display:inline-flex;align-items:center;justify-content:center;min-height:40px;padding:0 14px;border:1px solid transparent;border-radius:6px;background:var(--action);color:#fff;cursor:pointer;font-weight:750}button.secondary{background:transparent;border-color:var(--line);color:var(--ink)}button:disabled{cursor:not-allowed;opacity:0.55}.layout{display:grid;grid-template-columns:minmax(420px,560px) minmax(0,1fr);gap:18px}.sidebar,.detail{min-height:680px}.sidebar{display:grid;grid-template-rows:auto auto 1fr;overflow:hidden}.toolbar{display:grid;gap:12px;padding:14px;border-bottom:1px solid var(--line)}.script-list{display:grid;align-content:start;gap:8px;overflow:auto;padding:12px}.script-card{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:12px;width:100%;padding:12px;border:1px solid var(--line);border-radius:8px;background:#fff;color:var(--ink);text-align:left;cursor:pointer}.script-thumb{width:100%;aspect-ratio:4 / 3;border:1px solid var(--line);border-radius:6px;background:var(--surface-2);object-fit:cover}.script-thumb.placeholder{display:grid;place-items:center;color:var(--accent-dark);font-size:0.75rem;font-weight:800}.script-card-body{min-width:0}.script-card.active{border-color:var(--accent);background:var(--surface-2)}.script-card h2{margin:0;font-size:1rem;line-height:1.25;overflow-wrap:anywhere}.script-card p{margin:0 0 8px;color:var(--muted);font-size:0.9rem;line-height:1.4;overflow-wrap:anywhere}.meta{display:flex;gap:8px;flex-wrap:wrap;color:var(--accent-dark);font-size:0.78rem;font-weight:700;overflow-wrap:anywhere}.meta .badge{color:var(--ok)}.detail-links{display:flex;flex-wrap:wrap;gap:10px;font-size:0.9rem}.detail-links a{color:var(--accent-dark);font-weight:700}.detail{display:grid;grid-template-rows:auto auto 1fr auto;overflow:hidden}.detail-head{display:grid;gap:10px;padding:16px;border-bottom:1px solid var(--line)}.detail-title{margin:0;font-size:clamp(1.35rem,2.2vw,2rem);line-height:1.1}.detail-description{margin:0;color:var(--muted);line-height:1.48;overflow-wrap:anywhere}.fields{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);align-items:start;gap:12px;padding:14px 16px;border-bottom:1px solid var(--line)}label{display:grid;gap:7px;color:var(--muted);font-size:0.8rem;font-weight:700;letter-spacing:0.02em;text-transform:uppercase}.preview-wrap{min-height:0}#codePreview{display:block;height:100%;min-height:350px;margin:0;padding:16px;overflow:auto;background:#172023;color:#edf7f4;font-family:"SFMono-Regular",Consolas,"Liberation Mono",Menlo,monospace;font-size:13px;line-height:1.55;white-space:pre-wrap;overflow-wrap:anywhere}.log{min-height:44px;padding:12px 16px;border-top:1px solid var(--line);color:var(--muted);font-size:0.92rem;line-height:1.45}.log.ok{color:var(--ok)}.log.error{color:var(--warn)}.dropzone{display:grid;place-items:center;min-height:108px;padding:14px;border:2px dashed #9eb8b7;border-radius:8px;background:var(--surface-2);color:var(--muted);text-align:center;line-height:1.4}.dropzone.dragging{border-color:var(--accent);background:#dcefee}.dropzone input{position:absolute;inline-size:1px;block-size:1px;overflow:hidden;clip:rect(0 0 0 0)}.empty{padding:18px;color:var(--muted);line-height:1.45}@media (max-width:900px){header,.layout,.fields{grid-template-columns:1fr}.sidebar,.detail{min-height:auto}.script-list{max-height:360px}#codePreview{min-height:420px}}</style></head><body><main class="app"><header><div><h1>Affinity Script Installer</h1><p class="subtitle">
             Pick a script from this repository, review the source, and install it
             into the local Affinity v3.2 script library.</p></div><section class="connection" id="connectionPanel" aria-label="Affinity connection"><div class="connection-banner" id="statusText">Checking Affinity</div><p class="connection-detail" id="statusDetail">
             Trying local Affinity MCP endpoints...</p></section></header><section class="layout"><aside class="panel sidebar" aria-label="Repository scripts"><div class="toolbar"><input id="searchInput" type="search" placeholder="Search scripts" aria-label="Search scripts"><label class="dropzone" id="dropzone"><input id="fileInput" type="file" accept=".js,.mjs,.txt,text/javascript,application/javascript,text/plain">
-              Drop a local script here, or click to choose one</label></div><div id="scriptList" class="script-list"></div></aside><section class="panel detail" aria-label="Selected script"><div class="detail-head"><h2 class="detail-title" id="selectedTitle">Loading scripts...</h2><p class="detail-description" id="selectedDescription">Reading scripts.json from this repository.</p><div class="actions"><button id="installButton" type="button" disabled>Install to Affinity</button></div></div><div class="fields"><label>
+              Drop a local script here, or click to choose one</label></div><div id="scriptList" class="script-list"></div></aside><section class="panel detail" aria-label="Selected script"><div class="detail-head"><h2 class="detail-title" id="selectedTitle">Loading scripts...</h2><p class="detail-description" id="selectedDescription">Reading scripts.json from this repository.</p><div class="detail-links" id="selectedLinks"></div><div class="actions"><button id="installButton" type="button" disabled>Install to Affinity</button></div></div><div class="fields"><label>
               Library title<input id="libraryTitle" type="text" autocomplete="off"></label><label>
               Library description<textarea id="libraryDescription"></textarea></label></div><div class="preview-wrap"><pre id="codePreview">// Select a script to preview it here.</pre></div><div class="log" id="log">Open Affinity v3.2, then connect before installing.</div></section></section><p class="disclaimer">
         Independent project. Not affiliated with Canva, Serif, or Affinity.</p></main><script>const PROTOCOL_VERSION = "2025-11-25";
 const MANIFEST_URL = "scripts.json";
+const STATS_ENDPOINT = "";
 const AFFINITY_ENDPOINTS = [
 "https://localhost:6768/sse",
 "http://[::1]:6767/sse"
@@ -20,7 +21,8 @@ nextId: 1,
 pending: new Map(),
 scripts: [],
 selected: null,
-selectedCode: ""
+selectedCode: "",
+installCounts: {}
 };
 const els = {
 connectionPanel: document.querySelector("#connectionPanel"),
@@ -32,6 +34,7 @@ fileInput: document.querySelector("#fileInput"),
 scriptList: document.querySelector("#scriptList"),
 selectedTitle: document.querySelector("#selectedTitle"),
 selectedDescription: document.querySelector("#selectedDescription"),
+selectedLinks: document.querySelector("#selectedLinks"),
 installButton: document.querySelector("#installButton"),
 libraryTitle: document.querySelector("#libraryTitle"),
 libraryDescription: document.querySelector("#libraryDescription"),
@@ -58,8 +61,14 @@ return value
 .replaceAll("<", "&lt;")
 .replaceAll(">", "&gt;");
 }
+function escapeAttribute(value) {
+return escapeHtml(value).replaceAll('"', "&quot;");
+}
 function endpointValue() {
 return AFFINITY_ENDPOINTS[0];
+}
+function statsBaseUrl() {
+return STATS_ENDPOINT.trim().replace(/\/+$/, "");
 }
 function contentText(item) {
 if (!item) return "";
@@ -81,7 +90,18 @@ if (!match) continue;
 const [, key, value] = match;
 if (key === "tags") {
 metadata.tags = parseTags(value);
-} else if (key === "id" || key === "title" || key === "description" || key === "image" || key === "author") {
+} else if (
+key === "id" ||
+key === "title" ||
+key === "description" ||
+key === "image" ||
+key === "author" ||
+key === "homepage" ||
+key === "github" ||
+key === "version" ||
+key === "affinity" ||
+key === "verified"
+) {
 metadata[key] = value.trim();
 }
 }
@@ -101,15 +121,55 @@ els.scriptList.innerHTML = scripts.map((script) => {
 const active = state.selected && state.selected.id === script.id ? " active" : "";
 const tags = (script.tags || []).slice(0, 4).map((tag) => `<span>${escapeHtml(tag)}</span>`).join("");
 const author = script.author ? `<span>by ${escapeHtml(script.author)}</span>` : "";
+const verified = script.verified ? '<span class="badge">verified</span>' : "";
+const version = script.version ? `<span>v${escapeHtml(script.version)}</span>` : "";
+const affinity = script.affinity ? `<span>Affinity ${escapeHtml(script.affinity)}</span>` : "";
+const installs = Number.isFinite(script.installs) ? `<span>${script.installs} installs</span>` : "";
 const thumb = script.image
 ? `<img class="script-thumb" src="${escapeHtml(script.image)}" alt="">`
 : '<span class="script-thumb placeholder" aria-hidden="true">JS</span>';
 return `
 <button class="script-card${active}" type="button" data-id="${escapeHtml(script.id)}">
 ${thumb}
-<span class="script-card-body"><h2>${escapeHtml(script.title)}</h2><p>${escapeHtml(script.description || "No description provided.")}</p><span class="meta">${author}${tags}<span>${escapeHtml(script.path || "local file")}</span></span></span></button>
+<span class="script-card-body"><h2>${escapeHtml(script.title)}</h2><p>${escapeHtml(script.description || "No description provided.")}</p><span class="meta">${verified}${author}${version}${affinity}${installs}${tags}<span>${escapeHtml(script.path || "local file")}</span></span></span></button>
 `;
 }).join("");
+}
+async function loadInstallStats() {
+const base = statsBaseUrl();
+if (!base) return;
+try {
+const response = await fetch(`${base}/stats`, { cache: "no-store" });
+if (!response.ok) throw new Error(`Stats HTTP ${response.status}`);
+const data = await response.json();
+state.installCounts = data.counts || {};
+state.scripts = state.scripts.map((script) => ({
+...script,
+installs: Number(state.installCounts[script.id] || 0)
+}));
+} catch (error) {
+console.warn("Install stats unavailable", error);
+}
+}
+async function recordInstall(scriptId) {
+const base = statsBaseUrl();
+if (!base || !scriptId || String(scriptId).startsWith("local-")) return;
+try {
+const response = await fetch(`${base}/install`, {
+method: "POST",
+headers: { "Content-Type": "application/json" },
+body: JSON.stringify({ scriptId })
+});
+if (!response.ok) throw new Error(`Stats HTTP ${response.status}`);
+const data = await response.json();
+state.installCounts[scriptId] = Number(data.installs || 0);
+state.scripts = state.scripts.map((script) =>
+script.id === scriptId ? { ...script, installs: state.installCounts[scriptId] } : script
+);
+renderList();
+} catch (error) {
+console.warn("Install count was not recorded", error);
+}
 }
 async function loadManifest() {
 setLog("Loading repository scripts...");
@@ -123,6 +183,7 @@ id: script.id || script.path || `script-${index}`,
 tags: [],
 ...script
 }));
+await loadInstallStats();
 renderList();
 if (state.scripts[0]) {
 await selectScript(state.scripts[0].id);
@@ -139,9 +200,20 @@ state.selected = script;
 state.selectedCode = "";
 renderList();
 els.selectedTitle.textContent = script.title;
-els.selectedDescription.textContent = script.author
-? `${script.description || "No description provided."} Author: ${script.author}.`
-: script.description || "No description provided.";
+const detailBits = [
+script.description || "No description provided.",
+script.author ? `Author: ${script.author}.` : "",
+script.version ? `Version: ${script.version}.` : "",
+script.affinity ? `Affinity: ${script.affinity}.` : "",
+script.verified ? "Verified." : "",
+Number.isFinite(script.installs) ? `${script.installs} installs.` : ""
+].filter(Boolean);
+els.selectedDescription.textContent = detailBits.join(" ");
+const links = [
+script.homepage ? `<a href="${escapeAttribute(script.homepage)}" target="_blank" rel="noopener">Homepage</a>` : "",
+script.github ? `<a href="${escapeAttribute(script.github)}" target="_blank" rel="noopener">GitHub</a>` : ""
+].filter(Boolean);
+els.selectedLinks.innerHTML = links.join("");
 els.libraryTitle.value = script.title;
 els.libraryDescription.value = script.description || "";
 els.codePreview.textContent = "Loading source...";
@@ -318,6 +390,7 @@ code: state.selectedCode
 });
 const details = result.content?.map(contentText).filter(Boolean).join(" ");
 setLog(details || `Installed "${title}" into Affinity.`, "ok");
+await recordInstall(state.selected?.id);
 } catch (error) {
 setLog(`Install failed: ${error.message}`, "error");
 } finally {
@@ -337,6 +410,11 @@ description: metadata.description || `Local file: ${file.name}`,
 path: "local file",
 image: metadata.image || "",
 author: metadata.author || "",
+homepage: metadata.homepage || "",
+github: metadata.github || "",
+version: metadata.version || "",
+affinity: metadata.affinity || "",
+verified: String(metadata.verified || "").toLowerCase() === "true",
 tags: Array.isArray(metadata.tags) ? ["local", ...metadata.tags] : ["local"],
 code
 };
@@ -344,7 +422,10 @@ state.scripts = [script, ...state.scripts.filter((item) => !String(item.id).star
 state.selected = script;
 state.selectedCode = code;
 els.selectedTitle.textContent = script.title;
-els.selectedDescription.textContent = script.description;
+els.selectedDescription.textContent = script.author
+? `${script.description} Author: ${script.author}.`
+: script.description;
+els.selectedLinks.innerHTML = "";
 els.libraryTitle.value = script.title;
 els.libraryDescription.value = script.description;
 els.codePreview.textContent = code;

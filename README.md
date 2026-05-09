@@ -26,6 +26,11 @@ file:
 // @title My Script
 // @description What the script does.
 // @author Your Name
+// @version 1.0.0
+// @affinity 3.2+
+// @verified true
+// @homepage https://example.com/my-script
+// @github https://github.com/example/my-script
 // @tags layout, utility
 // @image images/my-script.png
 ```
@@ -47,11 +52,55 @@ Supported metadata:
 - `@title My Script`
 - `@description What the script does.`
 - `@author Your Name`
+- `@version 1.0.0`
+- `@affinity 3.2+`
+- `@verified true`
+- `@homepage https://example.com/my-script`
+- `@github https://github.com/example/my-script`
 - `@tags layout, utility`
 - `@image images/my-script.png`
 
 The optional `@image` field appears as a thumbnail on the script card. Store
 PNG previews in the repository under `images/`.
+
+## Community Submissions
+
+The repository includes GitHub issue forms for:
+
+- Script submissions
+- Bug reports
+
+Submitted scripts should be reviewed before being added to `scripts/`.
+
+## Install Stats
+
+The installer can display install counts when a Cloudflare Worker stats endpoint
+is configured.
+
+Worker files are in `workers/`:
+
+```text
+workers/install-stats-worker.js
+workers/wrangler.example.toml
+```
+
+Deployment outline:
+
+1. Create a Cloudflare KV namespace.
+2. Copy `workers/wrangler.example.toml` to `workers/wrangler.toml`.
+3. Replace the KV namespace IDs.
+4. Deploy with Wrangler from the `workers/` folder.
+5. Set `STATS_ENDPOINT` in `index.pretty.html` to the deployed Worker URL.
+6. Regenerate the minified `index.html`.
+
+The Worker exposes:
+
+```text
+GET /stats
+POST /install
+```
+
+Install events are counted by script ID only.
 
 ## Publish On GitHub Pages
 

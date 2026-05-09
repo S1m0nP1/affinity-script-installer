@@ -1,0 +1,63 @@
+name: Submit a script
+description: Suggest a script to add to the installer.
+title: "[Script submission]: "
+labels: ["script submission"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for sharing a script. Please include enough detail for review.
+  - type: input
+    id: title
+    attributes:
+      label: Script title
+      placeholder: Vector Pattern FX
+    validations:
+      required: true
+  - type: textarea
+    id: description
+    attributes:
+      label: Description
+      description: What does the script do?
+    validations:
+      required: true
+  - type: input
+    id: author
+    attributes:
+      label: Author handle
+      placeholder: S1m0nP1
+    validations:
+      required: true
+  - type: input
+    id: script_url
+    attributes:
+      label: Script URL or gist
+      description: Link to the script source, gist, or fork branch.
+    validations:
+      required: true
+  - type: input
+    id: thumbnail_url
+    attributes:
+      label: Thumbnail URL
+      description: Optional PNG preview image.
+  - type: input
+    id: affinity_version
+    attributes:
+      label: Affinity version tested
+      placeholder: 3.2+
+  - type: textarea
+    id: safety_notes
+    attributes:
+      label: Safety notes
+      description: Does the script use filesystem, network, AI, or destructive document operations?
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Submission checklist
+      options:
+        - label: I have tested this script in Affinity.
+          required: true
+        - label: I have permission to share this script publicly.
+          required: true
+        - label: The script includes metadata comments where possible.
+          required: true

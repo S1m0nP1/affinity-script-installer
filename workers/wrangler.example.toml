@@ -1,0 +1,8 @@
+name = "affinity-script-installer-stats"
+main = "install-stats-worker.js"
+compatibility_date = "2026-05-09"
+
+[[kv_namespaces]]
+binding = "SCRIPT_INSTALLS"
+id = "replace_with_production_kv_namespace_id"
+preview_id = "replace_with_preview_kv_namespace_id"

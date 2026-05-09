@@ -41,7 +41,18 @@ function parseMetadata(source) {
     const [, key, value] = match;
     if (key === "tags") {
       metadata.tags = parseTags(value);
-    } else if (key === "id" || key === "title" || key === "description" || key === "image" || key === "author") {
+    } else if (
+      key === "id" ||
+      key === "title" ||
+      key === "description" ||
+      key === "image" ||
+      key === "author" ||
+      key === "homepage" ||
+      key === "github" ||
+      key === "version" ||
+      key === "affinity" ||
+      key === "verified"
+    ) {
       metadata[key] = value.trim();
     }
   }
@@ -79,6 +90,11 @@ async function main() {
         path: scriptPath,
         image: metadata.image || previous?.image || "",
         author: metadata.author || previous?.author || "",
+        homepage: metadata.homepage || previous?.homepage || "",
+        github: metadata.github || previous?.github || "",
+        version: metadata.version || previous?.version || "",
+        affinity: metadata.affinity || previous?.affinity || "",
+        verified: String(metadata.verified || previous?.verified || "").toLowerCase() === "true",
         tags: Array.isArray(metadata.tags)
           ? metadata.tags
           : Array.isArray(previous?.tags)
