@@ -72,16 +72,16 @@ endpoint used by the page is:
 http://[::1]:6767/sse
 ```
 
-The page also includes presets for:
+The page also tries:
 
 ```text
 https://localhost:6768/sse
-http://localhost:6767/sse
-http://127.0.0.1:6767/sse
+http://[::1]:6767/sse
 ```
 
 The HTTPS `localhost:6768` endpoint is intended for Safari users running a
 local reverse proxy such as Caddy in front of Affinity's HTTP MCP server.
+Affinity itself is expected to listen on IPv6 loopback at `[::1]:6767`.
 
 When hosted on GitHub Pages, the browser connects from an HTTPS website to a
 local HTTP loopback server. Affinity's MCP server must allow CORS requests and,
