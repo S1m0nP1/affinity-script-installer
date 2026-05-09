@@ -33,6 +33,17 @@ export default {
 
     const url = new URL(request.url);
 
+    if (request.method === "GET" && (url.pathname === "/" || url.pathname === "/health")) {
+      return json({
+        ok: true,
+        service: "Affinity Script Installer stats",
+        endpoints: {
+          stats: "/stats",
+          install: "/install"
+        }
+      });
+    }
+
     if (request.method === "GET" && url.pathname === "/stats") {
       const list = await env.SCRIPT_INSTALLS.list({ prefix: "install:" });
       const counts = {};

@@ -102,6 +102,12 @@ POST /install
 
 Install events are counted by script ID only.
 
+This repository currently points at:
+
+```text
+https://affinity-script-installer-stats.s1m0np1.workers.dev
+```
+
 ## Publish On GitHub Pages
 
 In GitHub:
