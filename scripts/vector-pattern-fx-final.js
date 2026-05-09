@@ -2,7 +2,7 @@
 // @description Generates editable vector pattern effects from selected Affinity artwork.
 // @author S1m0nP1
 // @tags vector, pattern, effects
-// @image FX.png
+// @image images/FX.png
 
 "use strict";
 

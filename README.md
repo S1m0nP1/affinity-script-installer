@@ -51,7 +51,7 @@ Supported metadata:
 - `@image images/my-script.png`
 
 The optional `@image` field appears as a thumbnail on the script card. Store
-PNG previews in the repository, for example under `images/`.
+PNG previews in the repository under `images/`.
 
 ## Publish On GitHub Pages
 

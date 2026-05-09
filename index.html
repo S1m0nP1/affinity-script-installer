@@ -1,4 +1,4 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Affinity Script Installer</title><style>:root{color-scheme:light;--bg:#f5f3ee;--surface:#fffdf8;--surface-2:#eef6f5;--ink:#202629;--muted:#657074;--line:#d8d0c2;--accent:#0d777b;--accent-dark:#084f53;--accent-soft:#dcefee;--ok:#1f7351;--warn:#9b3f1f;--shadow:0 18px 46px rgba(31,36,40,0.11)}*{box-sizing:border-box}body{margin:0;min-height:100vh;font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:var(--bg);color:var(--ink)}button,input,select,textarea{font:inherit}.app{width:min(1240px,calc(100vw - 32px));margin:0 auto;padding:28px 0}header{display:grid;grid-template-columns:minmax(0,1fr) minmax(230px,300px);gap:22px;align-items:end;margin-bottom:18px}h1{margin:0;max-width:760px;font-size:clamp(2rem,4.2vw,4.15rem);line-height:1;letter-spacing:0}.subtitle{margin:14px 0 0;max-width:760px;padding:14px 16px;border:1px solid var(--line);border-radius:8px;background:var(--surface);color:var(--muted);line-height:1.5;box-shadow:var(--shadow)}.disclaimer{margin:14px 0 0;padding:0 2px;color:var(--muted);font-size:0.88rem;line-height:1.45;text-align:center}.connection,.panel{border:1px solid var(--line);border-radius:8px;background:var(--surface);box-shadow:var(--shadow)}.connection{display:grid;gap:10px;padding:14px}.status-row{display:flex;align-items:center;gap:10px;color:var(--muted);font-size:0.92rem}.dot{width:10px;height:10px;border-radius:50%;background:#8b9499;flex:0 0 auto}.dot.connected{background:var(--ok)}.dot.error{background:var(--warn)}input,select,textarea{width:100%;border:1px solid var(--line);border-radius:6px;background:#fff;color:var(--ink);outline:none}input,select{min-height:40px;padding:0 11px}textarea{min-height:104px;resize:vertical;padding:11px 12px;line-height:1.45}input:focus,select:focus,textarea:focus{border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-soft)}.actions{display:flex;flex-wrap:wrap;gap:10px;align-items:center}button{display:inline-flex;align-items:center;justify-content:center;min-height:40px;padding:0 14px;border:1px solid transparent;border-radius:6px;background:var(--accent);color:#fff;cursor:pointer;font-weight:750}button.secondary{background:transparent;border-color:var(--line);color:var(--ink)}button:disabled{cursor:not-allowed;opacity:0.55}.layout{display:grid;grid-template-columns:minmax(420px,560px) minmax(0,1fr);gap:18px}.sidebar,.detail{min-height:680px}.sidebar{display:grid;grid-template-rows:auto auto 1fr;overflow:hidden}.toolbar{display:grid;gap:12px;padding:14px;border-bottom:1px solid var(--line)}.script-list{display:grid;align-content:start;gap:8px;overflow:auto;padding:12px}.script-card{display:grid;grid-template-columns:84px minmax(0,1fr);gap:12px;width:100%;padding:12px;border:1px solid var(--line);border-radius:8px;background:#fff;color:var(--ink);text-align:left;cursor:pointer}.script-thumb{width:84px;aspect-ratio:4 / 3;border:1px solid var(--line);border-radius:6px;background:var(--surface-2);object-fit:cover}.script-thumb.placeholder{display:grid;place-items:center;color:var(--accent-dark);font-size:0.75rem;font-weight:800}.script-card-body{min-width:0}.script-card.active{border-color:var(--accent);background:var(--surface-2)}.script-card h2{margin:0;font-size:1rem;line-height:1.25;overflow-wrap:anywhere}.script-card p{margin:0;color:var(--muted);font-size:0.9rem;line-height:1.4;overflow-wrap:anywhere}.meta{display:flex;gap:8px;flex-wrap:wrap;color:var(--accent-dark);font-size:0.78rem;font-weight:700;overflow-wrap:anywhere}.detail{display:grid;grid-template-rows:auto auto 1fr auto;overflow:hidden}.detail-head{display:grid;gap:10px;padding:16px;border-bottom:1px solid var(--line)}.detail-title{margin:0;font-size:clamp(1.35rem,2.2vw,2rem);line-height:1.1}.detail-description{margin:0;color:var(--muted);line-height:1.48;overflow-wrap:anywhere}.fields{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);align-items:start;gap:12px;padding:14px 16px;border-bottom:1px solid var(--line)}label{display:grid;gap:7px;color:var(--muted);font-size:0.8rem;font-weight:700;letter-spacing:0.02em;text-transform:uppercase}.preview-wrap{min-height:0}#codePreview{display:block;height:100%;min-height:350px;margin:0;padding:16px;overflow:auto;background:#172023;color:#edf7f4;font-family:"SFMono-Regular",Consolas,"Liberation Mono",Menlo,monospace;font-size:13px;line-height:1.55;white-space:pre-wrap;overflow-wrap:anywhere}.log{min-height:44px;padding:12px 16px;border-top:1px solid var(--line);color:var(--muted);font-size:0.92rem;line-height:1.45}.log.ok{color:var(--ok)}.log.error{color:var(--warn)}.dropzone{display:grid;place-items:center;min-height:108px;padding:14px;border:2px dashed #9eb8b7;border-radius:8px;background:var(--surface-2);color:var(--muted);text-align:center;line-height:1.4}.dropzone.dragging{border-color:var(--accent);background:#dcefee}.dropzone input{position:absolute;inline-size:1px;block-size:1px;overflow:hidden;clip:rect(0 0 0 0)}.empty{padding:18px;color:var(--muted);line-height:1.45}@media (max-width:900px){header,.layout,.fields{grid-template-columns:1fr}.sidebar,.detail{min-height:auto}.script-list{max-height:360px}#codePreview{min-height:420px}}</style></head><body><main class="app"><header><div><h1>Affinity Script Installer</h1><p class="subtitle">
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Affinity Script Installer</title><style>:root{color-scheme:light;--bg:#f5f3ee;--surface:#fffdf8;--surface-2:#eef6f5;--ink:#202629;--muted:#657074;--line:#d8d0c2;--accent:#0d777b;--accent-dark:#084f53;--accent-soft:#dcefee;--ok:#1f7351;--warn:#9b3f1f;--shadow:0 18px 46px rgba(31,36,40,0.11)}*{box-sizing:border-box}body{margin:0;min-height:100vh;font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:var(--bg);color:var(--ink)}button,input,select,textarea{font:inherit}.app{width:min(1240px,calc(100vw - 32px));margin:0 auto;padding:28px 0}header{display:grid;grid-template-columns:minmax(0,1fr) minmax(230px,300px);gap:22px;align-items:end;margin-bottom:18px}h1{margin:0;max-width:760px;font-size:clamp(2rem,4.2vw,4.15rem);line-height:1;letter-spacing:0}.subtitle{margin:14px 0 0;max-width:760px;padding:14px 16px;border:1px solid var(--line);border-radius:8px;background:var(--surface);color:var(--muted);line-height:1.5;box-shadow:var(--shadow)}.disclaimer{margin:14px 0 0;padding:0 2px;color:var(--muted);font-size:0.88rem;line-height:1.45;text-align:center}.connection,.panel{border:1px solid var(--line);border-radius:8px;background:var(--surface);box-shadow:var(--shadow)}.connection{display:grid;gap:10px;padding:14px}.status-row{display:flex;align-items:center;gap:10px;color:var(--muted);font-size:0.92rem}.dot{width:10px;height:10px;border-radius:50%;background:#8b9499;flex:0 0 auto}.dot.connected{background:var(--ok)}.dot.error{background:var(--warn)}input,select,textarea{width:100%;border:1px solid var(--line);border-radius:6px;background:#fff;color:var(--ink);outline:none}input,select{min-height:40px;padding:0 11px}textarea{min-height:104px;resize:vertical;padding:11px 12px;line-height:1.45}input:focus,select:focus,textarea:focus{border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-soft)}.actions{display:flex;flex-wrap:wrap;gap:10px;align-items:center}button{display:inline-flex;align-items:center;justify-content:center;min-height:40px;padding:0 14px;border:1px solid transparent;border-radius:6px;background:var(--accent);color:#fff;cursor:pointer;font-weight:750}button.secondary{background:transparent;border-color:var(--line);color:var(--ink)}button:disabled{cursor:not-allowed;opacity:0.55}.layout{display:grid;grid-template-columns:minmax(420px,560px) minmax(0,1fr);gap:18px}.sidebar,.detail{min-height:680px}.sidebar{display:grid;grid-template-rows:auto auto 1fr;overflow:hidden}.toolbar{display:grid;gap:12px;padding:14px;border-bottom:1px solid var(--line)}.script-list{display:grid;align-content:start;gap:8px;overflow:auto;padding:12px}.script-card{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:12px;width:100%;padding:12px;border:1px solid var(--line);border-radius:8px;background:#fff;color:var(--ink);text-align:left;cursor:pointer}.script-thumb{width:100%;aspect-ratio:4 / 3;border:1px solid var(--line);border-radius:6px;background:var(--surface-2);object-fit:cover}.script-thumb.placeholder{display:grid;place-items:center;color:var(--accent-dark);font-size:0.75rem;font-weight:800}.script-card-body{min-width:0}.script-card.active{border-color:var(--accent);background:var(--surface-2)}.script-card h2{margin:0;font-size:1rem;line-height:1.25;overflow-wrap:anywhere}.script-card p{margin:0;color:var(--muted);font-size:0.9rem;line-height:1.4;overflow-wrap:anywhere}.meta{display:flex;gap:8px;flex-wrap:wrap;color:var(--accent-dark);font-size:0.78rem;font-weight:700;overflow-wrap:anywhere}.detail{display:grid;grid-template-rows:auto auto 1fr auto;overflow:hidden}.detail-head{display:grid;gap:10px;padding:16px;border-bottom:1px solid var(--line)}.detail-title{margin:0;font-size:clamp(1.35rem,2.2vw,2rem);line-height:1.1}.detail-description{margin:0;color:var(--muted);line-height:1.48;overflow-wrap:anywhere}.fields{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);align-items:start;gap:12px;padding:14px 16px;border-bottom:1px solid var(--line)}label{display:grid;gap:7px;color:var(--muted);font-size:0.8rem;font-weight:700;letter-spacing:0.02em;text-transform:uppercase}.preview-wrap{min-height:0}#codePreview{display:block;height:100%;min-height:350px;margin:0;padding:16px;overflow:auto;background:#172023;color:#edf7f4;font-family:"SFMono-Regular",Consolas,"Liberation Mono",Menlo,monospace;font-size:13px;line-height:1.55;white-space:pre-wrap;overflow-wrap:anywhere}.log{min-height:44px;padding:12px 16px;border-top:1px solid var(--line);color:var(--muted);font-size:0.92rem;line-height:1.45}.log.ok{color:var(--ok)}.log.error{color:var(--warn)}.dropzone{display:grid;place-items:center;min-height:108px;padding:14px;border:2px dashed #9eb8b7;border-radius:8px;background:var(--surface-2);color:var(--muted);text-align:center;line-height:1.4}.dropzone.dragging{border-color:var(--accent);background:#dcefee}.dropzone input{position:absolute;inline-size:1px;block-size:1px;overflow:hidden;clip:rect(0 0 0 0)}.empty{padding:18px;color:var(--muted);line-height:1.45}@media (max-width:900px){header,.layout,.fields{grid-template-columns:1fr}.sidebar,.detail{min-height:auto}.script-list{max-height:360px}#codePreview{min-height:420px}}</style></head><body><main class="app"><header><div><h1>Affinity Script Installer</h1><p class="subtitle">
             Pick a script from this repository, review the source, and install it
             into the local Affinity v3.2 script library.</p></div><section class="connection" aria-label="Affinity connection"><div class="status-row"><span class="dot" id="statusDot" aria-hidden="true"></span><span id="statusText">Not connected</span></div><div class="actions"><button id="connectButton" type="button">Connect to Affinity</button></div></section></header><section class="layout"><aside class="panel sidebar" aria-label="Repository scripts"><div class="toolbar"><input id="searchInput" type="search" placeholder="Search scripts" aria-label="Search scripts"><label class="dropzone" id="dropzone"><input id="fileInput" type="file" accept=".js,.mjs,.txt,text/javascript,application/javascript,text/plain">
               Drop a local script here, or click to choose one</label></div><div id="scriptList" class="script-list"></div></aside><section class="panel detail" aria-label="Selected script"><div class="detail-head"><h2 class="detail-title" id="selectedTitle">Loading scripts...</h2><p class="detail-description" id="selectedDescription">Reading scripts.json from this repository.</p><div class="actions"><button id="installButton" type="button" disabled>Install to Affinity</button></div></div><div class="fields"><label>
@@ -6,6 +6,11 @@
               Library description<textarea id="libraryDescription"></textarea></label></div><div class="preview-wrap"><pre id="codePreview">// Select a script to preview it here.</pre></div><div class="log" id="log">Open Affinity v3.2, then connect before installing.</div></section></section><p class="disclaimer">
         Independent project. Not affiliated with Canva, Serif, or Affinity.</p></main><script>const PROTOCOL_VERSION = "2025-11-25";
 const MANIFEST_URL = "scripts.json";
+const AFFINITY_ENDPOINTS = [
+"http://[::1]:6767/sse",
+"http://localhost:6767/sse",
+"http://127.0.0.1:6767/sse"
+];
 const state = {
 eventSource: null,
 endpointBase: "",
@@ -53,7 +58,7 @@ return value
 .replaceAll(">", "&gt;");
 }
 function endpointValue() {
-return "http://[::1]:6767/sse";
+return AFFINITY_ENDPOINTS[0];
 }
 function contentText(item) {
 if (!item) return "";
@@ -226,24 +231,19 @@ return result;
 async function notify(method, params = {}) {
 await postMcp({ jsonrpc: "2.0", method, params });
 }
-async function connect() {
+async function connectToEndpoint(endpointBase) {
 if (state.eventSource) state.eventSource.close();
-state.endpointBase = endpointValue();
+state.endpointBase = endpointBase;
 state.endpointUrl = "";
 state.initialized = false;
 state.pending.clear();
-els.connectButton.disabled = true;
-setStatus("", "Connecting...");
-setLog(`Opening ${state.endpointBase}...`);
-setButtons();
-try {
-await new Promise((resolve, reject) => {
+return new Promise((resolve, reject) => {
 const source = new EventSource(state.endpointBase);
 state.eventSource = source;
 const failTimer = window.setTimeout(() => {
 source.close();
-reject(new Error("Could not reach Affinity MCP. Check that Affinity v3.2 is open and MCP is enabled."));
-}, 9000);
+reject(new Error(`Could not reach ${endpointBase}`));
+}, 5000);
 source.addEventListener("endpoint", async (event) => {
 window.clearTimeout(failTimer);
 try {
@@ -259,10 +259,9 @@ version: "0.1.0"
 });
 await notify("notifications/initialized", {});
 state.initialized = true;
-setStatus("connected", `Connected to ${init.serverInfo?.name || "Affinity"}`);
-setLog("Connected. Review a script, then install it to Affinity.", "ok");
-resolve();
+resolve(init);
 } catch (error) {
+source.close();
 reject(error);
 }
 });
@@ -275,14 +274,30 @@ setButtons();
 }
 };
 });
-} catch (error) {
-state.initialized = false;
-setStatus("error", "Not connected");
-setLog(`${error.message} If this is hosted on GitHub Pages, the browser may also require Affinity to allow private-network CORS preflights.`, "error");
-} finally {
+}
+async function connect() {
+els.connectButton.disabled = true;
+setStatus("", "Connecting...");
+setButtons();
+let lastError = null;
+for (const endpoint of AFFINITY_ENDPOINTS) {
+setLog(`Trying ${endpoint}...`);
+try {
+const init = await connectToEndpoint(endpoint);
+setStatus("connected", `Connected to ${init.serverInfo?.name || "Affinity"}`);
+setLog(`Connected through ${endpoint}. Review a script, then install it to Affinity.`, "ok");
 els.connectButton.disabled = false;
 setButtons();
+return;
+} catch (error) {
+lastError = error;
 }
+}
+state.initialized = false;
+setStatus("error", "Not connected");
+setLog(`${lastError?.message || "Could not reach Affinity MCP."} Check that Affinity v3.2 is open and MCP is enabled.`, "error");
+els.connectButton.disabled = false;
+setButtons();
 }
 async function installSelected() {
 const title = els.libraryTitle.value.trim();
@@ -364,7 +379,7 @@ els.dropzone.classList.remove("dragging");
 const [file] = event.dataTransfer.files;
 if (file) loadLocalFile(file);
 });
-loadManifest().catch((error) => {
+loadManifest().then(() => connect()).catch((error) => {
 els.selectedTitle.textContent = "Could not load scripts";
 els.selectedDescription.textContent = "Check scripts.json and serve this folder with a local web server for testing.";
 setLog(error.message, "error");
