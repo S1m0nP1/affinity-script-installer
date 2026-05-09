@@ -31,8 +31,14 @@ body:
   - type: input
     id: script_url
     attributes:
-      label: Script URL or gist
-      description: Link to the script source, gist, or fork branch.
+      label: Script URL, gist, or fork branch
+      description: Link to the script source if it is already published somewhere.
+  - type: textarea
+    id: script_source
+    attributes:
+      label: Script source or attachment
+      description: Paste the script here, or drag and drop a .js file into this field.
+      render: javascript
     validations:
       required: true
   - type: input
