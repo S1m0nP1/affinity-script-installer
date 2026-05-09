@@ -18,12 +18,12 @@ body:
     id: browser
     attributes:
       label: Browser and version
-      placeholder: Safari 18, Firefox 126, Edge 126
+      placeholder: "Safari 18, Firefox 126, Edge 126"
   - type: input
     id: affinity
     attributes:
       label: Affinity version
-      placeholder: 3.2
+      placeholder: "3.2"
   - type: textarea
     id: steps
     attributes:
