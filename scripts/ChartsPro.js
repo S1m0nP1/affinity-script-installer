@@ -1,6 +1,6 @@
 // @title ChartsPro
 // @description Create charts from CSV files 
-// @author S1m0nP1
+// @author S1m0nP1 based on a script by OurielMak
 // @version 1.0.0
 // @affinity 3.2+
 // @verified true
