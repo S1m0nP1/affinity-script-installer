@@ -7,7 +7,9 @@
 // @homepage https://s1m0np1.github.io/affinity-script-installer/
 // @github https://github.com/S1m0nP1/affinity-script-installer
 // @tags print
-// @image /images/GenerateCropMarks.png
+// @image images/GenerateCropMarks.png
+
+"use strict";
 
 const { Document } = require("/document");
 const Nodes = require("/nodes");
