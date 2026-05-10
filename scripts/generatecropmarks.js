@@ -4,8 +4,8 @@
 // @version 1.0.0
 // @affinity 3.2+
 // @verified true
-// @homepage
-// @github https://github.com/example/my-script
+// @homepage https://s1m0np1.github.io/affinity-script-installer/
+// @github https://github.com/S1m0nP1/affinity-script-installer
 // @tags print
 // @image /images/GenerateCropMarks.png
 
