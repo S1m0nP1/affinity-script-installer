@@ -17,6 +17,22 @@
       ]
     },
     {
+      "id": "generatecropmarks",
+      "title": "Generate Crop Marks",
+      "description": "Automatically generate 5mm corner crops and internal grid ticks with a 2mm offset for any selection in Affinity, placing them on a dedicated 0.25pt locked production layer",
+      "path": "scripts/generatecropmarks.js",
+      "image": "",
+      "author": "sakura",
+      "homepage": "",
+      "github": "https://github.com/example/my-script",
+      "version": "1.0.0",
+      "affinity": "3.2+",
+      "verified": true,
+      "tags": [
+        "print"
+      ]
+    },
+    {
       "id": "hello-world-example",
       "title": "Hello World Example",
       "description": "A small starter script for checking that installation into the Affinity script library works.",
