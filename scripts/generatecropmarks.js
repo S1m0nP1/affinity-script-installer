@@ -7,7 +7,7 @@
 // @homepage
 // @github https://github.com/example/my-script
 // @tags print
-// @image 
+// @image /images/GenerateCropMarks.png
 
 const { Document } = require("/document");
 const Nodes = require("/nodes");
