@@ -15,7 +15,6 @@ server.
 5. The site calls `save_script_to_library` with the script title, description,
    and source code.
 
-No backend, package manager, build step, or Codex tooling is required.
 
 ## Add Scripts
 
