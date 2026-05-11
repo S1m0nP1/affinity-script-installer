@@ -7,7 +7,7 @@
 // @homepage 
 // @github 
 // @tags 
-// @image 
+// @image images/bento
 
 /**
  * name: Bento Box generator
