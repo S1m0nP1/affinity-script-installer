@@ -1,6 +1,7 @@
 # Affinity Script Installer
 
 https://affinityhub.js.org/
+
 A static GitHub Pages site that installs JavaScript scripts from this repository
 into a user's local Affinity v3.2 script library through Affinity's built-in MCP
 server.
