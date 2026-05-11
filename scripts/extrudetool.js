@@ -1,14 +1,13 @@
-// @id extrudetool
 // @title Extrude Tool
 // @description This script generates a 3D-like extrusion effect by connecting selected vector shapes. Once executed, the tool automatically calculates, subdivides, and renders the connecting geometry, organizing the resulting faces while preserving your original shapes as caps
-// @image 
 // @author BlackMortimer-13
-// @homepage 
-// @github 
 // @version 2.0.0
 // @affinity 
 // @verified 
+// @homepage 
+// @github 
 // @tags 
+// @image 
 
 "use strict";
 const { Document } = require("/document");

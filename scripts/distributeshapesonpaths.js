@@ -1,14 +1,13 @@
-// @id distributeshapesonpaths
 // @title Distribute Shapes on Paths
 // @description Places copies of designated target layers along selected vector shapes or paths. Choose the target layer by name from the dropdown or rename it to target. Multiple matching layers are distributed in round-robin order. Supports vector, group, symbol, and pixel layers, with insertion modes for path, center, nodes, and corners.
-// @image 
 // @author EricP
-// @homepage 
-// @github 
 // @version 1.1.0
 // @affinity 
 // @verified 
+// @homepage 
+// @github 
 // @tags 
+// @image 
 
 "use strict";
 

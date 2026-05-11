@@ -1,14 +1,13 @@
-﻿// @id markdown-import-to-text-frame
-// @title Markdown import to text frame
+﻿// @title Markdown import to text frame
 // @description Markdown import to text frame
-// @image 
 // @author rabidgremlin
-// @homepage 
-// @github 
 // @version 1.0
 // @affinity 
 // @verified 
+// @homepage 
+// @github 
 // @tags 
+// @image 
 
 'use strict';
 

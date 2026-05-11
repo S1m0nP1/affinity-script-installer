@@ -1,14 +1,13 @@
-// @id single-char-linebreak-fix
 // @title Single-char linebreak fix
 // @description Replaces spaces after lone single characters with non-breaking spaces (Slavic languages)
-// @image 
 // @author JiriKrblich
-// @homepage 
-// @github 
 // @version 1.0
 // @affinity 
 // @verified 
+// @homepage 
+// @github 
 // @tags 
+// @image 
 
 'use strict';
 const { Document } = require('/document');

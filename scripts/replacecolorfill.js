@@ -1,14 +1,13 @@
-// @id replacecolorfill
 // @title ReplaceColorFill
 // @description Allows users to quickly change the fill color/gradients of selected shapes.
-// @image 
 // @author BlackMortimer-13
-// @homepage 
-// @github 
 // @version 3.0
 // @affinity 
 // @verified 
+// @homepage 
+// @github 
 // @tags 
+// @image 
 
 'use strict';
 

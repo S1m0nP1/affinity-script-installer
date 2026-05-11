@@ -1,14 +1,13 @@
-// @id rgbimagesleftovers
 // @title RGB Finder
 // @description Looks for all embedded and linked RGB images in an open Affinity document. Useful for CMYK documents.
-// @image 
 // @author hrum
-// @homepage 
-// @github 
 // @version 1.0
 // @affinity 
 // @verified 
+// @homepage 
+// @github 
 // @tags 
+// @image 
 
 // ============================================================
 

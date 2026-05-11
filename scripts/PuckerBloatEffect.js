@@ -1,14 +1,13 @@
-// @id puckerbloateffect
 // @title PuckerBloatEffect
 // @description Applies a Pucker & Bloat effect to the selected object(s), pulling anchor points inward (Pucker) or outward (Bloat) to distort
-// @image 
 // @author BlackMortimer-13
-// @homepage 
-// @github 
 // @version 1.0
 // @affinity 
 // @verified 
+// @homepage 
+// @github 
 // @tags 
+// @image 
 
 "use strict";
 

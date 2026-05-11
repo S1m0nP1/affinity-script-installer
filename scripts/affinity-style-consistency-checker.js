@@ -1,14 +1,13 @@
-// @id affinity-style-consistency-checker
 // @title Style Consistency Checker
 // @description Easily maintain design consistency by inspecting and remapping font faces, sizes, and stroke weights. Also includes a tool to clean up invisible garbage nodes
-// @image 
 // @author Shigeru Kobayashi
-// @homepage 
-// @github 
 // @version 1.0.1
 // @affinity 
 // @verified 
+// @homepage 
+// @github 
 // @tags 
+// @image 
 
 /**
  * name: Affinity Consistency Checker

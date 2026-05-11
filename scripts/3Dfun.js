@@ -1,14 +1,13 @@
-// @id 3dfun
 // @title 3D fun
 // @description Faux 3D Primitives - just for fun! Might add more later if anyone is interested
-// @image images/3Dfun.png
 // @author S1m0nP1
-// @homepage 
-// @github 
 // @version 1.0.0
 // @affinity 
 // @verified 
+// @homepage 
+// @github 
 // @tags 
+// @image images/3Dfun.png
 
 "use strict";
 

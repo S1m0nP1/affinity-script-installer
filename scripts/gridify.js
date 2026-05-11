@@ -1,14 +1,13 @@
-// @id gridify
 // @title Gridify
 // @description Spread selected objects into a grid with various options of spacing, scaling and jitter.
-// @image 
 // @author Nic Kraneis
-// @homepage 
-// @github 
 // @version 1.0.0
 // @affinity 
 // @verified 
+// @homepage 
+// @github 
 // @tags 
+// @image 
 
 // Google Gemini was used in creation of this script.
 

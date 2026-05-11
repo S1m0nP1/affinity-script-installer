@@ -1,14 +1,13 @@
-// @id swap-objects-v1
 // @title Swap Objects
 // @description The script swaps selected objects based on a custom mapping, with optional orientation and dimension swapping. Select at least 2 objects, choose how they should swap in the dialog, then use Preview or Apply.
-// @image 
 // @author BlackMortimer-13
-// @homepage 
-// @github 
 // @version 1.0.0
 // @affinity 
 // @verified 
+// @homepage 
+// @github 
 // @tags 
+// @image 
 
 'use strict';
 

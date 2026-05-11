@@ -1,14 +1,13 @@
-// @id glitch-effect
 // @title Glitch effect
 // @description Create a glitch effect on a vector object.
-// @image 
 // @author Nic Kraneis
-// @homepage 
-// @github 
 // @version 1.0.0
 // @affinity 
 // @verified 
+// @homepage 
+// @github 
 // @tags 
+// @image 
 
 /**
 name: Glitch Effect

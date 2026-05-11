@@ -3,18 +3,30 @@ import path from "node:path";
 
 const rootDir = new URL("..", import.meta.url);
 const scriptsDir = new URL("scripts/", rootDir);
-const metadataKeys = [
+const parseableMetadataKeys = [
   "id",
   "title",
   "description",
-  "image",
   "author",
-  "homepage",
-  "github",
   "version",
   "affinity",
   "verified",
-  "tags"
+  "homepage",
+  "github",
+  "tags",
+  "image"
+];
+const headerMetadataKeys = [
+  "title",
+  "description",
+  "author",
+  "version",
+  "affinity",
+  "verified",
+  "homepage",
+  "github",
+  "tags",
+  "image"
 ];
 
 function idFromFileName(fileName) {
@@ -43,7 +55,7 @@ function parseHeader(source) {
     if (!match) continue;
 
     const [, key, value = ""] = match;
-    if (metadataKeys.includes(key)) metadata[key] = value.trim();
+    if (parseableMetadataKeys.includes(key)) metadata[key] = value.trim();
   }
 
   return metadata;
@@ -71,20 +83,19 @@ function stripMetadataHeader(source) {
 
 function buildHeader(fileName, metadata) {
   const values = {
-    id: metadata.id || idFromFileName(fileName),
     title: metadata.title || titleFromFileName(fileName),
     description: metadata.description || "",
-    image: metadata.image || "",
     author: metadata.author || "",
-    homepage: metadata.homepage || "",
-    github: metadata.github || "",
     version: metadata.version || "",
     affinity: metadata.affinity || "",
     verified: metadata.verified || "",
-    tags: metadata.tags || ""
+    homepage: metadata.homepage || "",
+    github: metadata.github || "",
+    tags: metadata.tags || "",
+    image: metadata.image || ""
   };
 
-  return `${metadataKeys.map((key) => `// @${key} ${values[key]}`).join("\n")}\n\n`;
+  return `${headerMetadataKeys.map((key) => `// @${key} ${values[key]}`).join("\n")}\n\n`;
 }
 
 async function main() {

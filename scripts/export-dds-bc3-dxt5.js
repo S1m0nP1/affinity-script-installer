@@ -1,14 +1,13 @@
-// @id export-dds-bc3-dxt5
 // @title Export DDS
 // @description Exports the current Affinity document as a DDS file using BC3/DXT5 compression with auto-generated mipmaps.
-// @image 
 // @author jeffthor10
-// @homepage 
-// @github 
 // @version 1.0.0
 // @affinity 
 // @verified 
+// @homepage 
+// @github 
 // @tags 
+// @image 
 
 /**
  * name: Export DDS

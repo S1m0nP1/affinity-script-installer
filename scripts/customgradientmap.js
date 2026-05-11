@@ -1,14 +1,13 @@
-// @id customgradientmap
 // @title Custom Gradient Map
 // @description Creates a custom gradient map based on a selected gradient swatch.
-// @image 
 // @author RE4LLY
-// @homepage 
-// @github 
 // @version 1.0
 // @affinity 
 // @verified 
+// @homepage 
+// @github 
 // @tags 
+// @image 
 
 /**
  * name: Custom Gradient Map v1

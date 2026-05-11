@@ -1,14 +1,13 @@
-// @id create-carroussel
 // @title Create Carroussel
 // @description Creates a new single document ready for a Carroussel image, with X panels divided with Guidelines.
-// @image 
 // @author rbonelli
-// @homepage 
-// @github 
 // @version 1.0.0
 // @affinity 
 // @verified 
+// @homepage 
+// @github 
 // @tags 
+// @image 
 
 'use strict';
 

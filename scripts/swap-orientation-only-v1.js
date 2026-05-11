@@ -1,14 +1,13 @@
-// @id swap-orientation-only-v1
 // @title Swap Orientation Only
 // @description The script swaps the position and rotation of 2 selected objects or groups, while keeping their size unchanged. Select exactly 2 objects or groups, then run the script.
-// @image 
 // @author BlackMortimer-13
-// @homepage 
-// @github 
 // @version 1.0.0
 // @affinity 
 // @verified 
+// @homepage 
+// @github 
 // @tags 
+// @image 
 
 'use strict';
 

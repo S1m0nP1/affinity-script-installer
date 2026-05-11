@@ -1,14 +1,13 @@
-// @id randomizeobjects
 // @title Randomize Objects
 // @description Randomization of size, position, rotation, skew, opacity, color, and stroke of selected objects.
-// @image 
 // @author zaum
-// @homepage 
-// @github 
 // @version 1.0.0
 // @affinity 
 // @verified 
+// @homepage 
+// @github 
 // @tags 
+// @image 
 
 /**
 name: Randomize Objects

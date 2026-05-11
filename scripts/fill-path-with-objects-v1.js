@@ -1,14 +1,13 @@
-// @id fill-path-with-objects-v1
 // @title Fill Path With Objects
 // @description This script fills a selected closed vector path with multiple copies of one or more template objects. It supports different grid types (rectangular, hex, circular, radial, etc.), randomization, scaling, rotation, and spacing controls. Select a closed path and objects, adjust settings, then preview or apply.
-// @image 
 // @author BlackMortimer-13
-// @homepage 
-// @github 
 // @version 1.0.0
 // @affinity 
 // @verified 
+// @homepage 
+// @github 
 // @tags 
+// @image 
 
 'use strict';
 // FILL PATH WITH OBJECTS v1.7

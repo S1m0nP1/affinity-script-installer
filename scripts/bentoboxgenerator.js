@@ -1,14 +1,13 @@
-// @id bentoboxgenerator
 // @title Bento Box Generator
 // @description Generates Bento Grid/Box on the current page/artboard
-// @image 
 // @author JiriKrblich
-// @homepage 
-// @github 
 // @version 1.0
 // @affinity 
 // @verified 
+// @homepage 
+// @github 
 // @tags 
+// @image 
 
 /**
  * name: Bento Box generator

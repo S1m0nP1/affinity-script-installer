@@ -1,14 +1,13 @@
-// @id combine4braille-affinity
 // @title Combine Text For Braille Output
 // @description When you intend to send a copy of your work to a blind person, it can take a lot of time to merge all the text boxes over many pages into one Word file. This Claude generated script starts at the beginning of the document and collects all the text from the text boxes and merges it into a txt file on your desktop. This can then be opened in Word for final processing before sending to Braille.
-// @image 
 // @author BaconThatsIt
-// @homepage 
-// @github 
 // @version 1.0.0
 // @affinity 
 // @verified 
+// @homepage 
+// @github 
 // @tags 
+// @image 
 
 /**
  * combine4braille_affinity.js

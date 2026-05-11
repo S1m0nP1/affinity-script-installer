@@ -1,14 +1,13 @@
-// @id generatecropmarks
 // @title Generate Crop Marks
 // @description Automatically generate 5mm corner crops and internal grid ticks with a 2mm offset for any selection in Affinity, placing them on a dedicated 0.25pt locked production layer
-// @image images/GenerateCropMarks.png
 // @author sakura
-// @homepage https://s1m0np1.github.io/affinity-script-installer/
-// @github https://github.com/S1m0nP1/affinity-script-installer
 // @version 1.0.0
 // @affinity 3.2+
 // @verified true
+// @homepage https://s1m0np1.github.io/affinity-script-installer/
+// @github https://github.com/S1m0nP1/affinity-script-installer
 // @tags print
+// @image images/GenerateCropMarks.png
 
 "use strict";
 

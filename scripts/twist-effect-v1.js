@@ -1,14 +1,13 @@
-// @id twist-effect-v1
 // @title Twist Effect
 // @description This script applies a progressive polar rotation (twist) to selected curves, shapes, or groups, mimicking Adobe Illustrator's twist effect. Select your vector elements first; the script subdivides Bezier curves, twists points radially based on distance from the center, and reconstructs the path.
-// @image 
 // @author BlackMortimer-13
-// @homepage 
-// @github 
 // @version 1.0.0
 // @affinity 
 // @verified 
+// @homepage 
+// @github 
 // @tags 
+// @image 
 
 'use strict';
 

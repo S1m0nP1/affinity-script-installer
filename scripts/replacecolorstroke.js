@@ -1,14 +1,13 @@
-// @id replacecolorstroke
 // @title ReplaceStrokeColor
 // @description Allows users to quickly change the stroke color or gradients of selected shapes.
-// @image 
 // @author BlackMortimer-13
-// @homepage 
-// @github 
 // @version 1.0
 // @affinity 
 // @verified 
+// @homepage 
+// @github 
 // @tags 
+// @image 
 
 "use strict";
 

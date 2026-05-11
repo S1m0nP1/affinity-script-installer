@@ -1,14 +1,13 @@
-// @id separate-fill-and-stroke
 // @title SeparateFill&Stroke
 // @description Separates combined fill and stroke appearances into independent objects for easier editing and output control.
-// @image 
 // @author BlackMortimer-13
-// @homepage 
-// @github 
 // @version 1.0.0
 // @affinity 
 // @verified 
+// @homepage 
+// @github 
 // @tags 
+// @image 
 
 'use strict';
 const { Document } = require('/document');

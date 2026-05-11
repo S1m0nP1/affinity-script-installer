@@ -1,14 +1,13 @@
-// @id dithering
 // @title Dithering
 // @description Adjustable halftone dithering effect with 12 dithering algorithms.
-// @image 
 // @author bitmancer
-// @homepage 
-// @github 
 // @version 1.0
 // @affinity 
 // @verified 
+// @homepage 
+// @github 
 // @tags 
+// @image 
 
 /**
  * name: Dithering

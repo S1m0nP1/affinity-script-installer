@@ -1,14 +1,13 @@
-// @id vector-lathe-revolve-v1
 // @title Vector Lathe (Revolve)
 // @description This script revolves a selected vector path into a lathe-style 3D form. Select one path first, then run it; the script creates the revolved geometry, applies shading, and organizes the result into containers for visible faces and caps.
-// @image 
 // @author BlackMortimer-13
-// @homepage 
-// @github 
 // @version 1.0.0
 // @affinity 
 // @verified 
+// @homepage 
+// @github 
 // @tags 
+// @image 
 
 // Vector Lathe (Revolve) v11
 // Changes vs v10:

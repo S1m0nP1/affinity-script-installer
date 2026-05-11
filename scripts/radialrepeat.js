@@ -1,14 +1,13 @@
-// @id radialrepeat
 // @title RadialRepeat
 // @description Creates a radial repeat from the selected object(s) by duplicating the selection evenly around a central point in a circular pattern.
-// @image 
 // @author BlackMortimer-13
-// @homepage 
-// @github 
 // @version 4.1
 // @affinity 
 // @verified 
+// @homepage 
+// @github 
 // @tags 
+// @image 
 
 "use strict";
 

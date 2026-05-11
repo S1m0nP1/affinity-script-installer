@@ -1,14 +1,13 @@
-// @id split-to-grid
 // @title Split to grid
 // @description Split vector object into n*n grid
-// @image 
 // @author JiriKrblich
-// @homepage 
-// @github 
 // @version 1.0.0
 // @affinity 
 // @verified 
+// @homepage 
+// @github 
 // @tags 
+// @image 
 
 'use strict';
 const { Document }             = require('/document');

@@ -1,14 +1,13 @@
-// @id tile-generator
 // @title Tile Generator
 // @description This script generates tile-based patterns from a selected object. It supports multiple layout styles, including a basic grid, brick offset, half-drop, diamond, hexagonal, radial burst, spiral, wave, pinwheel, and random scatter. It also includes progressive hue shifting, which reads the source object’s solid fill color and shifts the hue across all tiles, for example by 180° to create complementary colors.
-// @image 
 // @author S1m0nP1
-// @homepage 
-// @github 
 // @version 1.0.0
 // @affinity 
 // @verified 
+// @homepage 
+// @github 
 // @tags 
+// @image 
 
 /**
  * name: Tile Generator

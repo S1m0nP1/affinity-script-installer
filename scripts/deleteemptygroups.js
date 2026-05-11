@@ -1,14 +1,13 @@
-// @id deleteemptygroups
 // @title DeleteEmptyGroups
 // @description Deletes empty groups left behind by the user.
-// @image 
 // @author BlackMortimer-13
-// @homepage 
-// @github 
 // @version 1.0
 // @affinity 
 // @verified 
+// @homepage 
+// @github 
 // @tags 
+// @image 
 
 // Delete Empty Groups, Folders & Containers
 // Scans all spreads and deletes empty groups, folders, and containers.

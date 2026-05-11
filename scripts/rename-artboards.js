@@ -1,14 +1,13 @@
-// @id rename-artboards
 // @title Artboard Batch Renamer
 // @description Renames all artboards in the current document in bulk. When executed, a dialog prompts for a base name, which is then applied to all artboards with automatic sequential numbering and zero-padding — ensuring correct alphabetical sort order when exporting files (e.g., Name 01, Name 02... instead of Name 1, Name 2). For 100+ artboards, padding adjusts to 3 digits automatically. If only one artboard exists, no number is appended.
-// @image 
 // @author Heitor Hatherly
-// @homepage 
-// @github 
 // @version 1.0.0
 // @affinity 
 // @verified 
+// @homepage 
+// @github 
 // @tags 
+// @image 
 
 /**
  * name: Rename Artboards

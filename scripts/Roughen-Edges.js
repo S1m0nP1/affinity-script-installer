@@ -1,14 +1,13 @@
-// @id roughen-edges
 // @title Roughen Edges
 // @description Rough up vector paths with controls over amplitute, frequency, noise etc.
-// @image 
 // @author Nic Kraneis
-// @homepage 
-// @github 
 // @version 1.0.0
 // @affinity 
 // @verified 
+// @homepage 
+// @github 
 // @tags 
+// @image 
 
 /**
 name: Roughen Paths

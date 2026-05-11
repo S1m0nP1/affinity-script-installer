@@ -1,14 +1,13 @@
-// @id crack-and-explode
 // @title Crack and Explode
 // @description Create radial cracks in the shape and explode it.
-// @image 
 // @author rbonelli
-// @homepage 
-// @github 
 // @version 1.0.0
 // @affinity 
 // @verified 
+// @homepage 
+// @github 
 // @tags 
+// @image 
 
 'use strict';
 const { Document }             = require('/document');

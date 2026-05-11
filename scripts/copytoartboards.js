@@ -1,14 +1,13 @@
-// @id copytoartboards
 // @title Copy to artboards
 // @description Duplicates selected object(s) onto every other artboard in the document
-// @image 
 // @author BlackMortimer-13
-// @homepage 
-// @github 
 // @version 1.0
 // @affinity 
 // @verified 
+// @homepage 
+// @github 
 // @tags 
+// @image 
 
 'use strict';
 

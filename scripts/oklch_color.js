@@ -1,14 +1,13 @@
-// @id oklch-color
 // @title OKLCH Color
 // @description Edit, paste and save OKLCH colors.
-// @image 
 // @author JiriKrblich
-// @homepage 
-// @github 
 // @version 1.0.0
 // @affinity 
 // @verified 
+// @homepage 
+// @github 
 // @tags 
+// @image 
 
 'use strict';
 

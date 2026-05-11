@@ -1,14 +1,13 @@
-// @id swapobjectsbycenter
 // @title Swap objects by center
 // @description Swap the locations of two selected objects by their center points.
-// @image 
 // @author daani-rika
-// @homepage 
-// @github 
 // @version 2.0
 // @affinity 
 // @verified 
+// @homepage 
+// @github 
 // @tags 
+// @image 
 
 /**
  * name: Swap objects by center

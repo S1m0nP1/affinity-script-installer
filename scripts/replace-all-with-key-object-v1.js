@@ -1,14 +1,13 @@
-// @id replace-all-with-key-object-v1
 // @title ReplaceAllwithKeyObject
 // @description The script replaces all selected objects with duplicates of the key object (select 2 objects then press Option on Mac or Alt on Windows on the object you want to become the key object), while preserving position and rotation, with optional size matching.
-// @image 
 // @author BlackMortimer-13
-// @homepage 
-// @github 
 // @version 1.0.0
 // @affinity 
 // @verified 
+// @homepage 
+// @github 
 // @tags 
+// @image 
 
 'use strict';
 // === Replace All with Key Object v19 ===

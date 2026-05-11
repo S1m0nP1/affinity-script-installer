@@ -1,14 +1,13 @@
-// @id smart-jpeg-export
 // @title Smart JPEG export
 // @description Exports all/selected artboards, spreads or docs with max. size limit
-// @image 
 // @author JiriKrblich
-// @homepage 
-// @github 
 // @version 1.0
 // @affinity 
 // @verified 
+// @homepage 
+// @github 
 // @tags 
+// @image 
 
 /**
  * name: Smart JPEG Export

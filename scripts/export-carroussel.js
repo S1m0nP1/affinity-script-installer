@@ -1,14 +1,13 @@
-// @id export-carroussel
 // @title Export Carroussel
 // @description Export a single document as individual panels of a specified size.
-// @image 
 // @author rbonelli
-// @homepage 
-// @github 
 // @version 1.1.0
 // @affinity 
 // @verified 
+// @homepage 
+// @github 
 // @tags 
+// @image 
 
 'use strict';
 const { Document, FileExportOptions, FileExportArea } = require('/document');

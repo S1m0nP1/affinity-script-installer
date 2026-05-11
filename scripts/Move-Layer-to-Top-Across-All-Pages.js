@@ -1,14 +1,13 @@
-// @id move-layer-to-top-across-all-pages
 // @title Move Layer to Top Across All Pages
 // @description Select a layer, then run this script. It finds all layers with the same name across every page/spread and moves them to the top of the layer stack.
-// @image 
 // @author hrum
-// @homepage 
-// @github 
 // @version 1.0.0
 // @affinity 
 // @verified 
+// @homepage 
+// @github 
 // @tags 
+// @image 
 
 const { Document } = require("/document");
 const { DocumentCommand } = require("/commands");

@@ -1,14 +1,13 @@
-// @id toggle-layer-visibility-across-all-pages
 // @title Toggle Layer Visibility Across All Pages
 // @description Layer States alternative. Select a layer, then run this script. It reads the layer's name and current visibility, then toggles all layers with the same name across every page/spread.
-// @image 
 // @author hrum
-// @homepage 
-// @github 
 // @version 1.0.0
 // @affinity 
 // @verified 
+// @homepage 
+// @github 
 // @tags 
+// @image 
 
 const { Document } = require("/document");
 const { DocumentCommand } = require("/commands");

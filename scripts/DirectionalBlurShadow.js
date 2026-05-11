@@ -1,14 +1,13 @@
-// @id directionalblurshadow
 // @title Directional Blur Shadow
 // @description Directional Blur Shadow creates a directional shadow of an object that progressively blurs, fades and tapers as it moves away from the object.
-// @image 
 // @author rbonelli
-// @homepage 
-// @github 
 // @version 1.0.0
 // @affinity 
 // @verified 
+// @homepage 
+// @github 
 // @tags 
+// @image 
 
 // =====================================================================
 // DIRECTIONAL BLUR SHADOW

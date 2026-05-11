@@ -1,14 +1,13 @@
-// @id hangingcharsandprepositions
 // @title Hanging chars and prepositions
 // @description Replaces spaces after lone single characters or prepositions with non-breaking spaces (for slavic languages). Based on initial script by JiriKrblich
-// @image 
 // @author nodeus
-// @homepage 
-// @github 
 // @version 1.0
 // @affinity 
 // @verified 
+// @homepage 
+// @github 
 // @tags 
+// @image 
 
 /**
 

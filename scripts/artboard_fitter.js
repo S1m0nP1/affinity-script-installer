@@ -1,14 +1,13 @@
-// @id artboard-fitter
 // @title Artboard Fitter
 // @description Resizes artboards based on content with custom padding and axis selection (Height, Width, or Both). Automatically groups elements, centers them, and maintains proportions without distortion regardless of DPI.
-// @image 
 // @author Heitor Hatherly
-// @homepage 
-// @github 
 // @version 1.0.0
 // @affinity 
 // @verified 
+// @homepage 
+// @github 
 // @tags 
+// @image 
 
 /**
  * Script Name: Artboard Fitter

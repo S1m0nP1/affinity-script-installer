@@ -1,14 +1,13 @@
-// @id pattern-maker
 // @title Pattern Maker
 // @description Create patterns from an object. Supports brick and drop patterns.
-// @image 
 // @author Nic Kraneis
-// @homepage 
-// @github 
 // @version 1.0.0
 // @affinity 
 // @verified 
+// @homepage 
+// @github 
 // @tags 
+// @image 
 
 /**
 name: Pattern Maker

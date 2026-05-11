@@ -1,14 +1,13 @@
-// @id arrange-on-path-v1
 // @title Arrange on Path
 // @description Distributes selected objects evenly along auto-detected vector paths, with support for multiple paths, randomization, interpolation, smart sorting, open/closed paths, and repeat mode for tiling objects along the path.
-// @image 
 // @author BlackMortimer-13
-// @homepage 
-// @github 
 // @version 1.0.0
 // @affinity 
 // @verified 
+// @homepage 
+// @github 
 // @tags 
+// @image 
 
 'use strict';
 // ARRANGE ON PATH v2.7

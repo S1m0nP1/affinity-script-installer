@@ -1,14 +1,13 @@
-// @id zigzageffect
 // @title Zig Zag Effect
 // @description This script transforms a selected shape or line into a zig zag pattern. Simply select a shape or path, run the script, and it will automatically apply a zig zag effect to it.
-// @image 
 // @author BlackMortimer-13
-// @homepage 
-// @github 
 // @version 1.0
 // @affinity 
 // @verified 
+// @homepage 
+// @github 
 // @tags 
+// @image 
 
 'use strict';
 
