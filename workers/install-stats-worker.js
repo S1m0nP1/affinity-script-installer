@@ -36,7 +36,7 @@ export default {
     if (request.method === "GET" && (url.pathname === "/" || url.pathname === "/health")) {
       return json({
         ok: true,
-        service: "Affinity Script Installer stats",
+        service: "Affinity Hub stats",
         endpoints: {
           stats: "/stats",
           install: "/install"
