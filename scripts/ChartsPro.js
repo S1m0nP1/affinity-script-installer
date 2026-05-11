@@ -1,14 +1,14 @@
+// @id chartspro
 // @title ChartsPro
-// @description Create charts from CSV files 
+// @description Create charts from CSV files
+// @image images/ChartsPro.png
 // @author S1m0nP1 based on a script by OurielMak
+// @homepage https://s1m0np1.github.io/affinity-script-installer/
+// @github https://github.com/S1m0nP1/affinity-script-installer
 // @version 1.0.0
 // @affinity 3.2+
 // @verified true
-// @homepage https://s1m0np1.github.io/affinity-script-installer/
-// @github https://github.com/S1m0nP1/affinity-script-installer
 // @tags utility
-// @image images/ChartsPro.png
-
 
 "use strict";
 
