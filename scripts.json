@@ -217,7 +217,7 @@
       "title": "Dithering",
       "description": "Adjustable halftone dithering effect with 12 dithering algorithms.",
       "path": "scripts/dithering.js",
-      "image": "",
+      "image": "images/dither.png",
       "author": "bitmancer",
       "homepage": "",
       "github": "",

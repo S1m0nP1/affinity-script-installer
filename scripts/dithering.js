@@ -7,7 +7,7 @@
 // @homepage 
 // @github 
 // @tags 
-// @image 
+// @image images/dither.png
 
 /**
  * name: Dithering
