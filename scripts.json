@@ -61,7 +61,7 @@
       "title": "Bento Box Generator",
       "description": "Generates Bento Grid/Box on the current page/artboard",
       "path": "scripts/bentoboxgenerator.js",
-      "image": "",
+      "image": "images/bento.png",
       "author": "JiriKrblich",
       "homepage": "",
       "github": "",
