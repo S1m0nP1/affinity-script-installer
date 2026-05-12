@@ -5,6 +5,11 @@ const corsHeaders = {
   "Access-Control-Max-Age": "86400"
 };
 
+const countsKey = "install_counts";
+const legacyPrefix = "install:";
+const statsCacheTtlMs = 60000;
+let statsCache = null;
+
 function json(data, status = 200) {
   return new Response(JSON.stringify(data), {
     status,
@@ -19,6 +24,78 @@ function cleanScriptId(value) {
   const id = String(value || "").trim();
   if (!/^[a-z0-9][a-z0-9._-]{0,120}$/i.test(id)) return "";
   return id;
+}
+
+function normalizeCounts(value) {
+  if (!value || typeof value !== "object" || Array.isArray(value)) return {};
+  return Object.fromEntries(
+    Object.entries(value)
+      .map(([key, count]) => [cleanScriptId(key), Number(count || 0)])
+      .filter(([key, count]) => key && Number.isFinite(count) && count > 0)
+  );
+}
+
+async function getStoredCounts(kv) {
+  const stored = await kv.get(countsKey, "json");
+  return normalizeCounts(stored);
+}
+
+async function readLegacyCounts(kv) {
+  const counts = {};
+  let cursor;
+
+  do {
+    const list = await kv.list({ prefix: legacyPrefix, cursor });
+    await Promise.all(
+      list.keys.map(async (key) => {
+        const scriptId = cleanScriptId(key.name.slice(legacyPrefix.length));
+        if (!scriptId) return;
+        const value = await kv.get(key.name);
+        const count = Number(value || 0);
+        if (Number.isFinite(count) && count > 0) counts[scriptId] = count;
+      })
+    );
+    cursor = list.list_complete ? undefined : list.cursor;
+  } while (cursor);
+
+  return counts;
+}
+
+async function getCounts(kv) {
+  if (statsCache && Date.now() - statsCache.createdAt < statsCacheTtlMs) {
+    return statsCache.counts;
+  }
+
+  let counts = await getStoredCounts(kv);
+
+  if (!Object.keys(counts).length) {
+    counts = await readLegacyCounts(kv);
+    if (Object.keys(counts).length) {
+      await kv.put(countsKey, JSON.stringify(counts));
+    }
+  }
+
+  statsCache = {
+    createdAt: Date.now(),
+    counts
+  };
+
+  return counts;
+}
+
+async function incrementCount(kv, scriptId) {
+  let counts = await getStoredCounts(kv);
+  if (!Object.keys(counts).length) {
+    counts = await readLegacyCounts(kv);
+  }
+  const installs = Number(counts[scriptId] || 0) + 1;
+  counts[scriptId] = installs;
+  await kv.put(countsKey, JSON.stringify(counts));
+  statsCache = {
+    createdAt: Date.now(),
+    counts
+  };
+  return installs;
 }
 
 export default {
@@ -45,16 +122,7 @@ export default {
     }
 
     if (request.method === "GET" && url.pathname === "/stats") {
-      const list = await env.SCRIPT_INSTALLS.list({ prefix: "install:" });
-      const counts = {};
-
-      await Promise.all(
-        list.keys.map(async (key) => {
-          const value = await env.SCRIPT_INSTALLS.get(key.name);
-          counts[key.name.slice("install:".length)] = Number(value || 0);
-        })
-      );
-
+      const counts = await getCounts(env.SCRIPT_INSTALLS);
       return json({ counts });
     }
 
@@ -69,11 +137,7 @@ export default {
       const scriptId = cleanScriptId(body.scriptId);
       if (!scriptId) return json({ error: "Invalid scriptId" }, 400);
 
-      const key = `install:${scriptId}`;
-      const current = Number((await env.SCRIPT_INSTALLS.get(key)) || 0);
-      const installs = current + 1;
-      await env.SCRIPT_INSTALLS.put(key, String(installs));
-
+      const installs = await incrementCount(env.SCRIPT_INSTALLS, scriptId);
       return json({ scriptId, installs });
     }
 
