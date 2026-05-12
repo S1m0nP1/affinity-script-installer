@@ -77,3 +77,32 @@ Then serve the site locally and switch between `EN`, `ES`, `FR`, and `DE` to con
 - Make sure the thumbnail loads and is not huge.
 - Make sure the install title/description fields use the selected language.
 - Set `verified` to `true` only after the script has been reviewed and tested.
+
+## 7. Commit and publish
+
+Check what changed:
+
+```sh
+git status --short
+git diff --stat
+```
+
+Stage the script, manifest, thumbnail, and any docs:
+
+```sh
+git add scripts/my-script-name.js scripts.json images/my-script-name.png SCRIPT_SUBMISSION_PROCESS.md
+```
+
+Commit with a short message:
+
+```sh
+git commit -m "Add My Script Name"
+```
+
+Push to GitHub:
+
+```sh
+git push origin main
+```
+
+After pushing, check the GitHub Pages site once it has deployed.
