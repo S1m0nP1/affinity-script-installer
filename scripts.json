@@ -1422,6 +1422,7 @@
       "version": "1.0",
       "affinity": "",
       "verified": false,
+      "tags": [],
       "translations": {
         "es": {
           "title": "Efecto zig zag",
@@ -1435,8 +1436,7 @@
           "title": "Zickzack-Effekt",
           "description": "Dieses Script verwandelt eine ausgewaehlte Form oder Linie in ein Zickzack-Muster. Waehle eine Form oder einen Pfad aus, fuehre das Script aus, und der Effekt wird automatisch angewendet."
         }
-      },
-      "tags": []
+      }
     }
   ]
 }

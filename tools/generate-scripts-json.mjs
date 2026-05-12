@@ -99,7 +99,8 @@ async function main() {
           ? metadata.tags
           : Array.isArray(previous?.tags)
             ? previous.tags
-            : []
+            : [],
+        ...(previous?.translations ? { translations: previous.translations } : {})
       };
     });
   const resolvedScripts = await Promise.all(scripts);
