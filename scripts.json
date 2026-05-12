@@ -12,7 +12,21 @@
       "version": "1.0.0",
       "affinity": "",
       "verified": false,
-      "tags": []
+      "tags": [],
+      "translations": {
+        "es": {
+          "title": "Diversion 3D",
+          "description": "Primitivas 3D simuladas, solo por diversion. Puede que anada mas si hay interes."
+        },
+        "fr": {
+          "title": "Amusement 3D",
+          "description": "Primitives 3D simulees, juste pour le plaisir. D autres options pourront etre ajoutees s il y a de l interet."
+        },
+        "de": {
+          "title": "3D-Spass",
+          "description": "Faux-3D-Grundformen, einfach zum Ausprobieren. Bei Interesse kommen spaeter vielleicht mehr dazu."
+        }
+      }
     },
     {
       "id": "affinity-style-consistency-checker",
@@ -26,7 +40,21 @@
       "version": "1.0.1",
       "affinity": "",
       "verified": false,
-      "tags": []
+      "tags": [],
+      "translations": {
+        "es": {
+          "title": "Comprobador de consistencia de estilos",
+          "description": "Mantiene la consistencia del diseno inspeccionando y reasignando fuentes, tamanos y grosores de trazo. Tambien incluye una herramienta para limpiar nodos invisibles sobrantes."
+        },
+        "fr": {
+          "title": "Verificateur de coherence des styles",
+          "description": "Aide a maintenir la coherence du design en inspectant et remappant les polices, tailles et epaisseurs de contour. Inclut aussi un outil pour nettoyer les noeuds invisibles."
+        },
+        "de": {
+          "title": "Style-Konsistenzpruefer",
+          "description": "Hilft, Designkonsistenz zu bewahren, indem Schriftarten, Groessen und Konturstaerken geprueft und neu zugeordnet werden. Entfernt auch unsichtbare Restknoten."
+        }
+      }
     },
     {
       "id": "arrange-on-path-v1",
@@ -40,7 +68,21 @@
       "version": "1.0.0",
       "affinity": "",
       "verified": false,
-      "tags": []
+      "tags": [],
+      "translations": {
+        "es": {
+          "title": "Organizar en trazado",
+          "description": "Distribuye objetos seleccionados de forma uniforme por trazados vectoriales detectados automaticamente, con soporte para multiples trazados, aleatorizacion, interpolacion, ordenacion inteligente, trazados abiertos o cerrados y modo de repeticion."
+        },
+        "fr": {
+          "title": "Disposer sur un trace",
+          "description": "Repartit les objets selectionnes le long de traces vectoriels detectes automatiquement, avec prise en charge de plusieurs traces, de la randomisation, de l interpolation, du tri intelligent, des traces ouverts ou fermes et du mode repetition."
+        },
+        "de": {
+          "title": "Auf Pfad anordnen",
+          "description": "Verteilt ausgewaehlte Objekte gleichmaessig entlang automatisch erkannter Vektorpfade, mit Unterstuetzung fuer mehrere Pfade, Zufall, Interpolation, intelligentes Sortieren, offene oder geschlossene Pfade und Wiederholmodus."
+        }
+      }
     },
     {
       "id": "artboard-fitter",
@@ -54,7 +96,21 @@
       "version": "1.0.0",
       "affinity": "",
       "verified": false,
-      "tags": []
+      "tags": [],
+      "translations": {
+        "es": {
+          "title": "Ajustador de mesas de trabajo",
+          "description": "Redimensiona mesas de trabajo segun el contenido, con relleno personalizado y seleccion de ejes. Agrupa y centra elementos automaticamente y mantiene proporciones sin distorsion."
+        },
+        "fr": {
+          "title": "Ajusteur de plans de travail",
+          "description": "Redimensionne les plans de travail selon le contenu, avec marge personnalisee et choix des axes. Regroupe et centre automatiquement les elements tout en conservant les proportions."
+        },
+        "de": {
+          "title": "Artboard-Anpasser",
+          "description": "Passt Artboards anhand des Inhalts an, mit eigenem Abstand und Achsenauswahl. Gruppiert und zentriert Elemente automatisch und erhaelt Proportionen ohne Verzerrung."
+        }
+      }
     },
     {
       "id": "bentoboxgenerator",
@@ -68,7 +124,21 @@
       "version": "1.0",
       "affinity": "",
       "verified": false,
-      "tags": []
+      "tags": [],
+      "translations": {
+        "es": {
+          "title": "Generador Bento Box",
+          "description": "Genera una cuadricula o caja Bento en la pagina o mesa de trabajo actual."
+        },
+        "fr": {
+          "title": "Generateur Bento Box",
+          "description": "Genere une grille ou boite Bento sur la page ou le plan de travail actif."
+        },
+        "de": {
+          "title": "Bento-Box-Generator",
+          "description": "Erzeugt ein Bento-Raster oder eine Bento-Box auf der aktuellen Seite oder dem aktuellen Artboard."
+        }
+      }
     },
     {
       "id": "blendtool",
@@ -82,7 +152,21 @@
       "version": "9.0",
       "affinity": "",
       "verified": false,
-      "tags": []
+      "tags": [],
+      "translations": {
+        "es": {
+          "title": "Herramienta de mezcla",
+          "description": "Selecciona 2 objetos vectoriales y ejecuta el script. Admite un trazado como tercer objeto."
+        },
+        "fr": {
+          "title": "Outil de fusion",
+          "description": "Selectionnez 2 objets vectoriels, puis lancez le script. Prend en charge un trace comme troisieme objet."
+        },
+        "de": {
+          "title": "Blend-Werkzeug",
+          "description": "Waehle 2 Vektorobjekte aus und fuehre das Script aus. Ein Pfad kann als drittes Objekt verwendet werden."
+        }
+      }
     },
     {
       "id": "chartspro",
@@ -98,7 +182,21 @@
       "verified": true,
       "tags": [
         "utility"
-      ]
+      ],
+      "translations": {
+        "es": {
+          "title": "ChartsPro",
+          "description": "Crea graficos desde archivos CSV."
+        },
+        "fr": {
+          "title": "ChartsPro",
+          "description": "Cree des graphiques a partir de fichiers CSV."
+        },
+        "de": {
+          "title": "ChartsPro",
+          "description": "Erstellt Diagramme aus CSV-Dateien."
+        }
+      }
     },
     {
       "id": "combine4braille-affinity",
@@ -112,7 +210,21 @@
       "version": "1.0.0",
       "affinity": "",
       "verified": false,
-      "tags": []
+      "tags": [],
+      "translations": {
+        "es": {
+          "title": "Combinar texto para salida Braille",
+          "description": "Recopila los textos de muchas cajas de texto y los combina en un archivo TXT en el escritorio para prepararlos en Word antes de enviarlos a Braille."
+        },
+        "fr": {
+          "title": "Combiner le texte pour sortie Braille",
+          "description": "Recupere les textes de nombreuses zones de texte et les fusionne dans un fichier TXT sur le bureau pour finalisation dans Word avant envoi en Braille."
+        },
+        "de": {
+          "title": "Text fuer Braille-Ausgabe kombinieren",
+          "description": "Sammelt Texte aus vielen Textrahmen und fuehrt sie in einer TXT-Datei auf dem Desktop zusammen, damit sie vor der Braille-Ausgabe in Word vorbereitet werden koennen."
+        }
+      }
     },
     {
       "id": "copytoartboards",
@@ -126,7 +238,21 @@
       "version": "1.0",
       "affinity": "",
       "verified": false,
-      "tags": []
+      "tags": [],
+      "translations": {
+        "es": {
+          "title": "Copiar a mesas de trabajo",
+          "description": "Duplica los objetos seleccionados en todas las demas mesas de trabajo del documento."
+        },
+        "fr": {
+          "title": "Copier vers les plans de travail",
+          "description": "Duplique les objets selectionnes sur tous les autres plans de travail du document."
+        },
+        "de": {
+          "title": "Auf Artboards kopieren",
+          "description": "Dupliziert ausgewaehlte Objekte auf alle anderen Artboards im Dokument."
+        }
+      }
     },
     {
       "id": "crack-and-explode",
@@ -140,7 +266,21 @@
       "version": "1.0.0",
       "affinity": "",
       "verified": false,
-      "tags": []
+      "tags": [],
+      "translations": {
+        "es": {
+          "title": "Agrietar y explotar",
+          "description": "Crea grietas radiales en la forma y la explota."
+        },
+        "fr": {
+          "title": "Fissurer et exploser",
+          "description": "Cree des fissures radiales dans la forme et l explose."
+        },
+        "de": {
+          "title": "Aufbrechen und explodieren",
+          "description": "Erzeugt radiale Risse in der Form und laesst sie auseinanderbrechen."
+        }
+      }
     },
     {
       "id": "create-carroussel",
@@ -154,7 +294,21 @@
       "version": "1.0.0",
       "affinity": "",
       "verified": false,
-      "tags": []
+      "tags": [],
+      "translations": {
+        "es": {
+          "title": "Crear carrusel",
+          "description": "Crea un nuevo documento preparado para una imagen de carrusel, con paneles divididos mediante guias."
+        },
+        "fr": {
+          "title": "Creer un carrousel",
+          "description": "Cree un nouveau document pret pour une image de carrousel, avec des panneaux separes par des guides."
+        },
+        "de": {
+          "title": "Karussell erstellen",
+          "description": "Erstellt ein neues Dokument fuer ein Karussellbild, mit durch Hilfslinien getrennten Panels."
+        }
+      }
     },
     {
       "id": "customgradientmap",
@@ -168,7 +322,21 @@
       "version": "1.0",
       "affinity": "",
       "verified": false,
-      "tags": []
+      "tags": [],
+      "translations": {
+        "es": {
+          "title": "Mapa de degradado personalizado",
+          "description": "Crea un mapa de degradado personalizado a partir de una muestra de degradado seleccionada."
+        },
+        "fr": {
+          "title": "Carte de degrade personnalisee",
+          "description": "Cree une carte de degrade personnalisee a partir d un nuancier de degrade selectionne."
+        },
+        "de": {
+          "title": "Benutzerdefinierte Verlaufsumsetzung",
+          "description": "Erstellt eine benutzerdefinierte Verlaufsumsetzung aus einem ausgewaehlten Verlaufsfeld."
+        }
+      }
     },
     {
       "id": "deleteemptygroups",
@@ -182,7 +350,21 @@
       "version": "1.0",
       "affinity": "",
       "verified": false,
-      "tags": []
+      "tags": [],
+      "translations": {
+        "es": {
+          "title": "Eliminar grupos vacios",
+          "description": "Elimina grupos vacios que quedaron en el documento."
+        },
+        "fr": {
+          "title": "Supprimer les groupes vides",
+          "description": "Supprime les groupes vides laisses dans le document."
+        },
+        "de": {
+          "title": "Leere Gruppen loeschen",
+          "description": "Loescht leere Gruppen, die im Dokument uebrig geblieben sind."
+        }
+      }
     },
     {
       "id": "directionalblurshadow",
@@ -196,7 +378,21 @@
       "version": "1.0.0",
       "affinity": "",
       "verified": false,
-      "tags": []
+      "tags": [],
+      "translations": {
+        "es": {
+          "title": "Sombra con desenfoque direccional",
+          "description": "Crea una sombra direccional de un objeto que se desenfoca, se desvanece y se estrecha progresivamente al alejarse."
+        },
+        "fr": {
+          "title": "Ombre avec flou directionnel",
+          "description": "Cree une ombre directionnelle d un objet qui devient progressivement floue, transparente et effilee en s eloignant."
+        },
+        "de": {
+          "title": "Gerichteter Weichzeichner-Schatten",
+          "description": "Erzeugt einen gerichteten Schatten eines Objekts, der mit zunehmender Entfernung unschaerfer, transparenter und schmaler wird."
+        }
+      }
     },
     {
       "id": "distributeshapesonpaths",
@@ -210,7 +406,21 @@
       "version": "1.1.0",
       "affinity": "",
       "verified": false,
-      "tags": []
+      "tags": [],
+      "translations": {
+        "es": {
+          "title": "Distribuir formas en trazados",
+          "description": "Coloca copias de capas objetivo a lo largo de formas o trazados vectoriales seleccionados. Permite elegir la capa por nombre y admite modos de insercion en trazado, centro, nodos y esquinas."
+        },
+        "fr": {
+          "title": "Distribuer des formes sur des traces",
+          "description": "Place des copies de calques cibles le long de formes ou traces vectoriels selectionnes. Permet de choisir le calque par nom et prend en charge les modes trace, centre, noeuds et coins."
+        },
+        "de": {
+          "title": "Formen auf Pfaden verteilen",
+          "description": "Platziert Kopien bestimmter Zielebenen entlang ausgewaehlter Vektorformen oder Pfade. Die Zielebene kann per Name gewaehlt werden; Pfad, Mitte, Knoten und Ecken werden unterstuetzt."
+        }
+      }
     },
     {
       "id": "dithering",
@@ -224,7 +434,21 @@
       "version": "1.0",
       "affinity": "",
       "verified": false,
-      "tags": []
+      "tags": [],
+      "translations": {
+        "es": {
+          "title": "Tramado",
+          "description": "Efecto de tramado de semitonos ajustable con 12 algoritmos de tramado."
+        },
+        "fr": {
+          "title": "Tramage",
+          "description": "Effet de tramage demi-teinte reglable avec 12 algorithmes de tramage."
+        },
+        "de": {
+          "title": "Dithering",
+          "description": "Anpassbarer Halbton-Dithering-Effekt mit 12 Dithering-Algorithmen."
+        }
+      }
     },
     {
       "id": "export-carroussel",
@@ -238,7 +462,21 @@
       "version": "1.1.0",
       "affinity": "",
       "verified": false,
-      "tags": []
+      "tags": [],
+      "translations": {
+        "es": {
+          "title": "Exportar carrusel",
+          "description": "Exporta un documento unico como paneles individuales de un tamano especificado."
+        },
+        "fr": {
+          "title": "Exporter le carrousel",
+          "description": "Exporte un document unique en panneaux individuels d une taille specifiee."
+        },
+        "de": {
+          "title": "Karussell exportieren",
+          "description": "Exportiert ein einzelnes Dokument als einzelne Panels in einer angegebenen Groesse."
+        }
+      }
     },
     {
       "id": "export-dds-bc3-dxt5",
@@ -252,7 +490,21 @@
       "version": "1.0.0",
       "affinity": "",
       "verified": false,
-      "tags": []
+      "tags": [],
+      "translations": {
+        "es": {
+          "title": "Exportar DDS",
+          "description": "Exporta el documento actual de Affinity como archivo DDS usando compresion BC3/DXT5 con mipmaps generados automaticamente."
+        },
+        "fr": {
+          "title": "Exporter DDS",
+          "description": "Exporte le document Affinity actuel en fichier DDS avec compression BC3/DXT5 et mipmaps generes automatiquement."
+        },
+        "de": {
+          "title": "DDS exportieren",
+          "description": "Exportiert das aktuelle Affinity-Dokument als DDS-Datei mit BC3/DXT5-Kompression und automatisch erzeugten Mipmaps."
+        }
+      }
     },
     {
       "id": "extrudetool",
@@ -266,7 +518,21 @@
       "version": "2.0.0",
       "affinity": "",
       "verified": false,
-      "tags": []
+      "tags": [],
+      "translations": {
+        "es": {
+          "title": "Herramienta de extrusion",
+          "description": "Genera un efecto de extrusion similar a 3D conectando formas vectoriales seleccionadas, calculando y organizando las caras resultantes mientras conserva las formas originales como tapas."
+        },
+        "fr": {
+          "title": "Outil d extrusion",
+          "description": "Genere un effet d extrusion de type 3D en reliant les formes vectorielles selectionnees, puis calcule et organise les faces obtenues tout en conservant les formes d origine comme bouchons."
+        },
+        "de": {
+          "title": "Extrude-Werkzeug",
+          "description": "Erzeugt einen 3D-aehnlichen Extrusionseffekt, indem ausgewaehlte Vektorformen verbunden werden; die entstehenden Flaechen werden berechnet und organisiert, waehrend Originalformen als Kappen erhalten bleiben."
+        }
+      }
     },
     {
       "id": "fill-path-with-objects-v1",
@@ -280,7 +546,21 @@
       "version": "1.0.0",
       "affinity": "",
       "verified": false,
-      "tags": []
+      "tags": [],
+      "translations": {
+        "es": {
+          "title": "Rellenar trazado con objetos",
+          "description": "Rellena un trazado vectorial cerrado seleccionado con multiples copias de uno o mas objetos plantilla. Admite cuadriculas, aleatorizacion, escala, rotacion y controles de espaciado."
+        },
+        "fr": {
+          "title": "Remplir un trace avec des objets",
+          "description": "Remplit un trace vectoriel ferme selectionne avec plusieurs copies d un ou plusieurs objets modeles. Prend en charge les grilles, la randomisation, l echelle, la rotation et l espacement."
+        },
+        "de": {
+          "title": "Pfad mit Objekten fuellen",
+          "description": "Fuellt einen ausgewaehlten geschlossenen Vektorpfad mit mehreren Kopien eines oder mehrerer Vorlagenobjekte. Unterstuetzt Raster, Zufall, Skalierung, Drehung und Abstaende."
+        }
+      }
     },
     {
       "id": "generatecropmarks",
@@ -296,7 +576,21 @@
       "verified": true,
       "tags": [
         "print"
-      ]
+      ],
+      "translations": {
+        "es": {
+          "title": "Generar marcas de corte",
+          "description": "Genera automaticamente marcas de corte de esquina de 5 mm y marcas internas de cuadricula con desplazamiento de 2 mm para cualquier seleccion."
+        },
+        "fr": {
+          "title": "Generer les reperes de coupe",
+          "description": "Genere automatiquement des reperes de coupe de 5 mm et des marques internes de grille avec un decalage de 2 mm pour toute selection."
+        },
+        "de": {
+          "title": "Schnittmarken erzeugen",
+          "description": "Erzeugt automatisch 5-mm-Eckschnittmarken und interne Rastermarken mit 2-mm-Versatz fuer jede Auswahl."
+        }
+      }
     },
     {
       "id": "glitch-effect",
@@ -310,7 +604,21 @@
       "version": "1.0.0",
       "affinity": "",
       "verified": false,
-      "tags": []
+      "tags": [],
+      "translations": {
+        "es": {
+          "title": "Efecto glitch",
+          "description": "Crea un efecto glitch en un objeto vectorial."
+        },
+        "fr": {
+          "title": "Effet glitch",
+          "description": "Cree un effet glitch sur un objet vectoriel."
+        },
+        "de": {
+          "title": "Glitch-Effekt",
+          "description": "Erzeugt einen Glitch-Effekt auf einem Vektorobjekt."
+        }
+      }
     },
     {
       "id": "gridify",
@@ -324,7 +632,21 @@
       "version": "1.0.0",
       "affinity": "",
       "verified": false,
-      "tags": []
+      "tags": [],
+      "translations": {
+        "es": {
+          "title": "Gridify",
+          "description": "Distribuye objetos seleccionados en una cuadricula con varias opciones de espaciado, escala y variacion."
+        },
+        "fr": {
+          "title": "Gridify",
+          "description": "Repartit les objets selectionnes dans une grille avec plusieurs options d espacement, d echelle et de variation."
+        },
+        "de": {
+          "title": "Gridify",
+          "description": "Verteilt ausgewaehlte Objekte in einem Raster mit Optionen fuer Abstand, Skalierung und Streuung."
+        }
+      }
     },
     {
       "id": "hangingcharsandprepositions",
@@ -338,7 +660,21 @@
       "version": "1.0",
       "affinity": "",
       "verified": false,
-      "tags": []
+      "tags": [],
+      "translations": {
+        "es": {
+          "title": "Caracteres y preposiciones colgantes",
+          "description": "Sustituye espacios despues de caracteres sueltos o preposiciones por espacios de no separacion para idiomas eslavos. Basado en el script inicial de JiriKrblich."
+        },
+        "fr": {
+          "title": "Caracteres et prepositions suspendus",
+          "description": "Remplace les espaces apres des caracteres seuls ou des prepositions par des espaces inseparables pour les langues slaves. Base sur le script initial de JiriKrblich."
+        },
+        "de": {
+          "title": "Haengende Zeichen und Praepositionen",
+          "description": "Ersetzt Leerzeichen nach einzelnen Zeichen oder Praepositionen durch geschuetzte Leerzeichen fuer slawische Sprachen. Basierend auf dem urspruenglichen Script von JiriKrblich."
+        }
+      }
     },
     {
       "id": "markdown-import-to-text-frame",
@@ -352,7 +688,21 @@
       "version": "1.0",
       "affinity": "",
       "verified": false,
-      "tags": []
+      "tags": [],
+      "translations": {
+        "es": {
+          "title": "Importar Markdown a marco de texto",
+          "description": "Importa Markdown a un marco de texto."
+        },
+        "fr": {
+          "title": "Importer Markdown dans un bloc de texte",
+          "description": "Importe du Markdown dans un bloc de texte."
+        },
+        "de": {
+          "title": "Markdown in Textrahmen importieren",
+          "description": "Importiert Markdown in einen Textrahmen."
+        }
+      }
     },
     {
       "id": "move-layer-to-top-across-all-pages",
@@ -366,7 +716,21 @@
       "version": "1.0.0",
       "affinity": "",
       "verified": false,
-      "tags": []
+      "tags": [],
+      "translations": {
+        "es": {
+          "title": "Mover capa arriba en todas las paginas",
+          "description": "Selecciona una capa y ejecuta el script. Encuentra capas con el mismo nombre en cada pagina o pliego y las mueve a la parte superior de la pila."
+        },
+        "fr": {
+          "title": "Placer le calque en haut sur toutes les pages",
+          "description": "Selectionnez un calque puis lancez le script. Il trouve les calques du meme nom sur chaque page ou planche et les place en haut de la pile."
+        },
+        "de": {
+          "title": "Ebene auf allen Seiten nach oben verschieben",
+          "description": "Waehle eine Ebene aus und fuehre das Script aus. Es findet Ebenen mit demselben Namen auf allen Seiten oder Doppelseiten und verschiebt sie nach oben."
+        }
+      }
     },
     {
       "id": "oklch-color",
@@ -380,7 +744,21 @@
       "version": "1.0.0",
       "affinity": "",
       "verified": false,
-      "tags": []
+      "tags": [],
+      "translations": {
+        "es": {
+          "title": "Color OKLCH",
+          "description": "Edita, pega y guarda colores OKLCH."
+        },
+        "fr": {
+          "title": "Couleur OKLCH",
+          "description": "Modifie, colle et enregistre des couleurs OKLCH."
+        },
+        "de": {
+          "title": "OKLCH-Farbe",
+          "description": "Bearbeitet, fuegt ein und speichert OKLCH-Farben."
+        }
+      }
     },
     {
       "id": "pattern-maker",
@@ -394,7 +772,21 @@
       "version": "1.0.0",
       "affinity": "",
       "verified": false,
-      "tags": []
+      "tags": [],
+      "translations": {
+        "es": {
+          "title": "Creador de patrones",
+          "description": "Crea patrones a partir de un objeto. Admite patrones de ladrillo y desplazados."
+        },
+        "fr": {
+          "title": "Createur de motifs",
+          "description": "Cree des motifs a partir d un objet. Prend en charge les motifs brique et decales."
+        },
+        "de": {
+          "title": "Muster-Ersteller",
+          "description": "Erstellt Muster aus einem Objekt. Unterstuetzt Ziegel- und versetzte Muster."
+        }
+      }
     },
     {
       "id": "puckerbloateffect",
@@ -408,7 +800,21 @@
       "version": "1.0",
       "affinity": "",
       "verified": false,
-      "tags": []
+      "tags": [],
+      "translations": {
+        "es": {
+          "title": "Efecto Pucker y Bloat",
+          "description": "Aplica un efecto Pucker & Bloat a los objetos seleccionados, tirando de los puntos de anclaje hacia dentro o hacia fuera para distorsionar."
+        },
+        "fr": {
+          "title": "Effet Pucker et Bloat",
+          "description": "Applique un effet Pucker & Bloat aux objets selectionnes, en tirant les points d ancrage vers l interieur ou l exterieur pour les deformer."
+        },
+        "de": {
+          "title": "Pucker-und-Bloat-Effekt",
+          "description": "Wendet einen Pucker-&-Bloat-Effekt auf ausgewaehlte Objekte an und zieht Ankerpunkte nach innen oder aussen, um sie zu verzerren."
+        }
+      }
     },
     {
       "id": "radialrepeat",
@@ -422,7 +828,21 @@
       "version": "4.1",
       "affinity": "",
       "verified": false,
-      "tags": []
+      "tags": [],
+      "translations": {
+        "es": {
+          "title": "Repeticion radial",
+          "description": "Crea una repeticion radial de los objetos seleccionados duplicandolos uniformemente alrededor de un punto central en un patron circular."
+        },
+        "fr": {
+          "title": "Repetition radiale",
+          "description": "Cree une repetition radiale des objets selectionnes en les dupliquant uniformement autour d un point central selon un motif circulaire."
+        },
+        "de": {
+          "title": "Radiale Wiederholung",
+          "description": "Erzeugt eine radiale Wiederholung der ausgewaehlten Objekte, indem sie gleichmaessig um einen Mittelpunkt in einem Kreis dupliziert werden."
+        }
+      }
     },
     {
       "id": "randomizeobjects",
@@ -436,7 +856,21 @@
       "version": "1.0.0",
       "affinity": "",
       "verified": false,
-      "tags": []
+      "tags": [],
+      "translations": {
+        "es": {
+          "title": "Aleatorizar objetos",
+          "description": "Aleatoriza tamano, posicion, rotacion, inclinacion, opacidad, color y trazo de los objetos seleccionados."
+        },
+        "fr": {
+          "title": "Randomiser les objets",
+          "description": "Randomise la taille, la position, la rotation, l inclinaison, l opacite, la couleur et le contour des objets selectionnes."
+        },
+        "de": {
+          "title": "Objekte zufaellig veraendern",
+          "description": "Veraendert Groesse, Position, Drehung, Schraegstellung, Deckkraft, Farbe und Kontur ausgewaehlter Objekte zufaellig."
+        }
+      }
     },
     {
       "id": "rename-artboards",
@@ -450,7 +884,21 @@
       "version": "1.0.0",
       "affinity": "",
       "verified": false,
-      "tags": []
+      "tags": [],
+      "translations": {
+        "es": {
+          "title": "Renombrador por lotes de mesas de trabajo",
+          "description": "Renombra todas las mesas de trabajo del documento en bloque con un nombre base, numeracion secuencial y ceros de relleno para ordenar correctamente al exportar."
+        },
+        "fr": {
+          "title": "Renommage par lots des plans de travail",
+          "description": "Renomme tous les plans de travail du document en bloc avec un nom de base, une numerotation sequentielle et des zeros de remplissage pour un tri correct a l export."
+        },
+        "de": {
+          "title": "Artboards stapelweise umbenennen",
+          "description": "Benennt alle Artboards im Dokument mit einem Basisnamen, fortlaufender Nummerierung und fuehrenden Nullen um, damit Exporte korrekt sortiert werden."
+        }
+      }
     },
     {
       "id": "replace-all-with-key-object-v1",
@@ -464,7 +912,21 @@
       "version": "1.0.0",
       "affinity": "",
       "verified": false,
-      "tags": []
+      "tags": [],
+      "translations": {
+        "es": {
+          "title": "Reemplazar todo con objeto clave",
+          "description": "Reemplaza todos los objetos seleccionados por duplicados del objeto clave, conservando posicion y rotacion, con coincidencia opcional de tamano."
+        },
+        "fr": {
+          "title": "Remplacer tout par l objet cle",
+          "description": "Remplace tous les objets selectionnes par des duplicatas de l objet cle, en conservant position et rotation, avec correspondance de taille optionnelle."
+        },
+        "de": {
+          "title": "Alles durch Schluesselobjekt ersetzen",
+          "description": "Ersetzt alle ausgewaehlten Objekte durch Duplikate des Schluesselobjekts, wobei Position und Drehung erhalten bleiben; optionale Groessenanpassung ist moeglich."
+        }
+      }
     },
     {
       "id": "replacecolorfill",
@@ -478,7 +940,21 @@
       "version": "3.0",
       "affinity": "",
       "verified": false,
-      "tags": []
+      "tags": [],
+      "translations": {
+        "es": {
+          "title": "Reemplazar color de relleno",
+          "description": "Permite cambiar rapidamente el color o los degradados de relleno de las formas seleccionadas."
+        },
+        "fr": {
+          "title": "Remplacer la couleur de remplissage",
+          "description": "Permet de modifier rapidement la couleur ou les degrades de remplissage des formes selectionnees."
+        },
+        "de": {
+          "title": "Fuellenfarbe ersetzen",
+          "description": "Ermoeglicht das schnelle Aendern der Fuellfarben oder Verlaeufe ausgewaehlter Formen."
+        }
+      }
     },
     {
       "id": "replacecolorstroke",
@@ -492,7 +968,21 @@
       "version": "1.0",
       "affinity": "",
       "verified": false,
-      "tags": []
+      "tags": [],
+      "translations": {
+        "es": {
+          "title": "Reemplazar color de trazo",
+          "description": "Permite cambiar rapidamente el color o los degradados de trazo de las formas seleccionadas."
+        },
+        "fr": {
+          "title": "Remplacer la couleur de contour",
+          "description": "Permet de modifier rapidement la couleur ou les degrades de contour des formes selectionnees."
+        },
+        "de": {
+          "title": "Konturfarbe ersetzen",
+          "description": "Ermoeglicht das schnelle Aendern der Konturfarben oder Verlaeufe ausgewaehlter Formen."
+        }
+      }
     },
     {
       "id": "rgbimagesleftovers",
@@ -506,7 +996,21 @@
       "version": "1.0",
       "affinity": "",
       "verified": false,
-      "tags": []
+      "tags": [],
+      "translations": {
+        "es": {
+          "title": "Buscador RGB",
+          "description": "Busca todas las imagenes RGB incrustadas y vinculadas en un documento abierto de Affinity. Util para documentos CMYK."
+        },
+        "fr": {
+          "title": "Detecteur RGB",
+          "description": "Recherche toutes les images RGB incorporees et liees dans un document Affinity ouvert. Utile pour les documents CMYK."
+        },
+        "de": {
+          "title": "RGB-Finder",
+          "description": "Sucht alle eingebetteten und verknuepften RGB-Bilder in einem offenen Affinity-Dokument. Nuetzlich fuer CMYK-Dokumente."
+        }
+      }
     },
     {
       "id": "roughen-edges",
@@ -520,7 +1024,21 @@
       "version": "1.0.0",
       "affinity": "",
       "verified": false,
-      "tags": []
+      "tags": [],
+      "translations": {
+        "es": {
+          "title": "Bordes rugosos",
+          "description": "Hace mas rugosos los trazados vectoriales con controles de amplitud, frecuencia, ruido y mas."
+        },
+        "fr": {
+          "title": "Bords irreguliers",
+          "description": "Rend les traces vectoriels plus rugueux avec des controles d amplitude, de frequence, de bruit, etc."
+        },
+        "de": {
+          "title": "Kanten aufrauen",
+          "description": "Raut Vektorpfade mit Einstellungen fuer Amplitude, Frequenz, Rauschen und mehr auf."
+        }
+      }
     },
     {
       "id": "separate-fill-and-stroke",
@@ -534,7 +1052,21 @@
       "version": "1.0.0",
       "affinity": "",
       "verified": false,
-      "tags": []
+      "tags": [],
+      "translations": {
+        "es": {
+          "title": "Separar relleno y trazo",
+          "description": "Separa apariencias combinadas de relleno y trazo en objetos independientes para facilitar la edicion y la salida."
+        },
+        "fr": {
+          "title": "Separer remplissage et contour",
+          "description": "Separe les apparences combinees de remplissage et de contour en objets independants pour faciliter l edition et la sortie."
+        },
+        "de": {
+          "title": "Fuellung und Kontur trennen",
+          "description": "Trennt kombinierte Fuell- und Konturerscheinungen in eigenstaendige Objekte fuer einfachere Bearbeitung und Ausgabe."
+        }
+      }
     },
     {
       "id": "single-char-linebreak-fix",
@@ -548,7 +1080,21 @@
       "version": "1.0",
       "affinity": "",
       "verified": false,
-      "tags": []
+      "tags": [],
+      "translations": {
+        "es": {
+          "title": "Correccion de salto de linea de caracteres sueltos",
+          "description": "Sustituye espacios despues de caracteres sueltos por espacios de no separacion para idiomas eslavos."
+        },
+        "fr": {
+          "title": "Correction des retours de ligne de caracteres seuls",
+          "description": "Remplace les espaces apres des caracteres seuls par des espaces inseparables pour les langues slaves."
+        },
+        "de": {
+          "title": "Zeilenumbruch-Fix fuer Einzelzeichen",
+          "description": "Ersetzt Leerzeichen nach einzelnen Zeichen durch geschuetzte Leerzeichen fuer slawische Sprachen."
+        }
+      }
     },
     {
       "id": "smart-jpeg-export",
@@ -562,7 +1108,21 @@
       "version": "1.0",
       "affinity": "",
       "verified": false,
-      "tags": []
+      "tags": [],
+      "translations": {
+        "es": {
+          "title": "Exportacion JPEG inteligente",
+          "description": "Exporta todas o algunas mesas de trabajo, pliegos o documentos con un limite maximo de tamano."
+        },
+        "fr": {
+          "title": "Export JPEG intelligent",
+          "description": "Exporte tous ou certains plans de travail, planches ou documents avec une limite de taille maximale."
+        },
+        "de": {
+          "title": "Intelligenter JPEG-Export",
+          "description": "Exportiert alle oder ausgewaehlte Artboards, Doppelseiten oder Dokumente mit maximaler Groessenbegrenzung."
+        }
+      }
     },
     {
       "id": "split-to-grid",
@@ -576,7 +1136,21 @@
       "version": "1.0.0",
       "affinity": "",
       "verified": false,
-      "tags": []
+      "tags": [],
+      "translations": {
+        "es": {
+          "title": "Dividir en cuadricula",
+          "description": "Divide un objeto vectorial en una cuadricula n por n."
+        },
+        "fr": {
+          "title": "Diviser en grille",
+          "description": "Divise un objet vectoriel en grille n par n."
+        },
+        "de": {
+          "title": "In Raster teilen",
+          "description": "Teilt ein Vektorobjekt in ein n-mal-n-Raster."
+        }
+      }
     },
     {
       "id": "swap-objects-v1",
@@ -590,7 +1164,21 @@
       "version": "1.0.0",
       "affinity": "",
       "verified": false,
-      "tags": []
+      "tags": [],
+      "translations": {
+        "es": {
+          "title": "Intercambiar objetos",
+          "description": "Intercambia objetos seleccionados segun un mapeo personalizado, con intercambio opcional de orientacion y dimensiones. Selecciona al menos 2 objetos y usa Vista previa o Aplicar."
+        },
+        "fr": {
+          "title": "Echanger les objets",
+          "description": "Echange les objets selectionnes selon un mappage personnalise, avec echange optionnel de l orientation et des dimensions. Selectionnez au moins 2 objets puis utilisez Apercu ou Appliquer."
+        },
+        "de": {
+          "title": "Objekte tauschen",
+          "description": "Tauscht ausgewaehlte Objekte anhand einer eigenen Zuordnung, optional mit Orientierung und Abmessungen. Waehle mindestens 2 Objekte und nutze Vorschau oder Anwenden."
+        }
+      }
     },
     {
       "id": "swap-orientation-only-v1",
@@ -604,7 +1192,21 @@
       "version": "1.0.0",
       "affinity": "",
       "verified": false,
-      "tags": []
+      "tags": [],
+      "translations": {
+        "es": {
+          "title": "Intercambiar solo orientacion",
+          "description": "Intercambia posicion y rotacion de 2 objetos o grupos seleccionados, manteniendo su tamano. Selecciona exactamente 2 objetos o grupos y ejecuta el script."
+        },
+        "fr": {
+          "title": "Echanger seulement l orientation",
+          "description": "Echange la position et la rotation de 2 objets ou groupes selectionnes tout en conservant leur taille. Selectionnez exactement 2 objets ou groupes puis lancez le script."
+        },
+        "de": {
+          "title": "Nur Orientierung tauschen",
+          "description": "Tauscht Position und Drehung von 2 ausgewaehlten Objekten oder Gruppen, ohne ihre Groesse zu aendern. Waehle genau 2 Objekte oder Gruppen aus."
+        }
+      }
     },
     {
       "id": "swapobjectsbycenter",
@@ -618,7 +1220,21 @@
       "version": "2.0",
       "affinity": "",
       "verified": false,
-      "tags": []
+      "tags": [],
+      "translations": {
+        "es": {
+          "title": "Intercambiar objetos por centro",
+          "description": "Intercambia las ubicaciones de dos objetos seleccionados usando sus puntos centrales."
+        },
+        "fr": {
+          "title": "Echanger les objets par centre",
+          "description": "Echange les emplacements de deux objets selectionnes selon leurs points centraux."
+        },
+        "de": {
+          "title": "Objekte nach Mittelpunkt tauschen",
+          "description": "Tauscht die Positionen von zwei ausgewaehlten Objekten anhand ihrer Mittelpunkte."
+        }
+      }
     },
     {
       "id": "tile-generator",
@@ -632,7 +1248,21 @@
       "version": "1.0.0",
       "affinity": "",
       "verified": false,
-      "tags": []
+      "tags": [],
+      "translations": {
+        "es": {
+          "title": "Generador de mosaicos",
+          "description": "Genera patrones basados en mosaicos a partir de un objeto seleccionado. Admite cuadricula, ladrillo, media caida, rombo, hexagono, radial, espiral, onda, molinete, dispersion aleatoria y cambio progresivo de tono."
+        },
+        "fr": {
+          "title": "Generateur de tuiles",
+          "description": "Genere des motifs a base de tuiles depuis un objet selectionne. Prend en charge grille, brique, demi-decalage, losange, hexagone, radial, spirale, vague, moulinet, dispersion aleatoire et variation progressive de teinte."
+        },
+        "de": {
+          "title": "Kachel-Generator",
+          "description": "Erzeugt kachelbasierte Muster aus einem ausgewaehlten Objekt. Unterstuetzt Raster, Ziegelversatz, Halbversatz, Raute, Hexagon, radial, Spirale, Welle, Windrad, Zufallsstreuung und progressive Farbtonverschiebung."
+        }
+      }
     },
     {
       "id": "toggle-layer-visibility-across-all-pages",
@@ -646,7 +1276,21 @@
       "version": "1.0.0",
       "affinity": "",
       "verified": false,
-      "tags": []
+      "tags": [],
+      "translations": {
+        "es": {
+          "title": "Alternar visibilidad de capas en todas las paginas",
+          "description": "Alternativa a estados de capa. Selecciona una capa, ejecuta el script y alterna todas las capas con el mismo nombre en cada pagina o pliego."
+        },
+        "fr": {
+          "title": "Basculer la visibilite des calques sur toutes les pages",
+          "description": "Alternative aux etats de calque. Selectionnez un calque, lancez le script, et il bascule tous les calques du meme nom sur chaque page ou planche."
+        },
+        "de": {
+          "title": "Ebenensichtbarkeit auf allen Seiten umschalten",
+          "description": "Alternative zu Ebenenzustaenden. Waehle eine Ebene aus, fuehre das Script aus, und es schaltet alle Ebenen mit demselben Namen auf allen Seiten oder Doppelseiten um."
+        }
+      }
     },
     {
       "id": "twist-effect-v1",
@@ -660,7 +1304,21 @@
       "version": "1.0.0",
       "affinity": "",
       "verified": false,
-      "tags": []
+      "tags": [],
+      "translations": {
+        "es": {
+          "title": "Efecto giro",
+          "description": "Aplica una rotacion polar progresiva a curvas, formas o grupos seleccionados, imitando el efecto Twist de Adobe Illustrator."
+        },
+        "fr": {
+          "title": "Effet de torsion",
+          "description": "Applique une rotation polaire progressive aux courbes, formes ou groupes selectionnes, en imitant l effet Twist d Adobe Illustrator."
+        },
+        "de": {
+          "title": "Twist-Effekt",
+          "description": "Wendet eine progressive polare Drehung auf ausgewaehlte Kurven, Formen oder Gruppen an und ahmt den Twist-Effekt von Adobe Illustrator nach."
+        }
+      }
     },
     {
       "id": "vector-lathe-revolve-v1",
@@ -674,7 +1332,21 @@
       "version": "1.0.0",
       "affinity": "",
       "verified": false,
-      "tags": []
+      "tags": [],
+      "translations": {
+        "es": {
+          "title": "Torno vectorial (Revolucion)",
+          "description": "Revoluciona un trazado vectorial seleccionado en una forma 3D tipo torno. Crea la geometria, aplica sombreado y organiza caras visibles y tapas."
+        },
+        "fr": {
+          "title": "Tour vectoriel (Revolution)",
+          "description": "Fait tourner un trace vectoriel selectionne pour creer une forme 3D de type tour. Cree la geometrie, applique l ombrage et organise faces visibles et bouchons."
+        },
+        "de": {
+          "title": "Vektor-Drehbank (Revolve)",
+          "description": "Dreht einen ausgewaehlten Vektorpfad zu einer 3D-Form im Drehbankstil. Erstellt die Geometrie, wendet Schattierung an und organisiert sichtbare Flaechen und Kappen."
+        }
+      }
     },
     {
       "id": "vector-pattern-fx-final",
@@ -692,7 +1364,21 @@
         "vector",
         "pattern",
         "effects"
-      ]
+      ],
+      "translations": {
+        "es": {
+          "title": "Efectos de patron vectorial",
+          "description": "Genera efectos de patron vectorial editables a partir de arte seleccionado en Affinity."
+        },
+        "fr": {
+          "title": "Effets de motifs vectoriels",
+          "description": "Genere des effets de motifs vectoriels modifiables a partir d illustrations Affinity selectionnees."
+        },
+        "de": {
+          "title": "Vektor-Muster-FX",
+          "description": "Erzeugt bearbeitbare Vektormustereffekte aus ausgewaehlter Affinity-Grafik."
+        }
+      }
     },
     {
       "id": "zigzageffect",
@@ -713,7 +1399,7 @@
         },
         "fr": {
           "title": "Effet zig zag",
-          "description": "Ce script transforme une forme ou une ligne selectionnee en motif zig zag. Selectionnez une forme ou un trace, lancez le script, et l'effet zig zag sera applique automatiquement."
+          "description": "Ce script transforme une forme ou une ligne selectionnee en motif zig zag. Selectionnez une forme ou un trace, lancez le script, et l effet zig zag sera applique automatiquement."
         },
         "de": {
           "title": "Zickzack-Effekt",
