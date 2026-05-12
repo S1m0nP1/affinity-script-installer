@@ -507,6 +507,36 @@
       }
     },
     {
+      "id": "export-psd-alongside-document-v1",
+      "title": "Export psd",
+      "description": "Export psd (with all layers rasterised) along with .af document",
+      "path": "scripts/export-psd-alongside-document-v1.js",
+      "image": "images/exportpsd.png",
+      "author": "S1m0nP1",
+      "homepage": "https://affinityhub.js.org/",
+      "github": "https://github.com/S1m0nP1/affinity-script-installer",
+      "version": "1.0.0",
+      "affinity": "3.2+",
+      "verified": true,
+      "tags": [
+        "utility"
+      ],
+      "translations": {
+        "es": {
+          "title": "Exportar PSD",
+          "description": "Exporta un PSD con todas las capas rasterizadas junto al documento .af."
+        },
+        "fr": {
+          "title": "Exporter PSD",
+          "description": "Exporte un PSD avec tous les calques rasterises a cote du document .af."
+        },
+        "de": {
+          "title": "PSD exportieren",
+          "description": "Exportiert eine PSD-Datei mit allen Ebenen gerastert neben dem .af-Dokument."
+        }
+      }
+    },
+    {
       "id": "extrudetool",
       "title": "Extrude Tool",
       "description": "This script generates a 3D-like extrusion effect by connecting selected vector shapes. Once executed, the tool automatically calculates, subdivides, and renders the connecting geometry, organizing the resulting faces while preserving your original shapes as caps",
