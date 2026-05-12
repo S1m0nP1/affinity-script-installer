@@ -706,6 +706,20 @@
       "version": "1.0",
       "affinity": "",
       "verified": false,
+      "translations": {
+        "es": {
+          "title": "Efecto zig zag",
+          "description": "Este script transforma una forma o linea seleccionada en un patron zig zag. Selecciona una forma o trazado, ejecuta el script y aplicara automaticamente el efecto zig zag."
+        },
+        "fr": {
+          "title": "Effet zig zag",
+          "description": "Ce script transforme une forme ou une ligne selectionnee en motif zig zag. Selectionnez une forme ou un trace, lancez le script, et l'effet zig zag sera applique automatiquement."
+        },
+        "de": {
+          "title": "Zickzack-Effekt",
+          "description": "Dieses Script verwandelt eine ausgewaehlte Form oder Linie in ein Zickzack-Muster. Waehle eine Form oder einen Pfad aus, fuehre das Script aus, und der Effekt wird automatisch angewendet."
+        }
+      },
       "tags": []
     }
   ]

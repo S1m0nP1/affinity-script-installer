@@ -40,11 +40,27 @@ body:
       description: Paste the script here, or drag and drop a .js file into this field.
     validations:
       required: true
-  - type: input
-    id: thumbnail_url
+  - type: textarea
+    id: thumbnail
     attributes:
-      label: Thumbnail URL
-      description: Optional PNG preview image.
+      label: Thumbnail image
+      description: Optional PNG/WebP/JPEG preview. Drag and drop the image here, or paste a public image URL.
+      placeholder: "Drag and drop a preview image here."
+  - type: textarea
+    id: translations
+    attributes:
+      label: Optional translations
+      description: Add translated title and description if you can. Leave blank if you only have the original language.
+      value: |
+        es:
+          title:
+          description:
+        fr:
+          title:
+          description:
+        de:
+          title:
+          description:
   - type: input
     id: affinity_version
     attributes:
