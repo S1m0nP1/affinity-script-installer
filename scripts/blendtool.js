@@ -1,13 +1,13 @@
 // @title Blend Tool
 // @description Select 2 vector objects, then run. Supports path as 3rd object.
-// @author robinsnest56
+// @author S1m0nP1
 // @version 9.0
 // @affinity 
 // @verified 
 // @homepage 
 // @github 
 // @tags 
-// @image 
+// @image images/blend.png
 
 "use strict";
 // ═══════════════════════════════════════════════════════════

@@ -29,6 +29,36 @@
       }
     },
     {
+      "id": "aff-logo",
+      "title": "Affinity Logo Grid",
+      "description": "Creates editable orthogonal, angled, tangent, circular, node, and Bezier handle construction guides from selected logo/SVG vectors.",
+      "path": "scripts/aff.logo.js",
+      "image": "images/grid.png",
+      "author": "Yore-Des",
+      "homepage": "https://affinityhub.js.org/",
+      "github": "https://github.com/S1m0nP1/affinity-script-installer",
+      "version": "1.1.0",
+      "affinity": "3.2+",
+      "verified": true,
+      "tags": [
+        "utility"
+      ],
+      "translations": {
+        "es": {
+          "title": "Cuadricula de logo Affinity",
+          "description": "Crea guias de construccion editables ortogonales, inclinadas, tangentes, circulares, de nodos y de manejadores Bezier a partir de vectores de logotipo o SVG seleccionados."
+        },
+        "fr": {
+          "title": "Grille de logo Affinity",
+          "description": "Cree des guides de construction editables orthogonaux, inclines, tangents, circulaires, de noeuds et de poignees Bezier a partir de vecteurs de logo ou SVG selectionnes."
+        },
+        "de": {
+          "title": "Affinity-Logo-Raster",
+          "description": "Erstellt bearbeitbare Konstruktionshilfen fuer orthogonale, schraege, tangentiale, kreisfoermige, Knoten- und Bezier-Griff-Strukturen aus ausgewaehlten Logo- oder SVG-Vektoren."
+        }
+      }
+    },
+    {
       "id": "affinity-style-consistency-checker",
       "title": "Style Consistency Checker",
       "description": "Easily maintain design consistency by inspecting and remapping font faces, sizes, and stroke weights. Also includes a tool to clean up invisible garbage nodes",
@@ -145,8 +175,8 @@
       "title": "Blend Tool",
       "description": "Select 2 vector objects, then run. Supports path as 3rd object.",
       "path": "scripts/blendtool.js",
-      "image": "",
-      "author": "robinsnest56",
+      "image": "images/blend.png",
+      "author": "S1m0nP1",
       "homepage": "",
       "github": "",
       "version": "9.0",
@@ -165,6 +195,38 @@
         "de": {
           "title": "Blend-Werkzeug",
           "description": "Waehle 2 Vektorobjekte aus und fuehre das Script aus. Ein Pfad kann als drittes Objekt verwendet werden."
+        }
+      }
+    },
+    {
+      "id": "blendtoolpro",
+      "title": "BLEND TOOL PRO",
+      "description": "Generates smooth morphing transitions between two shapes or groups, interpolating their position, form, fill, stroke, and scale across a configurable number of intermediate steps. Steps can follow a custom path, and every blend automatically receives an editable spine line you can reshape and re-apply later.",
+      "path": "scripts/BlendToolPro.js",
+      "image": "images/blendtoolpro.png",
+      "author": "S1m0nP1",
+      "homepage": "https://github.com/S1m0nP1/Blend-Tool-for-Affinity",
+      "github": "https://github.com/S1m0nP1/Blend-Tool-for-Affinity",
+      "version": "1.0.0",
+      "affinity": "3.2+",
+      "verified": true,
+      "tags": [
+        "vector",
+        "design",
+        "illustration"
+      ],
+      "translations": {
+        "es": {
+          "title": "BLEND TOOL PRO",
+          "description": "Genera transiciones de mezcla suaves entre dos formas o grupos, interpolando posicion, forma, relleno, trazo y escala con un numero configurable de pasos intermedios. Los pasos pueden seguir un trazado personalizado y cada mezcla recibe una linea espina editable para modificarla y reaplicarla mas tarde."
+        },
+        "fr": {
+          "title": "BLEND TOOL PRO",
+          "description": "Genere des transitions de fusion fluides entre deux formes ou groupes, en interpolant position, forme, remplissage, contour et echelle avec un nombre configurable d etapes intermediaires. Les etapes peuvent suivre un trace personnalise et chaque fusion recoit une ligne de colonne editable a remodeler et reappliquer plus tard."
+        },
+        "de": {
+          "title": "BLEND TOOL PRO",
+          "description": "Erzeugt weiche Blend-Uebergaenge zwischen zwei Formen oder Gruppen und interpoliert Position, Form, Fuellung, Kontur und Skalierung ueber eine frei einstellbare Anzahl von Zwischenschritten. Schritte koennen einem eigenen Pfad folgen, und jeder Blend erhaelt eine bearbeitbare Spine-Linie, die spaeter angepasst und erneut angewendet werden kann."
         }
       }
     },
@@ -541,7 +603,7 @@
       "title": "Extrude Tool",
       "description": "This script generates a 3D-like extrusion effect by connecting selected vector shapes. Once executed, the tool automatically calculates, subdivides, and renders the connecting geometry, organizing the resulting faces while preserving your original shapes as caps",
       "path": "scripts/extrudetool.js",
-      "image": "",
+      "image": "images/extrude.png",
       "author": "BlackMortimer-13",
       "homepage": "",
       "github": "",

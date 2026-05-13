@@ -7,7 +7,7 @@
 // @homepage 
 // @github 
 // @tags 
-// @image 
+// @image images/extrude.png
 
 "use strict";
 const { Document } = require("/document");
