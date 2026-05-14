@@ -2,6 +2,19 @@
 
 https://affinityhub.js.org/
 
+## Connection Problems? Try This First
+
+If the site says it cannot connect to Affinity:
+
+1. Open Affinity v3.2 or newer.
+2. Enable the local MCP/server feature in Affinity if it is not already enabled.
+3. Leave Affinity open, then reload Affinity Hub.
+4. If Safari still will not connect, use Chrome, Edge, or Firefox.
+
+Most connection issues come from the browser blocking the local Affinity MCP
+endpoint. Chrome, Edge, and Firefox are currently the simplest option for most
+people.
+
 A static community hub that installs JavaScript scripts from this repository into
 a user's local Affinity v3.2 script library through Affinity's built-in MCP
 server.
