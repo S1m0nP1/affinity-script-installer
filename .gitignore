@@ -2,3 +2,4 @@ mcp_affinity_handshake.py
 index.pretty.html
 .DS_Store
 workers/.wrangler/
+macos-test-app/.build/
