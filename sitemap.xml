@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>https://affinityhub.js.org/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://affinityhub.js.org/?lang=en"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://affinityhub.js.org/?lang=es"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://affinityhub.js.org/?lang=fr"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://affinityhub.js.org/?lang=de"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://affinityhub.js.org/?lang=ja"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://affinityhub.js.org/"/>
+  </url>
+  <url>
+    <loc>https://affinityhub.js.org/?lang=en</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://affinityhub.js.org/?lang=en"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://affinityhub.js.org/?lang=es"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://affinityhub.js.org/?lang=fr"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://affinityhub.js.org/?lang=de"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://affinityhub.js.org/?lang=ja"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://affinityhub.js.org/"/>
+  </url>
+  <url>
+    <loc>https://affinityhub.js.org/?lang=es</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://affinityhub.js.org/?lang=en"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://affinityhub.js.org/?lang=es"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://affinityhub.js.org/?lang=fr"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://affinityhub.js.org/?lang=de"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://affinityhub.js.org/?lang=ja"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://affinityhub.js.org/"/>
+  </url>
+  <url>
+    <loc>https://affinityhub.js.org/?lang=fr</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://affinityhub.js.org/?lang=en"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://affinityhub.js.org/?lang=es"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://affinityhub.js.org/?lang=fr"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://affinityhub.js.org/?lang=de"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://affinityhub.js.org/?lang=ja"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://affinityhub.js.org/"/>
+  </url>
+  <url>
+    <loc>https://affinityhub.js.org/?lang=de</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://affinityhub.js.org/?lang=en"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://affinityhub.js.org/?lang=es"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://affinityhub.js.org/?lang=fr"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://affinityhub.js.org/?lang=de"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://affinityhub.js.org/?lang=ja"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://affinityhub.js.org/"/>
+  </url>
+  <url>
+    <loc>https://affinityhub.js.org/?lang=ja</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://affinityhub.js.org/?lang=en"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://affinityhub.js.org/?lang=es"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://affinityhub.js.org/?lang=fr"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://affinityhub.js.org/?lang=de"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://affinityhub.js.org/?lang=ja"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://affinityhub.js.org/"/>
+  </url>
+</urlset>

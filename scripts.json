@@ -25,6 +25,10 @@
         "de": {
           "title": "3D-Spass",
           "description": "Faux-3D-Grundformen, einfach zum Ausprobieren. Bei Interesse kommen spaeter vielleicht mehr dazu."
+        },
+        "ja": {
+          "title": "3D遊び",
+          "description": "気軽に楽しめる疑似3Dプリミティブです。要望があれば今後さらに追加するかもしれません。"
         }
       }
     },
@@ -55,6 +59,10 @@
         "de": {
           "title": "Affinity-Logo-Raster",
           "description": "Erstellt bearbeitbare Konstruktionshilfen fuer orthogonale, schraege, tangentiale, kreisfoermige, Knoten- und Bezier-Griff-Strukturen aus ausgewaehlten Logo- oder SVG-Vektoren."
+        },
+        "ja": {
+          "title": "Affinityロゴグリッド",
+          "description": "選択したロゴやSVGベクターから、直交、斜め、接線、円形、ノード、ベジェハンドル用の編集可能な作図ガイドを作成します。"
         }
       }
     },
@@ -83,6 +91,10 @@
         "de": {
           "title": "Style-Konsistenzpruefer",
           "description": "Hilft, Designkonsistenz zu bewahren, indem Schriftarten, Groessen und Konturstaerken geprueft und neu zugeordnet werden. Entfernt auch unsichtbare Restknoten."
+        },
+        "ja": {
+          "title": "スタイル整合性チェッカー",
+          "description": "フォント、サイズ、線幅を確認して再マッピングし、デザインの一貫性を保ちます。見えない不要ノードを削除するツールも含まれています。"
         }
       }
     },
@@ -111,6 +123,10 @@
         "de": {
           "title": "Auf Pfad anordnen",
           "description": "Verteilt ausgewaehlte Objekte gleichmaessig entlang automatisch erkannter Vektorpfade, mit Unterstuetzung fuer mehrere Pfade, Zufall, Interpolation, intelligentes Sortieren, offene oder geschlossene Pfade und Wiederholmodus."
+        },
+        "ja": {
+          "title": "パス上に配置",
+          "description": "自動検出したベクターパス上に選択オブジェクトを均等配置します。複数パス、ランダム化、補間、スマート並べ替え、開いた/閉じたパス、繰り返し配置に対応します。"
         }
       }
     },
@@ -139,6 +155,10 @@
         "de": {
           "title": "Artboard-Anpasser",
           "description": "Passt Artboards anhand des Inhalts an, mit eigenem Abstand und Achsenauswahl. Gruppiert und zentriert Elemente automatisch und erhaelt Proportionen ohne Verzerrung."
+        },
+        "ja": {
+          "title": "アートボードフィッター",
+          "description": "内容に合わせてアートボードをリサイズします。余白と軸を指定でき、要素を自動でグループ化・中央配置し、DPIに関係なく比率を保ちます。"
         }
       }
     },
@@ -167,6 +187,10 @@
         "de": {
           "title": "Bento-Box-Generator",
           "description": "Erzeugt ein Bento-Raster oder eine Bento-Box auf der aktuellen Seite oder dem aktuellen Artboard."
+        },
+        "ja": {
+          "title": "Bento Boxジェネレーター",
+          "description": "現在のページまたはアートボードにBentoグリッド/ボックスを生成します。"
         }
       }
     },
@@ -195,6 +219,10 @@
         "de": {
           "title": "Blend-Werkzeug",
           "description": "Waehle 2 Vektorobjekte aus und fuehre das Script aus. Ein Pfad kann als drittes Objekt verwendet werden."
+        },
+        "ja": {
+          "title": "ブレンドツール",
+          "description": "2つのベクターオブジェクトを選択して実行します。3つ目のオブジェクトをパスとして使用できます。"
         }
       }
     },
@@ -227,6 +255,10 @@
         "de": {
           "title": "BLEND TOOL PRO",
           "description": "Erzeugt weiche Blend-Uebergaenge zwischen zwei Formen oder Gruppen und interpoliert Position, Form, Fuellung, Kontur und Skalierung ueber eine frei einstellbare Anzahl von Zwischenschritten. Schritte koennen einem eigenen Pfad folgen, und jeder Blend erhaelt eine bearbeitbare Spine-Linie, die spaeter angepasst und erneut angewendet werden kann."
+        },
+        "ja": {
+          "title": "BLEND TOOL PRO",
+          "description": "2つの形状またはグループの間に滑らかなモーフィング遷移を生成し、位置、形状、塗り、線、拡大率を設定した中間ステップ数で補間します。ステップはカスタムパスに沿わせることもでき、各ブレンドには後から変形して再適用できる編集可能なスパイン線が自動で追加されます。"
         }
       }
     },
@@ -257,6 +289,10 @@
         "de": {
           "title": "ChartsPro",
           "description": "Erstellt Diagramme aus CSV-Dateien."
+        },
+        "ja": {
+          "title": "ChartsPro",
+          "description": "CSVファイルからチャートを作成します。"
         }
       }
     },
@@ -285,6 +321,10 @@
         "de": {
           "title": "Text fuer Braille-Ausgabe kombinieren",
           "description": "Sammelt Texte aus vielen Textrahmen und fuehrt sie in einer TXT-Datei auf dem Desktop zusammen, damit sie vor der Braille-Ausgabe in Word vorbereitet werden koennen."
+        },
+        "ja": {
+          "title": "点字出力用テキスト結合",
+          "description": "盲目の方へ作品のコピーを送る際、多数のページにあるテキストボックスを1つのWordファイルへまとめる手間を省きます。文書の先頭からテキストを収集し、デスクトップ上のTXTファイルに結合します。"
         }
       }
     },
@@ -313,6 +353,10 @@
         "de": {
           "title": "Auf Artboards kopieren",
           "description": "Dupliziert ausgewaehlte Objekte auf alle anderen Artboards im Dokument."
+        },
+        "ja": {
+          "title": "アートボードへコピー",
+          "description": "選択したオブジェクトを、文書内の他のすべてのアートボードへ複製します。"
         }
       }
     },
@@ -341,6 +385,10 @@
         "de": {
           "title": "Aufbrechen und explodieren",
           "description": "Erzeugt radiale Risse in der Form und laesst sie auseinanderbrechen."
+        },
+        "ja": {
+          "title": "ひび割れと爆発",
+          "description": "形状に放射状のひび割れを作成し、分裂したように展開します。"
         }
       }
     },
@@ -369,6 +417,10 @@
         "de": {
           "title": "Karussell erstellen",
           "description": "Erstellt ein neues Dokument fuer ein Karussellbild, mit durch Hilfslinien getrennten Panels."
+        },
+        "ja": {
+          "title": "カルーセル作成",
+          "description": "ガイドで複数パネルに分割された、カルーセル画像用の新規単一ドキュメントを作成します。"
         }
       }
     },
@@ -397,6 +449,10 @@
         "de": {
           "title": "Benutzerdefinierte Verlaufsumsetzung",
           "description": "Erstellt eine benutzerdefinierte Verlaufsumsetzung aus einem ausgewaehlten Verlaufsfeld."
+        },
+        "ja": {
+          "title": "カスタムグラデーションマップ",
+          "description": "選択したグラデーションスウォッチを基に、カスタムグラデーションマップを作成します。"
         }
       }
     },
@@ -425,6 +481,10 @@
         "de": {
           "title": "Leere Gruppen loeschen",
           "description": "Loescht leere Gruppen, die im Dokument uebrig geblieben sind."
+        },
+        "ja": {
+          "title": "空グループ削除",
+          "description": "ユーザー操作で残った空のグループを削除します。"
         }
       }
     },
@@ -453,6 +513,10 @@
         "de": {
           "title": "Gerichteter Weichzeichner-Schatten",
           "description": "Erzeugt einen gerichteten Schatten eines Objekts, der mit zunehmender Entfernung unschaerfer, transparenter und schmaler wird."
+        },
+        "ja": {
+          "title": "方向ぼかしシャドウ",
+          "description": "オブジェクトから離れるにつれてぼけ、薄くなり、細くなる方向性のある影を作成します。"
         }
       }
     },
@@ -481,6 +545,10 @@
         "de": {
           "title": "Formen auf Pfaden verteilen",
           "description": "Platziert Kopien bestimmter Zielebenen entlang ausgewaehlter Vektorformen oder Pfade. Die Zielebene kann per Name gewaehlt werden; Pfad, Mitte, Knoten und Ecken werden unterstuetzt."
+        },
+        "ja": {
+          "title": "パス上にシェイプを分布",
+          "description": "選択したベクター形状やパスに沿って、指定したターゲットレイヤーのコピーを配置します。名前でターゲットを選ぶか target にリネームできます。複数ターゲット、ベクター、グループ、シンボル、ピクセルレイヤーに対応します。"
         }
       }
     },
@@ -509,6 +577,10 @@
         "de": {
           "title": "Dithering",
           "description": "Anpassbarer Halbton-Dithering-Effekt mit 12 Dithering-Algorithmen."
+        },
+        "ja": {
+          "title": "ディザリング",
+          "description": "12種類のディザリングアルゴリズムを備えた、調整可能なハーフトーンディザリング効果です。"
         }
       }
     },
@@ -537,6 +609,10 @@
         "de": {
           "title": "Karussell exportieren",
           "description": "Exportiert ein einzelnes Dokument als einzelne Panels in einer angegebenen Groesse."
+        },
+        "ja": {
+          "title": "カルーセル書き出し",
+          "description": "単一ドキュメントを指定サイズの個別パネルとして書き出します。"
         }
       }
     },
@@ -565,6 +641,10 @@
         "de": {
           "title": "DDS exportieren",
           "description": "Exportiert das aktuelle Affinity-Dokument als DDS-Datei mit BC3/DXT5-Kompression und automatisch erzeugten Mipmaps."
+        },
+        "ja": {
+          "title": "DDS書き出し",
+          "description": "現在のAffinityドキュメントを、ミップマップ自動生成付きのBC3/DXT5圧縮DDSファイルとして書き出します。"
         }
       }
     },
@@ -595,6 +675,10 @@
         "de": {
           "title": "PSD exportieren",
           "description": "Exportiert eine PSD-Datei mit allen Ebenen gerastert neben dem .af-Dokument."
+        },
+        "ja": {
+          "title": "PSD書き出し",
+          "description": "すべてのレイヤーをラスタライズしたPSDを、.afドキュメントと同じ場所に書き出します。"
         }
       }
     },
@@ -623,6 +707,10 @@
         "de": {
           "title": "Extrude-Werkzeug",
           "description": "Erzeugt einen 3D-aehnlichen Extrusionseffekt, indem ausgewaehlte Vektorformen verbunden werden; die entstehenden Flaechen werden berechnet und organisiert, waehrend Originalformen als Kappen erhalten bleiben."
+        },
+        "ja": {
+          "title": "押し出しツール",
+          "description": "選択したベクター形状を接続して3D風の押し出し効果を生成します。接続ジオメトリを自動で計算・分割・描画し、元の形状をキャップとして保持しながら面を整理します。"
         }
       }
     },
@@ -651,6 +739,10 @@
         "de": {
           "title": "Pfad mit Objekten fuellen",
           "description": "Fuellt einen ausgewaehlten geschlossenen Vektorpfad mit mehreren Kopien eines oder mehrerer Vorlagenobjekte. Unterstuetzt Raster, Zufall, Skalierung, Drehung und Abstaende."
+        },
+        "ja": {
+          "title": "パスをオブジェクトで塗りつぶす",
+          "description": "選択した閉じたベクターパスを、1つ以上のテンプレートオブジェクトの複製で埋めます。矩形、六角形、円形、放射状などのグリッド、ランダム化、拡大縮小、回転、間隔調整に対応します。"
         }
       }
     },
@@ -681,6 +773,10 @@
         "de": {
           "title": "Schnittmarken erzeugen",
           "description": "Erzeugt automatisch 5-mm-Eckschnittmarken und interne Rastermarken mit 2-mm-Versatz fuer jede Auswahl."
+        },
+        "ja": {
+          "title": "トンボ生成",
+          "description": "Affinity内の任意の選択範囲に、5mmのコーナートンボと2mmオフセットの内部グリッド目盛りを自動生成し、専用の0.25ptロック済み制作レイヤーに配置します。"
         }
       }
     },
@@ -709,6 +805,10 @@
         "de": {
           "title": "Glitch-Effekt",
           "description": "Erzeugt einen Glitch-Effekt auf einem Vektorobjekt."
+        },
+        "ja": {
+          "title": "グリッチ効果",
+          "description": "ベクターオブジェクトにグリッチ効果を作成します。"
         }
       }
     },
@@ -737,6 +837,10 @@
         "de": {
           "title": "Gridify",
           "description": "Verteilt ausgewaehlte Objekte in einem Raster mit Optionen fuer Abstand, Skalierung und Streuung."
+        },
+        "ja": {
+          "title": "グリッド化",
+          "description": "選択オブジェクトを、間隔、拡大縮小、ジッターなどの各種オプション付きでグリッド状に配置します。"
         }
       }
     },
@@ -765,6 +869,34 @@
         "de": {
           "title": "Haengende Zeichen und Praepositionen",
           "description": "Ersetzt Leerzeichen nach einzelnen Zeichen oder Praepositionen durch geschuetzte Leerzeichen fuer slawische Sprachen. Basierend auf dem urspruenglichen Script von JiriKrblich."
+        },
+        "ja": {
+          "title": "ぶら下がり文字と前置詞",
+          "description": "単独の1文字や前置詞の後のスペースをノーブレークスペースに置き換えます（スラブ系言語向け）。JiriKrblich氏の初期スクリプトを基にしています。"
+        }
+      }
+    },
+    {
+      "id": "kaleidoscope",
+      "title": "Kaleidoscope",
+      "description": "Adjust symmetry, mirror, radius and offset. A live preview group is created immediately on dialog open and updated whenever any control changes.",
+      "path": "scripts/kaleidoscope.js",
+      "image": "images/k.png",
+      "author": "S1m0nP1",
+      "homepage": "",
+      "github": "",
+      "version": "1.0.0",
+      "affinity": "3.2+",
+      "verified": true,
+      "tags": [
+        "vector",
+        "design",
+        "illustration"
+      ],
+      "translations": {
+        "ja": {
+          "title": "万華鏡",
+          "description": "対称数、ミラー、半径、オフセットを調整します。ダイアログを開くとすぐにライブプレビューグループが作成され、各コントロールを変更するたびに更新されます。"
         }
       }
     },
@@ -793,6 +925,10 @@
         "de": {
           "title": "Markdown in Textrahmen importieren",
           "description": "Importiert Markdown in einen Textrahmen."
+        },
+        "ja": {
+          "title": "Markdownをテキストフレームへ読み込み",
+          "description": "Markdownをテキストフレームへ読み込みます。"
         }
       }
     },
@@ -821,6 +957,10 @@
         "de": {
           "title": "Ebene auf allen Seiten nach oben verschieben",
           "description": "Waehle eine Ebene aus und fuehre das Script aus. Es findet Ebenen mit demselben Namen auf allen Seiten oder Doppelseiten und verschiebt sie nach oben."
+        },
+        "ja": {
+          "title": "全ページでレイヤーを最前面へ移動",
+          "description": "レイヤーを選択して実行すると、すべてのページ/スプレッドで同じ名前のレイヤーを探し、レイヤースタックの最前面へ移動します。"
         }
       }
     },
@@ -849,6 +989,10 @@
         "de": {
           "title": "OKLCH-Farbe",
           "description": "Bearbeitet, fuegt ein und speichert OKLCH-Farben."
+        },
+        "ja": {
+          "title": "OKLCHカラー",
+          "description": "OKLCHカラーを編集、貼り付け、保存します。"
         }
       }
     },
@@ -877,6 +1021,10 @@
         "de": {
           "title": "Muster-Ersteller",
           "description": "Erstellt Muster aus einem Objekt. Unterstuetzt Ziegel- und versetzte Muster."
+        },
+        "ja": {
+          "title": "パターンメーカー",
+          "description": "オブジェクトからパターンを作成します。ブリックパターンとドロップパターンに対応します。"
         }
       }
     },
@@ -905,6 +1053,10 @@
         "de": {
           "title": "Pucker-und-Bloat-Effekt",
           "description": "Wendet einen Pucker-&-Bloat-Effekt auf ausgewaehlte Objekte an und zieht Ankerpunkte nach innen oder aussen, um sie zu verzerren."
+        },
+        "ja": {
+          "title": "パッカー&ブロート効果",
+          "description": "選択したオブジェクトのアンカーポイントを内側（パッカー）または外側（ブロート）へ動かして歪ませます。"
         }
       }
     },
@@ -933,6 +1085,10 @@
         "de": {
           "title": "Radiale Wiederholung",
           "description": "Erzeugt eine radiale Wiederholung der ausgewaehlten Objekte, indem sie gleichmaessig um einen Mittelpunkt in einem Kreis dupliziert werden."
+        },
+        "ja": {
+          "title": "放射状リピート",
+          "description": "選択したオブジェクトを中心点の周囲に均等複製し、円形パターンの放射状リピートを作成します。"
         }
       }
     },
@@ -961,6 +1117,10 @@
         "de": {
           "title": "Objekte zufaellig veraendern",
           "description": "Veraendert Groesse, Position, Drehung, Schraegstellung, Deckkraft, Farbe und Kontur ausgewaehlter Objekte zufaellig."
+        },
+        "ja": {
+          "title": "オブジェクトをランダム化",
+          "description": "選択オブジェクトのサイズ、位置、回転、傾き、不透明度、色、線をランダム化します。"
         }
       }
     },
@@ -989,6 +1149,10 @@
         "de": {
           "title": "Artboards stapelweise umbenennen",
           "description": "Benennt alle Artboards im Dokument mit einem Basisnamen, fortlaufender Nummerierung und fuehrenden Nullen um, damit Exporte korrekt sortiert werden."
+        },
+        "ja": {
+          "title": "アートボード一括リネーム",
+          "description": "現在のドキュメント内のすべてのアートボードを一括でリネームします。ベース名を入力すると連番とゼロ埋めが自動で付与され、書き出し時に正しく並ぶ名前になります。"
         }
       }
     },
@@ -1017,6 +1181,10 @@
         "de": {
           "title": "Alles durch Schluesselobjekt ersetzen",
           "description": "Ersetzt alle ausgewaehlten Objekte durch Duplikate des Schluesselobjekts, wobei Position und Drehung erhalten bleiben; optionale Groessenanpassung ist moeglich."
+        },
+        "ja": {
+          "title": "キーオブジェクトで全置換",
+          "description": "選択したすべてのオブジェクトをキーオブジェクトの複製に置き換えます。位置と回転を保持し、サイズ合わせも任意で行えます。"
         }
       }
     },
@@ -1045,6 +1213,10 @@
         "de": {
           "title": "Fuellenfarbe ersetzen",
           "description": "Ermoeglicht das schnelle Aendern der Fuellfarben oder Verlaeufe ausgewaehlter Formen."
+        },
+        "ja": {
+          "title": "塗りカラー置換",
+          "description": "選択した形状の塗り色やグラデーションをすばやく変更できます。"
         }
       }
     },
@@ -1073,6 +1245,10 @@
         "de": {
           "title": "Konturfarbe ersetzen",
           "description": "Ermoeglicht das schnelle Aendern der Konturfarben oder Verlaeufe ausgewaehlter Formen."
+        },
+        "ja": {
+          "title": "線カラー置換",
+          "description": "選択した形状の線色やグラデーションをすばやく変更できます。"
         }
       }
     },
@@ -1101,6 +1277,10 @@
         "de": {
           "title": "RGB-Finder",
           "description": "Sucht alle eingebetteten und verknuepften RGB-Bilder in einem offenen Affinity-Dokument. Nuetzlich fuer CMYK-Dokumente."
+        },
+        "ja": {
+          "title": "RGB画像ファインダー",
+          "description": "開いているAffinityドキュメント内の埋め込み/リンクされたRGB画像をすべて探します。CMYKドキュメントで便利です。"
         }
       }
     },
@@ -1129,6 +1309,10 @@
         "de": {
           "title": "Kanten aufrauen",
           "description": "Raut Vektorpfade mit Einstellungen fuer Amplitude, Frequenz, Rauschen und mehr auf."
+        },
+        "ja": {
+          "title": "エッジをラフにする",
+          "description": "振幅、頻度、ノイズなどの設定でベクターパスの輪郭をラフにします。"
         }
       }
     },
@@ -1157,6 +1341,10 @@
         "de": {
           "title": "Fuellung und Kontur trennen",
           "description": "Trennt kombinierte Fuell- und Konturerscheinungen in eigenstaendige Objekte fuer einfachere Bearbeitung und Ausgabe."
+        },
+        "ja": {
+          "title": "塗りと線を分離",
+          "description": "結合された塗りと線の外観を独立したオブジェクトに分離し、編集や出力をしやすくします。"
         }
       }
     },
@@ -1185,6 +1373,10 @@
         "de": {
           "title": "Zeilenumbruch-Fix fuer Einzelzeichen",
           "description": "Ersetzt Leerzeichen nach einzelnen Zeichen durch geschuetzte Leerzeichen fuer slawische Sprachen."
+        },
+        "ja": {
+          "title": "1文字改行修正",
+          "description": "単独の1文字の後のスペースをノーブレークスペースに置き換えます（スラブ系言語向け）。"
         }
       }
     },
@@ -1213,6 +1405,10 @@
         "de": {
           "title": "Intelligenter JPEG-Export",
           "description": "Exportiert alle oder ausgewaehlte Artboards, Doppelseiten oder Dokumente mit maximaler Groessenbegrenzung."
+        },
+        "ja": {
+          "title": "スマートJPEG書き出し",
+          "description": "すべてまたは選択したアートボード、スプレッド、ドキュメントを最大ファイルサイズ制限付きで書き出します。"
         }
       }
     },
@@ -1241,6 +1437,10 @@
         "de": {
           "title": "In Raster teilen",
           "description": "Teilt ein Vektorobjekt in ein n-mal-n-Raster."
+        },
+        "ja": {
+          "title": "グリッドに分割",
+          "description": "ベクターオブジェクトをn×nのグリッドに分割します。"
         }
       }
     },
@@ -1269,6 +1469,10 @@
         "de": {
           "title": "Objekte tauschen",
           "description": "Tauscht ausgewaehlte Objekte anhand einer eigenen Zuordnung, optional mit Orientierung und Abmessungen. Waehle mindestens 2 Objekte und nutze Vorschau oder Anwenden."
+        },
+        "ja": {
+          "title": "オブジェクト入れ替え",
+          "description": "カスタムマッピングに基づいて選択オブジェクトを入れ替えます。向きや寸法の入れ替えも任意で指定できます。2つ以上のオブジェクトを選択し、ダイアログで方法を選んでプレビューまたは適用します。"
         }
       }
     },
@@ -1297,6 +1501,10 @@
         "de": {
           "title": "Nur Orientierung tauschen",
           "description": "Tauscht Position und Drehung von 2 ausgewaehlten Objekten oder Gruppen, ohne ihre Groesse zu aendern. Waehle genau 2 Objekte oder Gruppen aus."
+        },
+        "ja": {
+          "title": "向きだけ入れ替え",
+          "description": "2つの選択オブジェクトまたはグループの位置と回転を入れ替え、サイズは変更しません。"
         }
       }
     },
@@ -1325,6 +1533,10 @@
         "de": {
           "title": "Objekte nach Mittelpunkt tauschen",
           "description": "Tauscht die Positionen von zwei ausgewaehlten Objekten anhand ihrer Mittelpunkte."
+        },
+        "ja": {
+          "title": "中心でオブジェクトを入れ替え",
+          "description": "2つの選択オブジェクトの位置を、それぞれの中心点に基づいて入れ替えます。"
         }
       }
     },
@@ -1353,6 +1565,10 @@
         "de": {
           "title": "Kachel-Generator",
           "description": "Erzeugt kachelbasierte Muster aus einem ausgewaehlten Objekt. Unterstuetzt Raster, Ziegelversatz, Halbversatz, Raute, Hexagon, radial, Spirale, Welle, Windrad, Zufallsstreuung und progressive Farbtonverschiebung."
+        },
+        "ja": {
+          "title": "タイルジェネレーター",
+          "description": "選択オブジェクトからタイルベースのパターンを生成します。基本グリッド、ブリック、ハーフドロップ、ダイヤ、六角形、放射、スパイラル、波、ピンホイール、ランダム散布などに対応し、塗り色の色相シフトも行えます。"
         }
       }
     },
@@ -1381,6 +1597,10 @@
         "de": {
           "title": "Ebenensichtbarkeit auf allen Seiten umschalten",
           "description": "Alternative zu Ebenenzustaenden. Waehle eine Ebene aus, fuehre das Script aus, und es schaltet alle Ebenen mit demselben Namen auf allen Seiten oder Doppelseiten um."
+        },
+        "ja": {
+          "title": "全ページでレイヤー表示を切り替え",
+          "description": "レイヤーステートの代替です。選択したレイヤー名と現在の表示状態を読み取り、すべてのページ/スプレッドで同名レイヤーの表示を切り替えます。"
         }
       }
     },
@@ -1409,6 +1629,10 @@
         "de": {
           "title": "Twist-Effekt",
           "description": "Wendet eine progressive polare Drehung auf ausgewaehlte Kurven, Formen oder Gruppen an und ahmt den Twist-Effekt von Adobe Illustrator nach."
+        },
+        "ja": {
+          "title": "ツイスト効果",
+          "description": "選択した曲線、形状、グループに、Adobe Illustratorのツイスト効果に似た段階的な極座標回転を適用します。ベジェ曲線を分割し、中心からの距離に基づいて点をねじり、パスを再構築します。"
         }
       }
     },
@@ -1437,6 +1661,10 @@
         "de": {
           "title": "Vektor-Drehbank (Revolve)",
           "description": "Dreht einen ausgewaehlten Vektorpfad zu einer 3D-Form im Drehbankstil. Erstellt die Geometrie, wendet Schattierung an und organisiert sichtbare Flaechen und Kappen."
+        },
+        "ja": {
+          "title": "ベクター旋盤（回転体）",
+          "description": "選択したベクターパスを回転させ、旋盤風の3D形状を作成します。表示面とキャップ用のコンテナに整理し、シェーディングを適用します。"
         }
       }
     },
@@ -1469,6 +1697,10 @@
         "de": {
           "title": "Vektor-Muster-FX",
           "description": "Erzeugt bearbeitbare Vektormustereffekte aus ausgewaehlter Affinity-Grafik."
+        },
+        "ja": {
+          "title": "ベクターパターンFX",
+          "description": "選択したAffinityアートワークから、編集可能なベクターパターン効果を生成します。"
         }
       }
     },
@@ -1497,6 +1729,10 @@
         "de": {
           "title": "Zickzack-Effekt",
           "description": "Dieses Script verwandelt eine ausgewaehlte Form oder Linie in ein Zickzack-Muster. Waehle eine Form oder einen Pfad aus, fuehre das Script aus, und der Effekt wird automatisch angewendet."
+        },
+        "ja": {
+          "title": "ジグザグ効果",
+          "description": "選択した形状や線をジグザグパターンに変換します。形状またはパスを選択して実行すると、自動でジグザグ効果が適用されます。"
         }
       }
     }

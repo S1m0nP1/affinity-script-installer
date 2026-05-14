@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://affinityhub.js.org/sitemap.xml
