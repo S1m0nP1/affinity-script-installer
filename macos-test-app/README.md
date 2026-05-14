@@ -1,36 +1,29 @@
-# AffinityHub Mac Test App
+# Affinity Hub macOS App
 
-This is a small macOS-only prototype for testing whether AffinityHub works
-better as a local app than as a browser-only GitHub Pages site.
+This is a macOS wrapper for the Affinity Hub website. It bundles the static site
+inside the app, starts a local `127.0.0.1` server while the app is open, and
+loads the site in a `WKWebView`.
 
-It is intentionally simple:
+The local server is internal to the app. Users do not need to start it manually,
+and it stops when the app quits.
 
-- loads the live `scripts.json` catalog from `https://affinityhub.js.org/`
-- previews selected script source
-- connects to Affinity's local MCP endpoint
-- installs the selected script with `save_script_to_library`
-
-## Run
+## Build A Universal App
 
 From this folder:
 
 ```sh
-swift run
+./package-universal.sh
 ```
 
-Then:
+The script builds both Apple Silicon and Intel slices, merges them with `lipo`,
+adds the app icon, copies the bundled site files, signs the app ad hoc, and
+creates:
 
-1. Open Affinity v3.2 or newer.
-2. Make sure Affinity MCP/server support is enabled.
-3. Click **Load Catalog**.
-4. Click **Connect to Affinity**.
-5. Select a script and click **Install Selected**.
+- `dist/AffinityHub-Universal.app`
+- `dist/AffinityHub-macOS-universal.zip`
+- `dist/AffinityHub-macOS-universal.dmg`
 
-## Why This Helps
+## Notes
 
-The desktop app connects directly from the local machine, so it avoids the main
-browser-only problems: GitHub Pages HTTPS to local HTTP, private-network browser
-prompts, CORS, and Safari restrictions.
-
-This prototype is not signed, notarized, sandboxed, or packaged yet. It is just a
-proof-of-concept for the AffinityHub connection flow.
+The local test build is not notarized. For public distribution, sign it with a
+Developer ID certificate and notarize the DMG.

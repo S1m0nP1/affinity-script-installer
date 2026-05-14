@@ -1,0 +1,21 @@
+{
+  "name": "Affinity Hub",
+  "short_name": "Affinity Hub",
+  "description": "Discover community Affinity scripts, review the source and install them into your local Affinity v3.2 script library.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#020617",
+  "theme_color": "#17442f",
+  "icons": [
+    {
+      "src": "/assets/icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/assets/icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

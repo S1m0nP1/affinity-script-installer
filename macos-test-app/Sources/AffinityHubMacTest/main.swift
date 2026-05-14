@@ -1,432 +1,445 @@
 import AppKit
 import Foundation
+import Network
+import UniformTypeIdentifiers
+import WebKit
 
-let catalogURL = URL(string: "https://affinityhub.js.org/scripts.json")!
-let catalogBaseURL = URL(string: "https://affinityhub.js.org/")!
-let mcpEndpoints = [
-    URL(string: "http://[::1]:6767/sse")!,
-    URL(string: "https://localhost:6768/sse")!
-]
-let protocolVersion = "2025-11-25"
+private let bundledSiteDirectory = "site"
+private let fallbackSiteURL = URL(string: "https://affinityhub.js.org/")!
 
-struct ScriptCatalog: Decodable {
-    let scripts: [HubScript]
-}
+final class LocalSiteServer {
+    private let siteRoot: URL
+    private let queue = DispatchQueue(label: "org.affinityhub.local-site-server")
+    private var listener: NWListener?
 
-struct HubScript: Decodable {
-    let id: String
-    let title: String
-    let description: String
-    let path: String
-    let author: String?
-    let version: String?
-}
-
-final class MCPClient {
-    private var endpointURL: URL?
-    private var streamTask: Task<Void, Never>?
-    private var nextID = 1
-    private var continuations: [Int: CheckedContinuation<[String: Any], Error>] = [:]
-
-    deinit {
-        streamTask?.cancel()
+    init(siteRoot: URL) {
+        self.siteRoot = siteRoot
     }
 
-    func connect() async throws -> String {
-        disconnect()
+    func start() throws -> URL {
+        let listener = try NWListener(using: .tcp, on: .any)
+        let ready = DispatchSemaphore(value: 0)
+        var startupError: Error?
 
-        var lastError: Error?
-        for endpoint in mcpEndpoints {
+        listener.stateUpdateHandler = { state in
+            switch state {
+            case .ready:
+                ready.signal()
+            case .failed(let error):
+                startupError = error
+                ready.signal()
+            default:
+                break
+            }
+        }
+        listener.newConnectionHandler = { [weak self] connection in
+            self?.handle(connection)
+        }
+        listener.start(queue: queue)
+        self.listener = listener
+
+        if ready.wait(timeout: .now() + 2) == .timedOut {
+            throw ServerError.message("Local site server timed out while starting.")
+        }
+        if let startupError {
+            throw startupError
+        }
+        guard let port = listener.port?.rawValue else {
+            throw ServerError.message("Local site server did not get a port.")
+        }
+
+        return URL(string: "http://127.0.0.1:\(port)/index.html")!
+    }
+
+    private func handle(_ connection: NWConnection) {
+        connection.start(queue: queue)
+        connection.receive(minimumIncompleteLength: 1, maximumLength: 64 * 1024) { [weak self] data, _, _, _ in
+            guard let self else { return }
+            guard
+                let data,
+                let request = String(data: data, encoding: .utf8),
+                let firstLine = request.components(separatedBy: "\r\n").first
+            else {
+                self.send(status: "400 Bad Request", body: Data("Bad Request".utf8), mime: "text/plain", on: connection)
+                return
+            }
+
+            let parts = firstLine.split(separator: " ")
+            guard parts.count >= 2 else {
+                self.send(status: "400 Bad Request", body: Data("Bad Request".utf8), mime: "text/plain", on: connection)
+                return
+            }
+
+            let method = String(parts[0])
+            guard method == "GET" || method == "HEAD" else {
+                self.send(status: "405 Method Not Allowed", body: Data("Method Not Allowed".utf8), mime: "text/plain", on: connection)
+                return
+            }
+
+            let path = self.normalizedPath(String(parts[1]))
+            let fileURL = self.siteRoot.appendingPathComponent(path)
+            guard self.isInsideSiteRoot(fileURL), FileManager.default.fileExists(atPath: fileURL.path) else {
+                self.send(status: "404 Not Found", body: Data("Not Found".utf8), mime: "text/plain", on: connection)
+                return
+            }
+
             do {
-                let serverName = try await connect(to: endpoint)
-                return serverName
+                let body = method == "HEAD" ? Data() : try Data(contentsOf: fileURL)
+                self.send(status: "200 OK", body: body, mime: self.mimeType(for: fileURL), on: connection)
             } catch {
-                lastError = error
+                self.send(status: "500 Internal Server Error", body: Data(error.localizedDescription.utf8), mime: "text/plain", on: connection)
             }
         }
-
-        throw lastError ?? AppError.message("Could not reach Affinity MCP.")
     }
 
-    func disconnect() {
-        streamTask?.cancel()
-        streamTask = nil
-        endpointURL = nil
-        for continuation in continuations.values {
-            continuation.resume(throwing: AppError.message("MCP connection closed."))
+    private func send(status: String, body: Data, mime: String, on connection: NWConnection) {
+        let header = [
+            "HTTP/1.1 \(status)",
+            "Content-Length: \(body.count)",
+            "Content-Type: \(mime)",
+            "Cache-Control: no-store",
+            "Access-Control-Allow-Origin: *",
+            "Connection: close",
+            "",
+            ""
+        ].joined(separator: "\r\n")
+        var response = Data(header.utf8)
+        response.append(body)
+        connection.send(content: response, completion: .contentProcessed { _ in
+            connection.cancel()
+        })
+    }
+
+    private func normalizedPath(_ rawPath: String) -> String {
+        let withoutQuery = rawPath.split(separator: "?", maxSplits: 1).first.map(String.init) ?? "/"
+        let decoded = withoutQuery.removingPercentEncoding ?? withoutQuery
+        let trimmed = decoded.trimmingCharacters(in: CharacterSet(charactersIn: "/"))
+        return trimmed.isEmpty ? "index.html" : trimmed
+    }
+
+    private func isInsideSiteRoot(_ url: URL) -> Bool {
+        let rootPath = siteRoot.standardizedFileURL.path
+        let filePath = url.standardizedFileURL.path
+        return filePath == rootPath || filePath.hasPrefix(rootPath + "/")
+    }
+
+    private func mimeType(for url: URL) -> String {
+        switch url.pathExtension.lowercased() {
+        case "html": return "text/html; charset=utf-8"
+        case "js", "mjs": return "text/javascript; charset=utf-8"
+        case "json": return "application/json; charset=utf-8"
+        case "css": return "text/css; charset=utf-8"
+        case "png": return "image/png"
+        case "jpg", "jpeg": return "image/jpeg"
+        case "svg": return "image/svg+xml"
+        case "webp": return "image/webp"
+        case "txt": return "text/plain; charset=utf-8"
+        default: return "application/octet-stream"
         }
-        continuations.removeAll()
     }
 
-    func install(title: String, description: String, code: String) async throws {
-        _ = try await request(
-            method: "tools/call",
-            params: [
-                "name": "save_script_to_library",
-                "arguments": [
-                    "title": title,
-                    "description": description,
-                    "code": code
-                ]
-            ]
-        )
-    }
+    enum ServerError: LocalizedError {
+        case message(String)
 
-    private func connect(to sseURL: URL) async throws -> String {
-        var endpointContinuation: CheckedContinuation<String, Error>?
-
-        streamTask = Task {
-            do {
-                let (bytes, _) = try await URLSession.shared.bytes(from: sseURL)
-                var eventName = ""
-
-                for try await line in bytes.lines {
-                    if Task.isCancelled { return }
-                    if line.hasPrefix("event:") {
-                        eventName = String(line.dropFirst(6)).trimmingCharacters(in: .whitespaces)
-                    } else if line.hasPrefix("data:") {
-                        let payload = String(line.dropFirst(5)).trimmingCharacters(in: .whitespaces)
-                        if eventName == "endpoint" {
-                            endpointContinuation?.resume(returning: payload)
-                            endpointContinuation = nil
-                        } else if eventName == "message" {
-                            handleMessage(payload)
-                        }
-                    }
-                }
-            } catch {
-                endpointContinuation?.resume(throwing: error)
-                endpointContinuation = nil
-                for continuation in continuations.values {
-                    continuation.resume(throwing: error)
-                }
-                continuations.removeAll()
+        var errorDescription: String? {
+            switch self {
+            case .message(let message): return message
             }
-        }
-
-        let endpointPath = try await withCheckedThrowingContinuation { continuation in
-            endpointContinuation = continuation
-        }
-
-        endpointURL = URL(string: endpointPath, relativeTo: sseURL)?.absoluteURL
-
-        let initialize = try await request(
-            method: "initialize",
-            params: [
-                "protocolVersion": protocolVersion,
-                "capabilities": [:],
-                "clientInfo": [
-                    "name": "affinityhub-mac-test",
-                    "version": "0.1.0"
-                ]
-            ]
-        )
-        try await notify(method: "notifications/initialized")
-
-        let result = initialize["result"] as? [String: Any]
-        let server = result?["serverInfo"] as? [String: Any]
-        return server?["name"] as? String ?? "Affinity"
-    }
-
-    private func request(method: String, params: [String: Any] = [:]) async throws -> [String: Any] {
-        guard let endpointURL else {
-            throw AppError.message("MCP endpoint is not ready.")
-        }
-
-        let id = nextID
-        nextID += 1
-
-        let payload: [String: Any] = [
-            "jsonrpc": "2.0",
-            "id": id,
-            "method": method,
-            "params": params
-        ]
-
-        let responseTask = Task {
-            try await withCheckedThrowingContinuation { continuation in
-                continuations[id] = continuation
-            }
-        }
-
-        try await postJSON(payload, to: endpointURL)
-        return try await responseTask.value
-    }
-
-    private func notify(method: String, params: [String: Any] = [:]) async throws {
-        guard let endpointURL else {
-            throw AppError.message("MCP endpoint is not ready.")
-        }
-
-        try await postJSON(
-            [
-                "jsonrpc": "2.0",
-                "method": method,
-                "params": params
-            ],
-            to: endpointURL
-        )
-    }
-
-    private func postJSON(_ payload: [String: Any], to url: URL) async throws {
-        var request = URLRequest(url: url)
-        request.httpMethod = "POST"
-        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-        request.setValue("application/json, text/event-stream", forHTTPHeaderField: "Accept")
-        request.httpBody = try JSONSerialization.data(withJSONObject: payload)
-
-        let (_, response) = try await URLSession.shared.data(for: request)
-        guard let http = response as? HTTPURLResponse, (200..<300).contains(http.statusCode) else {
-            throw AppError.message("MCP POST failed.")
-        }
-    }
-
-    private func handleMessage(_ payload: String) {
-        guard
-            let data = payload.data(using: .utf8),
-            let message = try? JSONSerialization.jsonObject(with: data) as? [String: Any],
-            let id = message["id"] as? Int,
-            let continuation = continuations.removeValue(forKey: id)
-        else {
-            return
-        }
-
-        if let error = message["error"] {
-            continuation.resume(throwing: AppError.message(String(describing: error)))
-        } else {
-            continuation.resume(returning: message)
         }
     }
 }
 
-enum AppError: LocalizedError {
-    case message(String)
-
-    var errorDescription: String? {
-        switch self {
-        case .message(let text): text
-        }
-    }
-}
-
-@MainActor
-final class AppController: NSObject, NSApplicationDelegate, NSTableViewDataSource, NSTableViewDelegate {
-    private let mcp = MCPClient()
-    private var scripts: [HubScript] = []
-    private var selectedCode = ""
-
-    private let window = NSWindow(
-        contentRect: NSRect(x: 0, y: 0, width: 1060, height: 720),
-        styleMask: [.titled, .closable, .resizable, .miniaturizable],
-        backing: .buffered,
-        defer: false
-    )
-    private let statusLabel = NSTextField(labelWithString: "Load the catalog, then connect to Affinity.")
-    private let tableView = NSTableView()
-    private let titleField = NSTextField()
-    private let descriptionField = NSTextField()
-    private let codeView = NSTextView()
-    private let installButton = NSButton(title: "Install Selected", target: nil, action: nil)
+final class AppDelegate: NSObject, NSApplicationDelegate {
+    private var windowController: BrowserWindowController?
 
     func applicationDidFinishLaunching(_ notification: Notification) {
-        buildUI()
-        window.center()
-        window.makeKeyAndOrderFront(nil)
+        NSApp.setActivationPolicy(.regular)
+        buildMenu()
+
+        let controller = BrowserWindowController()
+        windowController = controller
+        controller.present()
     }
 
     func applicationShouldTerminateAfterLastWindowClosed(_ sender: NSApplication) -> Bool {
         true
     }
 
-    func numberOfRows(in tableView: NSTableView) -> Int {
-        scripts.count
-    }
-
-    func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
-        let cell = NSTableCellView()
-        let label = NSTextField(labelWithString: scripts[row].title)
-        label.lineBreakMode = .byTruncatingTail
-        label.translatesAutoresizingMaskIntoConstraints = false
-        cell.addSubview(label)
-        NSLayoutConstraint.activate([
-            label.leadingAnchor.constraint(equalTo: cell.leadingAnchor, constant: 8),
-            label.trailingAnchor.constraint(equalTo: cell.trailingAnchor, constant: -8),
-            label.centerYAnchor.constraint(equalTo: cell.centerYAnchor)
-        ])
-        return cell
-    }
-
-    func tableViewSelectionDidChange(_ notification: Notification) {
-        let row = tableView.selectedRow
-        guard row >= 0, row < scripts.count else { return }
-        select(script: scripts[row])
-    }
-
-    private func buildUI() {
-        window.title = "AffinityHub Mac Test"
-
-        let loadButton = NSButton(title: "Load Catalog", target: self, action: #selector(loadCatalog))
-        let connectButton = NSButton(title: "Connect to Affinity", target: self, action: #selector(connectToAffinity))
-        installButton.target = self
-        installButton.action = #selector(installSelected)
-        installButton.isEnabled = false
-
-        let toolbar = NSStackView(views: [loadButton, connectButton, installButton, statusLabel])
-        toolbar.orientation = .horizontal
-        toolbar.alignment = .centerY
-        toolbar.spacing = 10
-        toolbar.translatesAutoresizingMaskIntoConstraints = false
-        statusLabel.lineBreakMode = .byTruncatingTail
-
-        let column = NSTableColumn(identifier: NSUserInterfaceItemIdentifier("scripts"))
-        column.title = "Scripts"
-        tableView.addTableColumn(column)
-        tableView.headerView = nil
-        tableView.dataSource = self
-        tableView.delegate = self
-
-        let tableScroll = NSScrollView()
-        tableScroll.documentView = tableView
-        tableScroll.hasVerticalScroller = true
-        tableScroll.translatesAutoresizingMaskIntoConstraints = false
-
-        titleField.placeholderString = "Library title"
-        descriptionField.placeholderString = "Library description"
-
-        codeView.isEditable = false
-        codeView.font = NSFont.monospacedSystemFont(ofSize: 12, weight: .regular)
-        codeView.string = "// Select a script to preview it here."
-
-        let codeScroll = NSScrollView()
-        codeScroll.documentView = codeView
-        codeScroll.hasVerticalScroller = true
-        codeScroll.hasHorizontalScroller = true
-        codeScroll.translatesAutoresizingMaskIntoConstraints = false
-
-        let detailStack = NSStackView(views: [titleField, descriptionField, codeScroll])
-        detailStack.orientation = .vertical
-        detailStack.spacing = 10
-        detailStack.translatesAutoresizingMaskIntoConstraints = false
-
-        let split = NSSplitView()
-        split.isVertical = true
-        split.dividerStyle = .thin
-        split.addArrangedSubview(tableScroll)
-        split.addArrangedSubview(detailStack)
-        split.translatesAutoresizingMaskIntoConstraints = false
-
-        let root = NSView()
-        root.addSubview(toolbar)
-        root.addSubview(split)
-        window.contentView = root
-
-        NSLayoutConstraint.activate([
-            toolbar.leadingAnchor.constraint(equalTo: root.leadingAnchor, constant: 14),
-            toolbar.trailingAnchor.constraint(equalTo: root.trailingAnchor, constant: -14),
-            toolbar.topAnchor.constraint(equalTo: root.topAnchor, constant: 14),
-
-            split.leadingAnchor.constraint(equalTo: root.leadingAnchor, constant: 14),
-            split.trailingAnchor.constraint(equalTo: root.trailingAnchor, constant: -14),
-            split.topAnchor.constraint(equalTo: toolbar.bottomAnchor, constant: 14),
-            split.bottomAnchor.constraint(equalTo: root.bottomAnchor, constant: -14),
-
-            tableScroll.widthAnchor.constraint(greaterThanOrEqualToConstant: 280),
-            titleField.heightAnchor.constraint(equalToConstant: 30),
-            descriptionField.heightAnchor.constraint(equalToConstant: 30)
-        ])
-
-        split.setPosition(340, ofDividerAt: 0)
-    }
-
-    @objc private func loadCatalog() {
-        status("Loading catalog...")
-        Task {
-            do {
-                let (data, _) = try await URLSession.shared.data(from: catalogURL)
-                let catalog = try JSONDecoder().decode(ScriptCatalog.self, from: data)
-                scripts = catalog.scripts.sorted { $0.title.localizedCaseInsensitiveCompare($1.title) == .orderedAscending }
-                tableView.reloadData()
-                status("Loaded \(scripts.count) scripts.")
-            } catch {
-                status("Catalog failed: \(error.localizedDescription)")
-            }
+    func applicationShouldHandleReopen(_ sender: NSApplication, hasVisibleWindows flag: Bool) -> Bool {
+        if !flag {
+            windowController?.present()
         }
+        return true
     }
 
-    @objc private func connectToAffinity() {
-        status("Connecting to Affinity MCP...")
-        Task {
-            do {
-                let serverName = try await mcp.connect()
-                status("Connected to \(serverName).")
-                installButton.isEnabled = !selectedCode.isEmpty
-            } catch {
-                status("Connection failed. Open Affinity, enable MCP, then try again. Safari is not involved here.")
-            }
-        }
-    }
+    private func buildMenu() {
+        let mainMenu = NSMenu()
 
-    @objc private func installSelected() {
-        let title = titleField.stringValue.trimmingCharacters(in: .whitespacesAndNewlines)
-        guard !title.isEmpty, !selectedCode.isEmpty else {
-            status("Choose a script first.")
-            return
-        }
+        let appMenuItem = NSMenuItem()
+        let appMenu = NSMenu()
+        appMenu.addItem(
+            withTitle: "About Affinity Hub",
+            action: #selector(NSApplication.orderFrontStandardAboutPanel(_:)),
+            keyEquivalent: ""
+        )
+        appMenu.addItem(.separator())
+        appMenu.addItem(
+            withTitle: "Quit Affinity Hub",
+            action: #selector(NSApplication.terminate(_:)),
+            keyEquivalent: "q"
+        )
+        appMenuItem.submenu = appMenu
+        mainMenu.addItem(appMenuItem)
 
-        installButton.isEnabled = false
-        status("Installing \(title)...")
+        let viewMenuItem = NSMenuItem()
+        let viewMenu = NSMenu(title: "View")
+        viewMenu.addItem(withTitle: "Reload", action: #selector(BrowserWindowController.reloadPage), keyEquivalent: "r")
+        viewMenu.addItem(withTitle: "Back", action: #selector(BrowserWindowController.goBack), keyEquivalent: "[")
+        viewMenu.addItem(withTitle: "Forward", action: #selector(BrowserWindowController.goForward), keyEquivalent: "]")
+        viewMenu.addItem(.separator())
+        viewMenu.addItem(withTitle: "Open Website in Browser", action: #selector(BrowserWindowController.openWebsite), keyEquivalent: "")
+        viewMenuItem.submenu = viewMenu
+        mainMenu.addItem(viewMenuItem)
 
-        Task {
-            do {
-                try await mcp.install(
-                    title: title,
-                    description: descriptionField.stringValue,
-                    code: selectedCode
-                )
-                status("Installed \(title).")
-            } catch {
-                status("Install failed: \(error.localizedDescription)")
-            }
-            installButton.isEnabled = !selectedCode.isEmpty
-        }
-    }
-
-    private func select(script: HubScript) {
-        titleField.stringValue = script.title
-        descriptionField.stringValue = script.description
-        codeView.string = "Loading \(script.path)..."
-        selectedCode = ""
-        installButton.isEnabled = false
-
-        Task {
-            do {
-                let sourceURL = URL(string: script.path, relativeTo: catalogBaseURL)!.absoluteURL
-                let (data, _) = try await URLSession.shared.data(from: sourceURL)
-                selectedCode = String(decoding: data, as: UTF8.self)
-                codeView.string = selectedCode
-                status("Ready: \(script.title)")
-                installButton.isEnabled = true
-            } catch {
-                codeView.string = "// Could not load \(script.path): \(error.localizedDescription)"
-                status("Source load failed.")
-            }
-        }
-    }
-
-    private func status(_ text: String) {
-        statusLabel.stringValue = text
+        NSApp.mainMenu = mainMenu
     }
 }
 
 @main
-enum AffinityHubMacTest {
-    @MainActor
+enum AffinityHubApp {
+    private static let delegate = AppDelegate()
+
     static func main() {
         let app = NSApplication.shared
-        let delegate = AppController()
         app.delegate = delegate
         app.setActivationPolicy(.regular)
-        app.activate(ignoringOtherApps: true)
         app.run()
+    }
+}
+
+final class BrowserWindowController: NSWindowController, WKNavigationDelegate, WKUIDelegate {
+    private let webView: WKWebView
+    private var localServer: LocalSiteServer?
+
+    init() {
+        let configuration = WKWebViewConfiguration()
+        configuration.defaultWebpagePreferences.allowsContentJavaScript = true
+        configuration.preferences.javaScriptCanOpenWindowsAutomatically = true
+        configuration.websiteDataStore = .default()
+
+        webView = WKWebView(frame: .zero, configuration: configuration)
+
+        let window = NSWindow(
+            contentRect: NSRect(x: 0, y: 0, width: 1280, height: 860),
+            styleMask: [.titled, .closable, .miniaturizable, .resizable],
+            backing: .buffered,
+            defer: false
+        )
+        window.title = "Affinity Hub"
+        window.isReleasedWhenClosed = false
+        window.minSize = NSSize(width: 920, height: 620)
+
+        super.init(window: window)
+
+        webView.navigationDelegate = self
+        webView.uiDelegate = self
+        webView.allowsBackForwardNavigationGestures = true
+        if #available(macOS 13.3, *) {
+            webView.isInspectable = true
+        }
+
+        window.contentView = makeContentView()
+        loadAffinityHub()
+    }
+
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
+    @objc func reloadPage() {
+        webView.reload()
+    }
+
+    @objc func goBack() {
+        if webView.canGoBack {
+            webView.goBack()
+        }
+    }
+
+    @objc func goForward() {
+        if webView.canGoForward {
+            webView.goForward()
+        }
+    }
+
+    @objc func openWebsite() {
+        NSWorkspace.shared.open(fallbackSiteURL)
+    }
+
+    func present() {
+        guard let window else { return }
+        window.center()
+        window.deminiaturize(nil)
+        window.makeKeyAndOrderFront(nil)
+        window.orderFrontRegardless()
+        NSRunningApplication.current.activate(options: [.activateAllWindows, .activateIgnoringOtherApps])
+    }
+
+    private func makeContentView() -> NSView {
+        let root = NSView()
+        root.wantsLayer = true
+        root.layer?.backgroundColor = NSColor(calibratedRed: 0.008, green: 0.024, blue: 0.09, alpha: 1).cgColor
+
+        webView.translatesAutoresizingMaskIntoConstraints = false
+        root.addSubview(webView)
+
+        NSLayoutConstraint.activate([
+            webView.topAnchor.constraint(equalTo: root.topAnchor),
+            webView.leadingAnchor.constraint(equalTo: root.leadingAnchor),
+            webView.trailingAnchor.constraint(equalTo: root.trailingAnchor),
+            webView.bottomAnchor.constraint(equalTo: root.bottomAnchor)
+        ])
+
+        return root
+    }
+
+    private func loadAffinityHub() {
+        guard
+            let siteRoot = Bundle.main.resourceURL?.appendingPathComponent(bundledSiteDirectory, isDirectory: true),
+            FileManager.default.fileExists(atPath: siteRoot.appendingPathComponent("index.html").path)
+        else {
+            showFallbackPage("Bundled site files were not found. Loading the live website...")
+            webView.load(URLRequest(url: fallbackSiteURL))
+            return
+        }
+
+        do {
+            let server = LocalSiteServer(siteRoot: siteRoot)
+            let url = try server.start()
+            localServer = server
+            webView.load(URLRequest(url: url))
+        } catch {
+            showFallbackPage("The local bundled site server could not start. Loading the live website...")
+            webView.load(URLRequest(url: fallbackSiteURL))
+        }
+    }
+
+    private func showFallbackPage(_ message: String) {
+        let html = """
+        <!doctype html>
+        <html>
+        <head>
+        <meta charset="utf-8">
+        <style>
+        body {
+          margin: 0;
+          min-height: 100vh;
+          display: grid;
+          place-items: center;
+          background: #020617;
+          color: #f8fafc;
+          font: 16px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        }
+        main {
+          width: min(680px, calc(100vw - 48px));
+          padding: 28px;
+          border: 1px solid rgba(255,255,255,.14);
+          border-radius: 24px;
+          background: rgba(255,255,255,.08);
+        }
+        h1 { margin: 0 0 10px; font-size: 36px; line-height: 1; }
+        p { color: #cbd5e1; line-height: 1.5; }
+        </style>
+        </head>
+        <body><main><h1>Affinity Hub</h1><p>\(escapeHTML(message))</p></main></body>
+        </html>
+        """
+        webView.loadHTMLString(html, baseURL: nil)
+    }
+
+    private func escapeHTML(_ value: String) -> String {
+        value
+            .replacingOccurrences(of: "&", with: "&amp;")
+            .replacingOccurrences(of: "<", with: "&lt;")
+            .replacingOccurrences(of: ">", with: "&gt;")
+            .replacingOccurrences(of: "\"", with: "&quot;")
+    }
+
+    func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
+        window?.title = "Affinity Hub"
+    }
+
+    func webView(_ webView: WKWebView, didFail navigation: WKNavigation!, withError error: Error) {
+        showFallbackPage(error.localizedDescription)
+    }
+
+    func webView(_ webView: WKWebView, didFailProvisionalNavigation navigation: WKNavigation!, withError error: Error) {
+        showFallbackPage(error.localizedDescription)
+    }
+
+    func webView(
+        _ webView: WKWebView,
+        decidePolicyFor navigationAction: WKNavigationAction,
+        decisionHandler: @escaping (WKNavigationActionPolicy) -> Void
+    ) {
+        guard let url = navigationAction.request.url else {
+            decisionHandler(.allow)
+            return
+        }
+
+        if navigationAction.targetFrame == nil, shouldOpenExternally(url) {
+            NSWorkspace.shared.open(url)
+            decisionHandler(.cancel)
+            return
+        }
+
+        decisionHandler(.allow)
+    }
+
+    func webView(
+        _ webView: WKWebView,
+        createWebViewWith configuration: WKWebViewConfiguration,
+        for navigationAction: WKNavigationAction,
+        windowFeatures: WKWindowFeatures
+    ) -> WKWebView? {
+        if let url = navigationAction.request.url {
+            NSWorkspace.shared.open(url)
+        }
+        return nil
+    }
+
+    func webView(
+        _ webView: WKWebView,
+        runOpenPanelWith parameters: WKOpenPanelParameters,
+        initiatedByFrame frame: WKFrameInfo,
+        completionHandler: @escaping ([URL]?) -> Void
+    ) {
+        let panel = NSOpenPanel()
+        panel.allowsMultipleSelection = parameters.allowsMultipleSelection
+        panel.canChooseDirectories = parameters.allowsDirectories
+        panel.canChooseFiles = true
+        panel.allowedContentTypes = [.javaScript, .plainText, .sourceCode]
+
+        guard let window else {
+            completionHandler(nil)
+            return
+        }
+
+        panel.beginSheetModal(for: window) { response in
+            completionHandler(response == .OK ? panel.urls : nil)
+        }
+    }
+
+    private func shouldOpenExternally(_ url: URL) -> Bool {
+        guard let scheme = url.scheme?.lowercased() else { return false }
+        if scheme == "file" { return false }
+
+        let host = url.host?.lowercased() ?? ""
+        if host == "localhost" || host == "::1" || host == "127.0.0.1" {
+            return false
+        }
+
+        return url.absoluteString.contains("github.com")
+            || url.absoluteString.contains("buymeacoffee.com")
     }
 }
