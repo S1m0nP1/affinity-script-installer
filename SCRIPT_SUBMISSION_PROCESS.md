@@ -44,6 +44,10 @@ Add a new entry to the `scripts` array:
     "de": {
       "title": "German title",
       "description": "German description."
+    },
+    "ja": {
+      "title": "Japanese title",
+      "description": "Japanese description."
     }
   },
   "tags": []
@@ -66,7 +70,7 @@ Run:
 node -e "JSON.parse(require('fs').readFileSync('scripts.json','utf8')); console.log('scripts.json ok')"
 ```
 
-Then serve the site locally and switch between `EN`, `ES`, `FR`, and `DE` to confirm:
+Then serve the site locally and switch between `EN`, `ES`, `FR`, `DE`, and `JA` to confirm:
 
 - The new card title and description translate.
 - The selected script detail translates.

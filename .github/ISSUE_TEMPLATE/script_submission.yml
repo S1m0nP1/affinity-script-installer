@@ -1,6 +1,6 @@
 name: Submit a script
 description: Suggest a script to add to the installer.
-title: "[Script submission]: "
+title: "Script submission"
 labels: ["script submission"]
 body:
   - type: markdown
@@ -11,7 +11,6 @@ body:
     id: title
     attributes:
       label: Script title
-      placeholder: "Vector Pattern FX"
     validations:
       required: true
   - type: input
@@ -59,6 +58,9 @@ body:
           title:
           description:
         de:
+          title:
+          description:
+        ja:
           title:
           description:
   - type: input
