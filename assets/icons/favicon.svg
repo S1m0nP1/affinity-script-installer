@@ -1,10 +1,10 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" role="img" aria-labelledby="title desc">
   <title id="title">Affinity Hub icon</title>
-  <desc id="desc">A dark green circular Affinity Hub mark with a white lowercase a above the word Hub.</desc>
+  <desc id="desc">A full-canvas dark green Affinity Hub app icon with a white lowercase a above the word Hub.</desc>
   <defs>
-    <radialGradient id="green-core" cx="27%" cy="35%" r="80%">
-      <stop offset="0%" stop-color="#3c8f68"/>
-      <stop offset="48%" stop-color="#17442f"/>
+    <radialGradient id="green-core" cx="24%" cy="28%" r="96%">
+      <stop offset="0%" stop-color="#4baa7a"/>
+      <stop offset="42%" stop-color="#195238"/>
       <stop offset="100%" stop-color="#020806"/>
     </radialGradient>
     <linearGradient id="edge-light" x1="18%" y1="18%" x2="82%" y2="82%">
@@ -12,21 +12,20 @@
       <stop offset="62%" stop-color="#0a281c" stop-opacity="0"/>
     </linearGradient>
   </defs>
-  <rect width="1024" height="1024" fill="none"/>
-  <circle cx="512" cy="512" r="432" fill="url(#green-core)"/>
-  <circle cx="512" cy="512" r="432" fill="url(#edge-light)"/>
+  <rect width="1024" height="1024" rx="224" fill="url(#green-core)"/>
+  <rect width="1024" height="1024" rx="224" fill="url(#edge-light)"/>
   <text
     x="512"
-    y="563"
+    y="585"
     fill="#ffffff"
     font-family="Arial Black, Helvetica Neue, Arial, sans-serif"
-    font-size="610"
+    font-size="660"
     font-weight="900"
     letter-spacing="-44"
     text-anchor="middle">a</text>
   <text
     x="512"
-    y="790"
+    y="822"
     fill="#ffffff"
     font-family="Arial Black, Helvetica Neue, Arial, sans-serif"
     font-size="160"

@@ -3,16 +3,16 @@
 import PackageDescription
 
 let package = Package(
-    name: "AffinityHubMacTest",
+    name: "AffinityHubMac",
     platforms: [
         .macOS(.v13)
     ],
     products: [
-        .executable(name: "AffinityHubMacTest", targets: ["AffinityHubMacTest"])
+        .executable(name: "AffinityHubMac", targets: ["AffinityHubMac"])
     ],
     targets: [
         .executableTarget(
-            name: "AffinityHubMacTest",
+            name: "AffinityHubMac",
             swiftSettings: [
                 .swiftLanguageMode(.v5),
                 .unsafeFlags(["-parse-as-library"])

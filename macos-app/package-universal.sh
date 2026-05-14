@@ -3,9 +3,9 @@ set -euo pipefail
 
 SCRIPT_DIR=${0:A:h}
 REPO_ROOT=${SCRIPT_DIR:h}
-APP_ROOT="$SCRIPT_DIR/dist/AffinityHub-Universal.app"
-ARM_BIN="$SCRIPT_DIR/.build/arm64-apple-macosx/release/AffinityHubMacTest"
-X86_BIN="$SCRIPT_DIR/.build/x86_64-apple-macosx/release/AffinityHubMacTest"
+APP_ROOT="$SCRIPT_DIR/dist/Affinity Hub.app"
+ARM_BIN="$SCRIPT_DIR/.build/arm64-apple-macosx/release/AffinityHubMac"
+X86_BIN="$SCRIPT_DIR/.build/x86_64-apple-macosx/release/AffinityHubMac"
 
 cd "$SCRIPT_DIR"
 
@@ -31,11 +31,11 @@ cp "$SCRIPT_DIR/Resources/AffinityHub.icns" "$APP_ROOT/Contents/Resources/Affini
 /usr/libexec/PlistBuddy -c "Add :CFBundleExecutable string AffinityHub" "$APP_ROOT/Contents/Info.plist"
 /usr/libexec/PlistBuddy -c "Add :CFBundleIdentifier string org.affinityhub.mac.web" "$APP_ROOT/Contents/Info.plist"
 /usr/libexec/PlistBuddy -c "Add :CFBundleName string AffinityHub" "$APP_ROOT/Contents/Info.plist"
-/usr/libexec/PlistBuddy -c "Add :CFBundleDisplayName string AffinityHub" "$APP_ROOT/Contents/Info.plist"
+/usr/libexec/PlistBuddy -c "Add :CFBundleDisplayName string Affinity Hub" "$APP_ROOT/Contents/Info.plist"
 /usr/libexec/PlistBuddy -c "Add :CFBundleIconFile string AffinityHub" "$APP_ROOT/Contents/Info.plist"
 /usr/libexec/PlistBuddy -c "Add :CFBundlePackageType string APPL" "$APP_ROOT/Contents/Info.plist"
-/usr/libexec/PlistBuddy -c "Add :CFBundleShortVersionString string 0.3.9" "$APP_ROOT/Contents/Info.plist"
-/usr/libexec/PlistBuddy -c "Add :CFBundleVersion string 12" "$APP_ROOT/Contents/Info.plist"
+/usr/libexec/PlistBuddy -c "Add :CFBundleShortVersionString string 0.3.10" "$APP_ROOT/Contents/Info.plist"
+/usr/libexec/PlistBuddy -c "Add :CFBundleVersion string 13" "$APP_ROOT/Contents/Info.plist"
 /usr/libexec/PlistBuddy -c "Add :LSMinimumSystemVersion string 13.0" "$APP_ROOT/Contents/Info.plist"
 /usr/libexec/PlistBuddy -c "Add :NSHighResolutionCapable bool true" "$APP_ROOT/Contents/Info.plist"
 /usr/libexec/PlistBuddy -c "Add :NSLocalNetworkUsageDescription string Affinity Hub connects to the local Affinity MCP server to install scripts." "$APP_ROOT/Contents/Info.plist"
@@ -48,8 +48,8 @@ codesign --force --deep --sign - "$APP_ROOT"
 
 cd "$SCRIPT_DIR/dist"
 rm -f AffinityHub-macOS-universal.zip AffinityHub-macOS-universal.dmg
-ditto -c -k --keepParent AffinityHub-Universal.app AffinityHub-macOS-universal.zip
-hdiutil create -volname AffinityHub -srcfolder AffinityHub-Universal.app -ov -format UDZO AffinityHub-macOS-universal.dmg
+ditto -c -k --keepParent "Affinity Hub.app" AffinityHub-macOS-universal.zip
+hdiutil create -volname "Affinity Hub" -srcfolder "Affinity Hub.app" -ov -format UDZO AffinityHub-macOS-universal.dmg
 
 lipo -archs "$APP_ROOT/Contents/MacOS/AffinityHub"
 codesign --verify --deep --strict --verbose=2 "$APP_ROOT"

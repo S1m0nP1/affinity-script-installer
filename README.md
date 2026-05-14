@@ -20,19 +20,14 @@ A static community hub that installs JavaScript scripts from this repository int
 a user's local Affinity v3.2 script library through Affinity's built-in MCP
 server.
 
-## macOS Test App
+## Download The macOS App
 
-There is a native macOS proof-of-concept in `macos-test-app/`. It loads the
-AffinityHub catalog, previews script source, connects to Affinity MCP locally,
-and installs the selected script without relying on browser local-network
-permissions.
+Download the universal macOS app:
 
-Run it with:
+[AffinityHub-macOS-universal.dmg](https://github.com/S1m0nP1/affinity-script-installer/releases/latest/download/AffinityHub-macOS-universal.dmg)
 
-```bash
-cd macos-test-app
-swift run
-```
+The DMG is distributed through GitHub Releases. The built app and DMG are not
+stored in the repository history.
 
 ## How It Works
 

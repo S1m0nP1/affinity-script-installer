@@ -19,11 +19,11 @@ The script builds both Apple Silicon and Intel slices, merges them with `lipo`,
 adds the app icon, copies the bundled site files, signs the app ad hoc, and
 creates:
 
-- `dist/AffinityHub-Universal.app`
+- `dist/Affinity Hub.app`
 - `dist/AffinityHub-macOS-universal.zip`
 - `dist/AffinityHub-macOS-universal.dmg`
 
 ## Notes
 
-The local test build is not notarized. For public distribution, sign it with a
+Local builds are not notarized. For public distribution, sign the app with a
 Developer ID certificate and notarize the DMG.
