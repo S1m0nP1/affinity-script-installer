@@ -3,11 +3,11 @@
 // @author S1m0nP1
 // @version 1.1.0
 // @affinity 3.2+
-// @verified false
+// @verified true
 // @homepage https://affinityhub.js.org/
 // @github https://github.com/S1m0nP1/affinity-script-installer
 // @tags vector, glitch, distortion, effect
-// @image
+// @image images/glitch.png
 
 "use strict";
 
