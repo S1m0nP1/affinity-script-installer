@@ -781,6 +781,43 @@
       }
     },
     {
+      "id": "glitch",
+      "title": "Glitch",
+      "description": "Creates an editable vector glitch effect from selected shapes or curves. A live preview appears in the document and updates as you adjust the bands, chance, angle, shift, noise, smoothness and variation. OK keeps the generated Glitch group; Cancel removes it.",
+      "path": "scripts/glitch.js",
+      "image": "",
+      "author": "S1m0nP1",
+      "homepage": "https://affinityhub.js.org/",
+      "github": "https://github.com/S1m0nP1/affinity-script-installer",
+      "version": "1.1.0",
+      "affinity": "3.2+",
+      "verified": false,
+      "tags": [
+        "vector",
+        "glitch",
+        "distortion",
+        "effect"
+      ],
+      "translations": {
+        "es": {
+          "title": "Glitch",
+          "description": "Crea un efecto glitch vectorial editable a partir de formas o curvas seleccionadas. La vista previa en vivo aparece en el documento y se actualiza al ajustar bandas, probabilidad, angulo, desplazamiento, ruido, suavidad y variacion. OK conserva el grupo Glitch generado; Cancelar lo elimina."
+        },
+        "fr": {
+          "title": "Glitch",
+          "description": "Cree un effet glitch vectoriel modifiable a partir de formes ou courbes selectionnees. L apercu en direct apparait dans le document et se met a jour quand vous ajustez les bandes, la probabilite, l angle, le decalage, le bruit, le lissage et la variation. OK conserve le groupe Glitch genere; Annuler le supprime."
+        },
+        "de": {
+          "title": "Glitch",
+          "description": "Erstellt einen bearbeitbaren Vektor-Glitch-Effekt aus ausgewaehlten Formen oder Kurven. Die Live-Vorschau erscheint im Dokument und aktualisiert sich beim Aendern von Baendern, Chance, Winkel, Verschiebung, Rauschen, Glaettung und Variation. OK behaelt die erzeugte Glitch-Gruppe; Abbrechen entfernt sie."
+        },
+        "ja": {
+          "title": "グリッチ",
+          "description": "選択した形状やカーブから、編集可能なベクターのグリッチ効果を作成します。ドキュメント上にライブプレビューが表示され、バンド、確率、角度、シフト、ノイズ、滑らかさ、バリエーションを調整すると更新されます。OKで生成されたGlitchグループを保持し、キャンセルで削除します。"
+        }
+      }
+    },
+    {
       "id": "hangingcharsandprepositions",
       "title": "Hanging chars and prepositions",
       "description": "Replaces spaces after lone single characters or prepositions with non-breaking spaces (for slavic languages). Based on initial script by JiriKrblich",
