@@ -103,7 +103,7 @@
       "title": "Arrange on Path",
       "description": "Distributes selected objects evenly along auto-detected vector paths, with support for multiple paths, randomization, interpolation, smart sorting, open/closed paths, and repeat mode for tiling objects along the path.",
       "path": "scripts/arrange-on-path-v1.js",
-      "image": "",
+      "image": "images/arrange.png",
       "author": "BlackMortimer-13",
       "homepage": "",
       "github": "",
