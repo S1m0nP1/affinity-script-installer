@@ -781,70 +781,6 @@
       }
     },
     {
-      "id": "glitch-effect",
-      "title": "Glitch effect",
-      "description": "Create a glitch effect on a vector object.",
-      "path": "scripts/Glitch-effect.js",
-      "image": "",
-      "author": "Nic Kraneis",
-      "homepage": "",
-      "github": "",
-      "version": "1.0.0",
-      "affinity": "",
-      "verified": false,
-      "tags": [],
-      "translations": {
-        "es": {
-          "title": "Efecto glitch",
-          "description": "Crea un efecto glitch en un objeto vectorial."
-        },
-        "fr": {
-          "title": "Effet glitch",
-          "description": "Cree un effet glitch sur un objet vectoriel."
-        },
-        "de": {
-          "title": "Glitch-Effekt",
-          "description": "Erzeugt einen Glitch-Effekt auf einem Vektorobjekt."
-        },
-        "ja": {
-          "title": "グリッチ効果",
-          "description": "ベクターオブジェクトにグリッチ効果を作成します。"
-        }
-      }
-    },
-    {
-      "id": "gridify",
-      "title": "Gridify",
-      "description": "Spread selected objects into a grid with various options of spacing, scaling and jitter.",
-      "path": "scripts/gridify.js",
-      "image": "",
-      "author": "Nic Kraneis",
-      "homepage": "",
-      "github": "",
-      "version": "1.0.0",
-      "affinity": "",
-      "verified": false,
-      "tags": [],
-      "translations": {
-        "es": {
-          "title": "Gridify",
-          "description": "Distribuye objetos seleccionados en una cuadricula con varias opciones de espaciado, escala y variacion."
-        },
-        "fr": {
-          "title": "Gridify",
-          "description": "Repartit les objets selectionnes dans une grille avec plusieurs options d espacement, d echelle et de variation."
-        },
-        "de": {
-          "title": "Gridify",
-          "description": "Verteilt ausgewaehlte Objekte in einem Raster mit Optionen fuer Abstand, Skalierung und Streuung."
-        },
-        "ja": {
-          "title": "グリッド化",
-          "description": "選択オブジェクトを、間隔、拡大縮小、ジッターなどの各種オプション付きでグリッド状に配置します。"
-        }
-      }
-    },
-    {
       "id": "hangingcharsandprepositions",
       "title": "Hanging chars and prepositions",
       "description": "Replaces spaces after lone single characters or prepositions with non-breaking spaces (for slavic languages). Based on initial script by JiriKrblich",
@@ -993,38 +929,6 @@
         "ja": {
           "title": "OKLCHカラー",
           "description": "OKLCHカラーを編集、貼り付け、保存します。"
-        }
-      }
-    },
-    {
-      "id": "pattern-maker",
-      "title": "Pattern Maker",
-      "description": "Create patterns from an object. Supports brick and drop patterns.",
-      "path": "scripts/Pattern-Maker.js",
-      "image": "",
-      "author": "Nic Kraneis",
-      "homepage": "",
-      "github": "",
-      "version": "1.0.0",
-      "affinity": "",
-      "verified": false,
-      "tags": [],
-      "translations": {
-        "es": {
-          "title": "Creador de patrones",
-          "description": "Crea patrones a partir de un objeto. Admite patrones de ladrillo y desplazados."
-        },
-        "fr": {
-          "title": "Createur de motifs",
-          "description": "Cree des motifs a partir d un objet. Prend en charge les motifs brique et decales."
-        },
-        "de": {
-          "title": "Muster-Ersteller",
-          "description": "Erstellt Muster aus einem Objekt. Unterstuetzt Ziegel- und versetzte Muster."
-        },
-        "ja": {
-          "title": "パターンメーカー",
-          "description": "オブジェクトからパターンを作成します。ブリックパターンとドロップパターンに対応します。"
         }
       }
     },
@@ -1281,38 +1185,6 @@
         "ja": {
           "title": "RGB画像ファインダー",
           "description": "開いているAffinityドキュメント内の埋め込み/リンクされたRGB画像をすべて探します。CMYKドキュメントで便利です。"
-        }
-      }
-    },
-    {
-      "id": "roughen-edges",
-      "title": "Roughen Edges",
-      "description": "Rough up vector paths with controls over amplitute, frequency, noise etc.",
-      "path": "scripts/Roughen-Edges.js",
-      "image": "",
-      "author": "Nic Kraneis",
-      "homepage": "",
-      "github": "",
-      "version": "1.0.0",
-      "affinity": "",
-      "verified": false,
-      "tags": [],
-      "translations": {
-        "es": {
-          "title": "Bordes rugosos",
-          "description": "Hace mas rugosos los trazados vectoriales con controles de amplitud, frecuencia, ruido y mas."
-        },
-        "fr": {
-          "title": "Bords irreguliers",
-          "description": "Rend les traces vectoriels plus rugueux avec des controles d amplitude, de frequence, de bruit, etc."
-        },
-        "de": {
-          "title": "Kanten aufrauen",
-          "description": "Raut Vektorpfade mit Einstellungen fuer Amplitude, Frequenz, Rauschen und mehr auf."
-        },
-        "ja": {
-          "title": "エッジをラフにする",
-          "description": "振幅、頻度、ノイズなどの設定でベクターパスの輪郭をラフにします。"
         }
       }
     },
