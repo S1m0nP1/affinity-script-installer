@@ -970,6 +970,42 @@
       }
     },
     {
+      "id": "product-dimension-annotator",
+      "title": "Product Dimension Annotator",
+      "description": "Select one or more objects, run the script, choose width/height/both, and it creates grouped dimension annotations.",
+      "path": "scripts/Product Dimension Annotator.js",
+      "image": "images/dimension.png",
+      "author": "S1m0nP1",
+      "homepage": "https://affinityhub.js.org/",
+      "github": "https://github.com/S1m0nP1/affinity-script-installer",
+      "version": "1.0.0",
+      "affinity": "3.2+",
+      "verified": true,
+      "tags": [
+        "vector",
+        "design",
+        "utility"
+      ],
+      "translations": {
+        "es": {
+          "title": "Anotador de dimensiones de producto",
+          "description": "Selecciona uno o mas objetos, ejecuta el script y elige anchura, altura o ambas para crear anotaciones de dimensiones agrupadas."
+        },
+        "fr": {
+          "title": "Annotateur de dimensions produit",
+          "description": "Selectionnez un ou plusieurs objets, lancez le script, puis choisissez largeur, hauteur ou les deux pour creer des annotations de dimensions groupees."
+        },
+        "de": {
+          "title": "Produktmasse beschriften",
+          "description": "Waehle ein oder mehrere Objekte aus, starte das Script und waehle Breite, Hoehe oder beides, um gruppierte Massangaben zu erstellen."
+        },
+        "ja": {
+          "title": "製品寸法注釈",
+          "description": "1つ以上のオブジェクトを選択して実行し、幅、高さ、または両方を選ぶと、グループ化された寸法注釈を作成します。"
+        }
+      }
+    },
+    {
       "id": "puckerbloateffect",
       "title": "PuckerBloatEffect",
       "description": "Applies a Pucker & Bloat effect to the selected object(s), pulling anchor points inward (Pucker) or outward (Bloat) to distort",
