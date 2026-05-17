@@ -1,8 +1,12 @@
 # Affinity Hub macOS App
 
-This is a macOS wrapper for the Affinity Hub website. It bundles the static site
-inside the app, starts a local `127.0.0.1` server while the app is open, and
-loads the site in a `WKWebView`.
+This is a macOS wrapper for the Affinity Hub website. It loads the live
+`https://affinityhub.js.org/` site in a `WKWebView` so published website changes
+are visible after reload.
+
+The app also bundles a static copy of the site as an offline fallback. If the
+live website cannot be reached, the app starts a local `127.0.0.1` server and
+loads the bundled copy.
 
 The local server is internal to the app. Users do not need to start it manually,
 and it stops when the app quits.

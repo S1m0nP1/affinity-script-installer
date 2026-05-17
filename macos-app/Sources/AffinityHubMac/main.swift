@@ -220,12 +220,13 @@ enum AffinityHubApp {
 final class BrowserWindowController: NSWindowController, WKNavigationDelegate, WKUIDelegate {
     private let webView: WKWebView
     private var localServer: LocalSiteServer?
+    private var isLoadingBundledFallback = false
 
     init() {
         let configuration = WKWebViewConfiguration()
         configuration.defaultWebpagePreferences.allowsContentJavaScript = true
         configuration.preferences.javaScriptCanOpenWindowsAutomatically = true
-        configuration.websiteDataStore = .default()
+        configuration.websiteDataStore = .nonPersistent()
 
         webView = WKWebView(frame: .zero, configuration: configuration)
 
@@ -257,7 +258,11 @@ final class BrowserWindowController: NSWindowController, WKNavigationDelegate, W
     }
 
     @objc func reloadPage() {
-        webView.reload()
+        if webView.url?.host == fallbackSiteURL.host {
+            webView.reloadFromOrigin()
+        } else {
+            loadLiveSite()
+        }
     }
 
     @objc func goBack() {
@@ -304,12 +309,27 @@ final class BrowserWindowController: NSWindowController, WKNavigationDelegate, W
     }
 
     private func loadAffinityHub() {
+        loadLiveSite()
+    }
+
+    private func loadLiveSite() {
+        isLoadingBundledFallback = false
+        localServer = nil
+        webView.load(noCacheRequest(for: fallbackSiteURL))
+    }
+
+    private func loadBundledFallback(reason: String) {
+        guard !isLoadingBundledFallback else {
+            showFallbackPage(reason)
+            return
+        }
+        isLoadingBundledFallback = true
+
         guard
             let siteRoot = Bundle.main.resourceURL?.appendingPathComponent(bundledSiteDirectory, isDirectory: true),
             FileManager.default.fileExists(atPath: siteRoot.appendingPathComponent("index.html").path)
         else {
-            showFallbackPage("Bundled site files were not found. Loading the live website...")
-            webView.load(URLRequest(url: fallbackSiteURL))
+            showFallbackPage(reason)
             return
         }
 
@@ -317,11 +337,21 @@ final class BrowserWindowController: NSWindowController, WKNavigationDelegate, W
             let server = LocalSiteServer(siteRoot: siteRoot)
             let url = try server.start()
             localServer = server
-            webView.load(URLRequest(url: url))
+            webView.load(noCacheRequest(for: url))
         } catch {
-            showFallbackPage("The local bundled site server could not start. Loading the live website...")
-            webView.load(URLRequest(url: fallbackSiteURL))
+            showFallbackPage("\(reason) The bundled fallback could not start: \(error.localizedDescription)")
         }
+    }
+
+    private func noCacheRequest(for url: URL) -> URLRequest {
+        var request = URLRequest(
+            url: url,
+            cachePolicy: .reloadIgnoringLocalAndRemoteCacheData,
+            timeoutInterval: 30
+        )
+        request.setValue("no-cache", forHTTPHeaderField: "Cache-Control")
+        request.setValue("no-cache", forHTTPHeaderField: "Pragma")
+        return request
     }
 
     private func showFallbackPage(_ message: String) {
@@ -370,11 +400,13 @@ final class BrowserWindowController: NSWindowController, WKNavigationDelegate, W
     }
 
     func webView(_ webView: WKWebView, didFail navigation: WKNavigation!, withError error: Error) {
-        showFallbackPage(error.localizedDescription)
+        if (error as NSError).code == NSURLErrorCancelled { return }
+        loadBundledFallback(reason: "The live website could not be loaded: \(error.localizedDescription)")
     }
 
     func webView(_ webView: WKWebView, didFailProvisionalNavigation navigation: WKNavigation!, withError error: Error) {
-        showFallbackPage(error.localizedDescription)
+        if (error as NSError).code == NSURLErrorCancelled { return }
+        loadBundledFallback(reason: "The live website could not be loaded: \(error.localizedDescription)")
     }
 
     func webView(
