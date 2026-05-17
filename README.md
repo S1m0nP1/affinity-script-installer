@@ -24,7 +24,7 @@ server.
 
 Download the universal macOS app:
 
-[AffinityHub-macOS-universal.dmg](https://github.com/S1m0nP1/affinity-script-installer/releases/latest/download/AffinityHub-macOS-universal.dmg)
+[Affinity Hub macOS releases](https://github.com/S1m0nP1/affinity-script-installer/releases/latest)
 
 The DMG is distributed through GitHub Releases. The built app and DMG are not
 stored in the repository history.
