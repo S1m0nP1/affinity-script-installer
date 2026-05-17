@@ -41,6 +41,8 @@ function parseMetadata(source) {
     const [, key, value] = match;
     if (key === "tags") {
       metadata.tags = parseTags(value);
+    } else if (key === "changelog") {
+      metadata.changelog = [...(metadata.changelog || []), value.trim()];
     } else if (
       key === "id" ||
       key === "title" ||
@@ -50,6 +52,7 @@ function parseMetadata(source) {
       key === "homepage" ||
       key === "github" ||
       key === "version" ||
+      key === "updated" ||
       key === "affinity" ||
       key === "verified"
     ) {
@@ -93,6 +96,12 @@ async function main() {
         homepage: metadata.homepage || previous?.homepage || "",
         github: metadata.github || previous?.github || "",
         version: metadata.version || previous?.version || "",
+        updated: metadata.updated || previous?.updated || "",
+        changelog: Array.isArray(metadata.changelog)
+          ? metadata.changelog
+          : Array.isArray(previous?.changelog)
+            ? previous.changelog
+            : [],
         affinity: metadata.affinity || previous?.affinity || "",
         verified: String(metadata.verified || previous?.verified || "").toLowerCase() === "true",
         tags: Array.isArray(metadata.tags)

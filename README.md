@@ -49,6 +49,9 @@ file:
 // @description What the script does.
 // @author Your Name
 // @version 1.0.0
+// @updated 2026-05-17
+// @changelog Added live preview support.
+// @changelog Fixed cancel behavior.
 // @affinity 3.2+
 // @verified true
 // @homepage https://example.com/my-script
@@ -75,6 +78,8 @@ Supported metadata:
 - `@description What the script does.`
 - `@author Your Name`
 - `@version 1.0.0`
+- `@updated 2026-05-17`
+- `@changelog Added live preview support.`
 - `@affinity 3.2+`
 - `@verified true`
 - `@homepage https://example.com/my-script`
@@ -84,6 +89,11 @@ Supported metadata:
 
 The optional `@image` field appears as a thumbnail on the script card. Store
 PNG previews in the repository under `images/`.
+
+Use `@version`, `@updated`, and one or more `@changelog` lines whenever a script
+changes. Affinity Hub stores the version installed through the site in the
+user's browser/app storage, then shows `Update available` when the manifest
+version is newer than the user's installed version.
 
 ## Community Submissions
 

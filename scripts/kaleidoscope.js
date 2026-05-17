@@ -1,7 +1,10 @@
 // @title Kaleidoscope
 // @description Adjust symmetry, mirror, radius and offset. A live preview group is created immediately on dialog open and updated whenever any control changes.
 // @author S1m0nP1
-// @version 1.0.0
+// @version 1.0.1
+// @updated 2026-05-17
+// @changelog Updated live preview to use a real temporary group that rebuilds safely.
+// @changelog Cancel now removes the preview group and restores the original selection.
 // @affinity 3.2+
 // @verified true
 // @homepage 
