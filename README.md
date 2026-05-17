@@ -68,8 +68,15 @@ node tools/generate-scripts-json.mjs
 
 Run this locally from the repository root. The generator scans `.js` and `.mjs`
 files in `scripts/`. Metadata comments in the script file take priority. If a
-field is missing, the generator falls back to any existing value in
-`scripts.json`, then to filename-based defaults.
+field is missing, the generator falls back to filename-based defaults.
+
+For update metadata, the generator uses:
+
+1. Explicit `@updated` and `@changelog` comments in the script file.
+2. If `@updated` is missing and the script file was changed in git today, the
+   generator sets `updated` to today's date.
+3. Older git dates are not written automatically; scripts that were not updated
+   today keep `updated` blank unless an explicit `@updated` comment is present.
 
 Supported metadata:
 
@@ -87,6 +94,9 @@ Supported metadata:
 - `@tags layout, utility`
 - `@image images/my-script.png`
 
+Use one `@changelog` line per change. The generator stores them as an array in
+`scripts.json`.
+
 The optional `@image` field appears as a thumbnail on the script card. Store
 PNG previews in the repository under `images/`.
 
@@ -94,6 +104,21 @@ Use `@version`, `@updated`, and one or more `@changelog` lines whenever a script
 changes. Affinity Hub stores the version installed through the site in the
 user's browser/app storage, then shows `Update available` when the manifest
 version is newer than the user's installed version.
+
+Affinity Hub shows:
+
+- `Recently updated` only for scripts whose `updated` date is today.
+- `Update available` when a user previously installed an older version through
+  Affinity Hub.
+- `Installed` when the locally recorded installed version matches the manifest.
+
+The script list keeps its main sort order by successful install count, then
+title. Update badges do not change the sort order.
+
+## Build The Site HTML
+
+Edit the readable source in `index.pretty.html`, then minify it to `index.html`
+before publishing. `index.html` is the file served by GitHub Pages.
 
 ## Community Submissions
 
