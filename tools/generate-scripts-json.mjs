@@ -1,10 +1,13 @@
 import { readdir, readFile, writeFile } from "node:fs/promises";
+import { execFile } from "node:child_process";
+import { promisify } from "node:util";
 import path from "node:path";
 
 const rootDir = new URL("..", import.meta.url);
 const scriptsDir = new URL("scripts/", rootDir);
 const manifestUrl = new URL("scripts.json", rootDir);
 const scriptExtensions = new Set([".js", ".mjs"]);
+const execFileAsync = promisify(execFile);
 
 function titleFromFileName(fileName) {
   return path
@@ -63,6 +66,17 @@ function parseMetadata(source) {
   return metadata;
 }
 
+async function gitLastUpdated(scriptPath) {
+  try {
+    const { stdout } = await execFileAsync("git", ["log", "-1", "--format=%cs", "--", scriptPath], {
+      cwd: rootDir
+    });
+    return stdout.trim();
+  } catch (error) {
+    return "";
+  }
+}
+
 async function readExistingManifest() {
   try {
     const manifest = JSON.parse(await readFile(manifestUrl, "utf8"));
@@ -86,6 +100,7 @@ async function main() {
       const previous = existingByPath.get(scriptPath);
       const source = await readFile(new URL(entry.name, scriptsDir), "utf8");
       const metadata = parseMetadata(source);
+      const gitUpdated = await gitLastUpdated(scriptPath);
       return {
         id: metadata.id || previous?.id || idFromFileName(entry.name),
         title: metadata.title || previous?.title || titleFromFileName(entry.name),
@@ -96,7 +111,7 @@ async function main() {
         homepage: metadata.homepage || previous?.homepage || "",
         github: metadata.github || previous?.github || "",
         version: metadata.version || previous?.version || "",
-        updated: metadata.updated || previous?.updated || "",
+        updated: metadata.updated || previous?.updated || gitUpdated,
         changelog: Array.isArray(metadata.changelog)
           ? metadata.changelog
           : Array.isArray(previous?.changelog)
