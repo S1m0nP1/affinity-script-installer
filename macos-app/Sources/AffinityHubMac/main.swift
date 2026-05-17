@@ -5,15 +5,17 @@ import UniformTypeIdentifiers
 import WebKit
 
 private let bundledSiteDirectory = "site"
-private let fallbackSiteURL = URL(string: "https://affinityhub.js.org/")!
+private let liveSiteURL = URL(string: "https://affinityhub.js.org/")!
 
 final class LocalSiteServer {
     private let siteRoot: URL
+    private let upstreamBaseURL: URL
     private let queue = DispatchQueue(label: "org.affinityhub.local-site-server")
     private var listener: NWListener?
 
-    init(siteRoot: URL) {
+    init(siteRoot: URL, upstreamBaseURL: URL) {
         self.siteRoot = siteRoot
+        self.upstreamBaseURL = upstreamBaseURL
     }
 
     func start() throws -> URL {
@@ -76,19 +78,61 @@ final class LocalSiteServer {
                 return
             }
 
-            let path = self.normalizedPath(String(parts[1]))
-            let fileURL = self.siteRoot.appendingPathComponent(path)
-            guard self.isInsideSiteRoot(fileURL), FileManager.default.fileExists(atPath: fileURL.path) else {
-                self.send(status: "404 Not Found", body: Data("Not Found".utf8), mime: "text/plain", on: connection)
+            let rawPath = String(parts[1])
+            let path = self.normalizedPath(rawPath)
+            self.fetchLive(path: path, method: method) { [weak self] result in
+                guard let self else { return }
+                switch result {
+                case .success(let response):
+                    self.send(status: "200 OK", body: response.body, mime: response.mime, on: connection)
+                case .failure:
+                    self.sendBundled(path: path, method: method, on: connection)
+                }
+            }
+        }
+    }
+
+    private func fetchLive(path: String, method: String, completion: @escaping (Result<LiveResponse, Error>) -> Void) {
+        let upstreamURL = upstreamBaseURL.appendingPathComponent(path)
+        var request = URLRequest(
+            url: upstreamURL,
+            cachePolicy: .reloadIgnoringLocalAndRemoteCacheData,
+            timeoutInterval: 8
+        )
+        request.httpMethod = method
+        request.setValue("no-cache", forHTTPHeaderField: "Cache-Control")
+        request.setValue("no-cache", forHTTPHeaderField: "Pragma")
+
+        URLSession.shared.dataTask(with: request) { data, response, error in
+            if let error {
+                completion(.failure(error))
                 return
             }
-
-            do {
-                let body = method == "HEAD" ? Data() : try Data(contentsOf: fileURL)
-                self.send(status: "200 OK", body: body, mime: self.mimeType(for: fileURL), on: connection)
-            } catch {
-                self.send(status: "500 Internal Server Error", body: Data(error.localizedDescription.utf8), mime: "text/plain", on: connection)
+            guard
+                let http = response as? HTTPURLResponse,
+                200..<300 ~= http.statusCode,
+                let data
+            else {
+                completion(.failure(ServerError.message("Live site returned an invalid response.")))
+                return
             }
+            let mime = http.value(forHTTPHeaderField: "Content-Type") ?? self.mimeType(forPath: path)
+            completion(.success(LiveResponse(body: method == "HEAD" ? Data() : data, mime: mime)))
+        }.resume()
+    }
+
+    private func sendBundled(path: String, method: String, on connection: NWConnection) {
+        let fileURL = siteRoot.appendingPathComponent(path)
+        guard isInsideSiteRoot(fileURL), FileManager.default.fileExists(atPath: fileURL.path) else {
+            send(status: "404 Not Found", body: Data("Not Found".utf8), mime: "text/plain", on: connection)
+            return
+        }
+
+        do {
+            let body = method == "HEAD" ? Data() : try Data(contentsOf: fileURL)
+            send(status: "200 OK", body: body, mime: mimeType(for: fileURL), on: connection)
+        } catch {
+            send(status: "500 Internal Server Error", body: Data(error.localizedDescription.utf8), mime: "text/plain", on: connection)
         }
     }
 
@@ -124,7 +168,11 @@ final class LocalSiteServer {
     }
 
     private func mimeType(for url: URL) -> String {
-        switch url.pathExtension.lowercased() {
+        mimeType(forPath: url.path)
+    }
+
+    private func mimeType(forPath path: String) -> String {
+        switch URL(fileURLWithPath: path).pathExtension.lowercased() {
         case "html": return "text/html; charset=utf-8"
         case "js", "mjs": return "text/javascript; charset=utf-8"
         case "json": return "application/json; charset=utf-8"
@@ -136,6 +184,11 @@ final class LocalSiteServer {
         case "txt": return "text/plain; charset=utf-8"
         default: return "application/octet-stream"
         }
+    }
+
+    struct LiveResponse {
+        let body: Data
+        let mime: String
     }
 
     enum ServerError: LocalizedError {
@@ -220,7 +273,6 @@ enum AffinityHubApp {
 final class BrowserWindowController: NSWindowController, WKNavigationDelegate, WKUIDelegate {
     private let webView: WKWebView
     private var localServer: LocalSiteServer?
-    private var isLoadingBundledFallback = false
 
     init() {
         let configuration = WKWebViewConfiguration()
@@ -258,11 +310,7 @@ final class BrowserWindowController: NSWindowController, WKNavigationDelegate, W
     }
 
     @objc func reloadPage() {
-        if webView.url?.host == fallbackSiteURL.host {
-            webView.reloadFromOrigin()
-        } else {
-            loadLiveSite()
-        }
+        webView.reloadFromOrigin()
     }
 
     @objc func goBack() {
@@ -278,7 +326,7 @@ final class BrowserWindowController: NSWindowController, WKNavigationDelegate, W
     }
 
     @objc func openWebsite() {
-        NSWorkspace.shared.open(fallbackSiteURL)
+        NSWorkspace.shared.open(liveSiteURL)
     }
 
     func present() {
@@ -309,37 +357,21 @@ final class BrowserWindowController: NSWindowController, WKNavigationDelegate, W
     }
 
     private func loadAffinityHub() {
-        loadLiveSite()
-    }
-
-    private func loadLiveSite() {
-        isLoadingBundledFallback = false
-        localServer = nil
-        webView.load(noCacheRequest(for: fallbackSiteURL))
-    }
-
-    private func loadBundledFallback(reason: String) {
-        guard !isLoadingBundledFallback else {
-            showFallbackPage(reason)
-            return
-        }
-        isLoadingBundledFallback = true
-
         guard
             let siteRoot = Bundle.main.resourceURL?.appendingPathComponent(bundledSiteDirectory, isDirectory: true),
             FileManager.default.fileExists(atPath: siteRoot.appendingPathComponent("index.html").path)
         else {
-            showFallbackPage(reason)
+            showFallbackPage("Bundled site files were not found.")
             return
         }
 
         do {
-            let server = LocalSiteServer(siteRoot: siteRoot)
+            let server = LocalSiteServer(siteRoot: siteRoot, upstreamBaseURL: liveSiteURL)
             let url = try server.start()
             localServer = server
             webView.load(noCacheRequest(for: url))
         } catch {
-            showFallbackPage("\(reason) The bundled fallback could not start: \(error.localizedDescription)")
+            showFallbackPage("The local site server could not start: \(error.localizedDescription)")
         }
     }
 
@@ -401,12 +433,12 @@ final class BrowserWindowController: NSWindowController, WKNavigationDelegate, W
 
     func webView(_ webView: WKWebView, didFail navigation: WKNavigation!, withError error: Error) {
         if (error as NSError).code == NSURLErrorCancelled { return }
-        loadBundledFallback(reason: "The live website could not be loaded: \(error.localizedDescription)")
+        showFallbackPage(error.localizedDescription)
     }
 
     func webView(_ webView: WKWebView, didFailProvisionalNavigation navigation: WKNavigation!, withError error: Error) {
         if (error as NSError).code == NSURLErrorCancelled { return }
-        loadBundledFallback(reason: "The live website could not be loaded: \(error.localizedDescription)")
+        showFallbackPage(error.localizedDescription)
     }
 
     func webView(
