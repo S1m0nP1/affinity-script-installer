@@ -7,7 +7,7 @@
 // @homepage 
 // @github 
 // @tags 
-// @image images/arrange.png
+// @image images/ArrangeObjectsOnPath.png
 
 'use strict';
 // ARRANGE ON PATH v2.7

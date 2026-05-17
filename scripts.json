@@ -103,7 +103,7 @@
       "title": "Arrange on Path",
       "description": "Distributes selected objects evenly along auto-detected vector paths, with support for multiple paths, randomization, interpolation, smart sorting, open/closed paths, and repeat mode for tiling objects along the path.",
       "path": "scripts/arrange-on-path-v1.js",
-      "image": "images/arrange.png",
+      "image": "images/ArrangeObjectsOnPath.png",
       "author": "BlackMortimer-13",
       "homepage": "",
       "github": "",
@@ -234,7 +234,7 @@
       "image": "images/blendtoolpro.png",
       "author": "S1m0nP1",
       "homepage": "https://s1m0np1.github.io/Blend-Tool-for-Affinity/",
-      "github": "https://s1m0np1.github.io/Blend-Tool-for-Affinity/",
+      "github": "https://github.com/S1m0nP1/Blend-Tool-for-Affinity",
       "version": "1.0.0",
       "affinity": "3.2+",
       "verified": true,
@@ -333,7 +333,7 @@
       "title": "Copy to artboards",
       "description": "Duplicates selected object(s) onto every other artboard in the document",
       "path": "scripts/copytoartboards.js",
-      "image": "",
+      "image": "images/CopytoAllArtboards.png",
       "author": "BlackMortimer-13",
       "homepage": "",
       "github": "",
@@ -461,7 +461,7 @@
       "title": "DeleteEmptyGroups",
       "description": "Deletes empty groups left behind by the user.",
       "path": "scripts/deleteemptygroups.js",
-      "image": "",
+      "image": "images/DeleteEmptyFolders.png",
       "author": "BlackMortimer-13",
       "homepage": "",
       "github": "",
@@ -683,34 +683,37 @@
       }
     },
     {
-      "id": "extrudetool",
+      "id": "extrude-tool",
       "title": "Extrude Tool",
-      "description": "This script generates a 3D-like extrusion effect by connecting selected vector shapes. Once executed, the tool automatically calculates, subdivides, and renders the connecting geometry, organizing the resulting faces while preserving your original shapes as caps",
-      "path": "scripts/extrudetool.js",
+      "description": "Creates a live-preview 3D-style extrusion between selected vector shapes, generating organized connecting faces while preserving the original shapes as caps.",
+      "path": "scripts/extrudetool-v3.js",
       "image": "images/extrude.png",
       "author": "BlackMortimer-13",
       "homepage": "",
       "github": "",
-      "version": "2.0.0",
-      "affinity": "",
+      "version": "3.8",
+      "affinity": "3.2+",
       "verified": false,
-      "tags": [],
+      "tags": [
+        "effect",
+        "vector"
+      ],
       "translations": {
         "es": {
           "title": "Herramienta de extrusion",
-          "description": "Genera un efecto de extrusion similar a 3D conectando formas vectoriales seleccionadas, calculando y organizando las caras resultantes mientras conserva las formas originales como tapas."
+          "description": "Crea una extrusion 3D con vista previa en vivo entre formas vectoriales seleccionadas, generando caras de conexion organizadas y conservando las formas originales como tapas."
         },
         "fr": {
           "title": "Outil d extrusion",
-          "description": "Genere un effet d extrusion de type 3D en reliant les formes vectorielles selectionnees, puis calcule et organise les faces obtenues tout en conservant les formes d origine comme bouchons."
+          "description": "Cree une extrusion de style 3D avec apercu en direct entre des formes vectorielles selectionnees, en generant des faces de connexion organisees tout en conservant les formes originales comme bouchons."
         },
         "de": {
           "title": "Extrude-Werkzeug",
-          "description": "Erzeugt einen 3D-aehnlichen Extrusionseffekt, indem ausgewaehlte Vektorformen verbunden werden; die entstehenden Flaechen werden berechnet und organisiert, waehrend Originalformen als Kappen erhalten bleiben."
+          "description": "Erzeugt eine 3D-artige Extrusion mit Live-Vorschau zwischen ausgewaehlten Vektorformen, erstellt geordnete Verbindungsflaechen und erhaelt die Originalformen als Kappen."
         },
         "ja": {
           "title": "押し出しツール",
-          "description": "選択したベクター形状を接続して3D風の押し出し効果を生成します。接続ジオメトリを自動で計算・分割・描画し、元の形状をキャップとして保持しながら面を整理します。"
+          "description": "選択したベクター形状の間にライブプレビュー付きの3D風押し出しを作成し、接続面を整理して生成しながら元の形状をキャップとして保持します。"
         }
       }
     },
@@ -719,7 +722,7 @@
       "title": "Fill Path With Objects",
       "description": "This script fills a selected closed vector path with multiple copies of one or more template objects. It supports different grid types (rectangular, hex, circular, radial, etc.), randomization, scaling, rotation, and spacing controls. Select a closed path and objects, adjust settings, then preview or apply.",
       "path": "scripts/fill-path-with-objects-v1.js",
-      "image": "",
+      "image": "images/FillPathWithObjects.png",
       "author": "BlackMortimer-13",
       "homepage": "",
       "github": "",
@@ -1006,66 +1009,37 @@
       }
     },
     {
-      "id": "puckerbloateffect",
-      "title": "PuckerBloatEffect",
-      "description": "Applies a Pucker & Bloat effect to the selected object(s), pulling anchor points inward (Pucker) or outward (Bloat) to distort",
-      "path": "scripts/PuckerBloatEffect.js",
-      "image": "",
+      "id": "puckerbloat",
+      "title": "PuckerBloat",
+      "description": "Applies a live-preview pucker or bloat distortion to selected curves, shapes, or groups by moving anchor points inward or outward.",
+      "path": "scripts/puckerbloat-v2.js",
+      "image": "images/Pucker&Bloat.png",
       "author": "BlackMortimer-13",
       "homepage": "",
       "github": "",
-      "version": "1.0",
-      "affinity": "",
+      "version": "2.3",
+      "affinity": "3.2+",
       "verified": false,
-      "tags": [],
+      "tags": [
+        "effect",
+        "vector"
+      ],
       "translations": {
         "es": {
-          "title": "Efecto Pucker y Bloat",
-          "description": "Aplica un efecto Pucker & Bloat a los objetos seleccionados, tirando de los puntos de anclaje hacia dentro o hacia fuera para distorsionar."
+          "title": "PuckerBloat",
+          "description": "Aplica una distorsion pucker o bloat con vista previa en vivo a curvas, formas o grupos seleccionados, moviendo los puntos de anclaje hacia dentro o hacia fuera."
         },
         "fr": {
-          "title": "Effet Pucker et Bloat",
-          "description": "Applique un effet Pucker & Bloat aux objets selectionnes, en tirant les points d ancrage vers l interieur ou l exterieur pour les deformer."
+          "title": "PuckerBloat",
+          "description": "Applique une deformation pucker ou bloat avec apercu en direct aux courbes, formes ou groupes selectionnes, en deplacant les points d ancrage vers l interieur ou l exterieur."
         },
         "de": {
-          "title": "Pucker-und-Bloat-Effekt",
-          "description": "Wendet einen Pucker-&-Bloat-Effekt auf ausgewaehlte Objekte an und zieht Ankerpunkte nach innen oder aussen, um sie zu verzerren."
+          "title": "PuckerBloat",
+          "description": "Wendet eine Pucker- oder Bloat-Verzerrung mit Live-Vorschau auf ausgewaehlte Kurven, Formen oder Gruppen an, indem Ankerpunkte nach innen oder aussen bewegt werden."
         },
         "ja": {
-          "title": "パッカー&ブロート効果",
-          "description": "選択したオブジェクトのアンカーポイントを内側（パッカー）または外側（ブロート）へ動かして歪ませます。"
-        }
-      }
-    },
-    {
-      "id": "radialrepeat",
-      "title": "RadialRepeat",
-      "description": "Creates a radial repeat from the selected object(s) by duplicating the selection evenly around a central point in a circular pattern.",
-      "path": "scripts/radialrepeat.js",
-      "image": "",
-      "author": "BlackMortimer-13",
-      "homepage": "",
-      "github": "",
-      "version": "4.1",
-      "affinity": "",
-      "verified": false,
-      "tags": [],
-      "translations": {
-        "es": {
-          "title": "Repeticion radial",
-          "description": "Crea una repeticion radial de los objetos seleccionados duplicandolos uniformemente alrededor de un punto central en un patron circular."
-        },
-        "fr": {
-          "title": "Repetition radiale",
-          "description": "Cree une repetition radiale des objets selectionnes en les dupliquant uniformement autour d un point central selon un motif circulaire."
-        },
-        "de": {
-          "title": "Radiale Wiederholung",
-          "description": "Erzeugt eine radiale Wiederholung der ausgewaehlten Objekte, indem sie gleichmaessig um einen Mittelpunkt in einem Kreis dupliziert werden."
-        },
-        "ja": {
-          "title": "放射状リピート",
-          "description": "選択したオブジェクトを中心点の周囲に均等複製し、円形パターンの放射状リピートを作成します。"
+          "title": "PuckerBloat",
+          "description": "選択した曲線、形状、グループにライブプレビュー付きのパッカー/ブロート変形を適用し、アンカーポイントを内側または外側へ移動します。"
         }
       }
     },
@@ -1102,6 +1076,76 @@
       }
     },
     {
+      "id": "recolorfill",
+      "title": "ReColorFill",
+      "description": "Quickly recolors the fill colors or gradients used by selected shapes, including repeated colors across nested objects.",
+      "path": "scripts/recolorfill-v4.js",
+      "image": "images/ReColorFill.png",
+      "author": "BlackMortimer-13",
+      "homepage": "",
+      "github": "",
+      "version": "4.0",
+      "affinity": "3.2+",
+      "verified": false,
+      "tags": [
+        "color",
+        "fill"
+      ],
+      "translations": {
+        "es": {
+          "title": "ReColorFill",
+          "description": "Recolorea rapidamente los colores o degradados de relleno usados por las formas seleccionadas, incluidos colores repetidos en objetos anidados."
+        },
+        "fr": {
+          "title": "ReColorFill",
+          "description": "Recolore rapidement les couleurs ou degrades de remplissage utilises par les formes selectionnees, y compris les couleurs repetees dans les objets imbriques."
+        },
+        "de": {
+          "title": "ReColorFill",
+          "description": "Faerbt Fuellfarben oder Verlaeufe ausgewaehlter Formen schnell neu ein, einschliesslich wiederholter Farben in verschachtelten Objekten."
+        },
+        "ja": {
+          "title": "ReColorFill",
+          "description": "選択した形状で使われている塗り色やグラデーションをすばやく再カラーします。入れ子のオブジェクト内で繰り返される色にも対応します。"
+        }
+      }
+    },
+    {
+      "id": "recolorstroke",
+      "title": "ReColorStroke",
+      "description": "Quickly recolors the stroke colors or gradients used by selected shapes, including repeated colors across nested objects.",
+      "path": "scripts/recolorstrokev2.js",
+      "image": "images/ReColorStroke.png",
+      "author": "BlackMortimer-13",
+      "homepage": "",
+      "github": "",
+      "version": "2.0",
+      "affinity": "3.2+",
+      "verified": false,
+      "tags": [
+        "color",
+        "stroke"
+      ],
+      "translations": {
+        "es": {
+          "title": "ReColorStroke",
+          "description": "Recolorea rapidamente los colores o degradados de trazo usados por las formas seleccionadas, incluidos colores repetidos en objetos anidados."
+        },
+        "fr": {
+          "title": "ReColorStroke",
+          "description": "Recolore rapidement les couleurs ou degrades de contour utilises par les formes selectionnees, y compris les couleurs repetees dans les objets imbriques."
+        },
+        "de": {
+          "title": "ReColorStroke",
+          "description": "Faerbt Konturfarben oder Verlaeufe ausgewaehlter Formen schnell neu ein, einschliesslich wiederholter Farben in verschachtelten Objekten."
+        },
+        "ja": {
+          "title": "ReColorStroke",
+          "description": "選択した形状で使われている線色やグラデーションをすばやく再カラーします。入れ子のオブジェクト内で繰り返される色にも対応します。"
+        }
+      }
+    },
+    {
       "id": "rename-artboards",
       "title": "Artboard Batch Renamer",
       "description": "Renames all artboards in the current document in bulk. When executed, a dialog prompts for a base name, which is then applied to all artboards with automatic sequential numbering and zero-padding — ensuring correct alphabetical sort order when exporting files (e.g., Name 01, Name 02... instead of Name 1, Name 2). For 100+ artboards, padding adjusts to 3 digits automatically. If only one artboard exists, no number is appended.",
@@ -1134,98 +1178,37 @@
       }
     },
     {
-      "id": "replace-all-with-key-object-v1",
-      "title": "ReplaceAllwithKeyObject",
-      "description": "The script replaces all selected objects with duplicates of the key object (select 2 objects then press Option on Mac or Alt on Windows on the object you want to become the key object), while preserving position and rotation, with optional size matching.",
-      "path": "scripts/replace-all-with-key-object-v1.js",
-      "image": "",
+      "id": "replaceobjectswithobject",
+      "title": "ReplaceObjectswithObject",
+      "description": "Replaces selected objects with duplicates of a key object while preserving position and rotation, with optional size and style matching.",
+      "path": "scripts/replaceobjectswithobject-v2.js",
+      "image": "images/ReplaceObjectsWithObject.png",
       "author": "BlackMortimer-13",
       "homepage": "",
       "github": "",
-      "version": "1.0.0",
-      "affinity": "",
+      "version": "2.0",
+      "affinity": "3.2+",
       "verified": false,
-      "tags": [],
+      "tags": [
+        "object",
+        "layout"
+      ],
       "translations": {
         "es": {
-          "title": "Reemplazar todo con objeto clave",
-          "description": "Reemplaza todos los objetos seleccionados por duplicados del objeto clave, conservando posicion y rotacion, con coincidencia opcional de tamano."
+          "title": "ReplaceObjectswithObject",
+          "description": "Reemplaza los objetos seleccionados por duplicados de un objeto clave, conservando posicion y rotacion, con coincidencia opcional de tamano y estilo."
         },
         "fr": {
-          "title": "Remplacer tout par l objet cle",
-          "description": "Remplace tous les objets selectionnes par des duplicatas de l objet cle, en conservant position et rotation, avec correspondance de taille optionnelle."
+          "title": "ReplaceObjectswithObject",
+          "description": "Remplace les objets selectionnes par des duplicatas d un objet cle, en conservant position et rotation, avec correspondance facultative de taille et de style."
         },
         "de": {
-          "title": "Alles durch Schluesselobjekt ersetzen",
-          "description": "Ersetzt alle ausgewaehlten Objekte durch Duplikate des Schluesselobjekts, wobei Position und Drehung erhalten bleiben; optionale Groessenanpassung ist moeglich."
+          "title": "ReplaceObjectswithObject",
+          "description": "Ersetzt ausgewaehlte Objekte durch Duplikate eines Schluesselobjekts, erhaelt Position und Drehung und bietet optionales Anpassen von Groesse und Stil."
         },
         "ja": {
-          "title": "キーオブジェクトで全置換",
-          "description": "選択したすべてのオブジェクトをキーオブジェクトの複製に置き換えます。位置と回転を保持し、サイズ合わせも任意で行えます。"
-        }
-      }
-    },
-    {
-      "id": "replacecolorfill",
-      "title": "ReplaceColorFill",
-      "description": "Allows users to quickly change the fill color/gradients of selected shapes.",
-      "path": "scripts/replacecolorfill.js",
-      "image": "",
-      "author": "BlackMortimer-13",
-      "homepage": "",
-      "github": "",
-      "version": "3.0",
-      "affinity": "",
-      "verified": false,
-      "tags": [],
-      "translations": {
-        "es": {
-          "title": "Reemplazar color de relleno",
-          "description": "Permite cambiar rapidamente el color o los degradados de relleno de las formas seleccionadas."
-        },
-        "fr": {
-          "title": "Remplacer la couleur de remplissage",
-          "description": "Permet de modifier rapidement la couleur ou les degrades de remplissage des formes selectionnees."
-        },
-        "de": {
-          "title": "Fuellenfarbe ersetzen",
-          "description": "Ermoeglicht das schnelle Aendern der Fuellfarben oder Verlaeufe ausgewaehlter Formen."
-        },
-        "ja": {
-          "title": "塗りカラー置換",
-          "description": "選択した形状の塗り色やグラデーションをすばやく変更できます。"
-        }
-      }
-    },
-    {
-      "id": "replacecolorstroke",
-      "title": "ReplaceStrokeColor",
-      "description": "Allows users to quickly change the stroke color or gradients of selected shapes.",
-      "path": "scripts/replacecolorstroke.js",
-      "image": "",
-      "author": "BlackMortimer-13",
-      "homepage": "",
-      "github": "",
-      "version": "1.0",
-      "affinity": "",
-      "verified": false,
-      "tags": [],
-      "translations": {
-        "es": {
-          "title": "Reemplazar color de trazo",
-          "description": "Permite cambiar rapidamente el color o los degradados de trazo de las formas seleccionadas."
-        },
-        "fr": {
-          "title": "Remplacer la couleur de contour",
-          "description": "Permet de modifier rapidement la couleur ou les degrades de contour des formes selectionnees."
-        },
-        "de": {
-          "title": "Konturfarbe ersetzen",
-          "description": "Ermoeglicht das schnelle Aendern der Konturfarben oder Verlaeufe ausgewaehlter Formen."
-        },
-        "ja": {
-          "title": "線カラー置換",
-          "description": "選択した形状の線色やグラデーションをすばやく変更できます。"
+          "title": "ReplaceObjectswithObject",
+          "description": "選択したオブジェクトをキーオブジェクトの複製で置き換えます。位置と回転を保持し、サイズやスタイルの一致も任意で指定できます。"
         }
       }
     },
@@ -1266,7 +1249,7 @@
       "title": "SeparateFill&Stroke",
       "description": "Separates combined fill and stroke appearances into independent objects for easier editing and output control.",
       "path": "scripts/separate-fill-and-stroke.js",
-      "image": "",
+      "image": "images/SeparateStroke&Fill.png",
       "author": "BlackMortimer-13",
       "homepage": "",
       "github": "",
@@ -1390,66 +1373,37 @@
       }
     },
     {
-      "id": "swap-objects-v1",
-      "title": "Swap Objects",
-      "description": "The script swaps selected objects based on a custom mapping, with optional orientation and dimension swapping. Select at least 2 objects, choose how they should swap in the dialog, then use Preview or Apply.",
-      "path": "scripts/swap-objects-v1.js",
-      "image": "",
+      "id": "swapobjects",
+      "title": "SwapObjects",
+      "description": "Swaps the position and rotation of two selected objects or groups while keeping their size unchanged.",
+      "path": "scripts/swapobjects-v2.js",
+      "image": "images/SwapObjects.png",
       "author": "BlackMortimer-13",
       "homepage": "",
       "github": "",
-      "version": "1.0.0",
-      "affinity": "",
+      "version": "2.1",
+      "affinity": "3.2+",
       "verified": false,
-      "tags": [],
+      "tags": [
+        "object",
+        "layout"
+      ],
       "translations": {
         "es": {
-          "title": "Intercambiar objetos",
-          "description": "Intercambia objetos seleccionados segun un mapeo personalizado, con intercambio opcional de orientacion y dimensiones. Selecciona al menos 2 objetos y usa Vista previa o Aplicar."
+          "title": "SwapObjects",
+          "description": "Intercambia la posicion y rotacion de dos objetos o grupos seleccionados manteniendo su tamano sin cambios."
         },
         "fr": {
-          "title": "Echanger les objets",
-          "description": "Echange les objets selectionnes selon un mappage personnalise, avec echange optionnel de l orientation et des dimensions. Selectionnez au moins 2 objets puis utilisez Apercu ou Appliquer."
+          "title": "SwapObjects",
+          "description": "Echange la position et la rotation de deux objets ou groupes selectionnes tout en conservant leur taille."
         },
         "de": {
-          "title": "Objekte tauschen",
-          "description": "Tauscht ausgewaehlte Objekte anhand einer eigenen Zuordnung, optional mit Orientierung und Abmessungen. Waehle mindestens 2 Objekte und nutze Vorschau oder Anwenden."
+          "title": "SwapObjects",
+          "description": "Tauscht Position und Drehung von zwei ausgewaehlten Objekten oder Gruppen, ohne deren Groesse zu aendern."
         },
         "ja": {
-          "title": "オブジェクト入れ替え",
-          "description": "カスタムマッピングに基づいて選択オブジェクトを入れ替えます。向きや寸法の入れ替えも任意で指定できます。2つ以上のオブジェクトを選択し、ダイアログで方法を選んでプレビューまたは適用します。"
-        }
-      }
-    },
-    {
-      "id": "swap-orientation-only-v1",
-      "title": "Swap Orientation Only",
-      "description": "The script swaps the position and rotation of 2 selected objects or groups, while keeping their size unchanged. Select exactly 2 objects or groups, then run the script.",
-      "path": "scripts/swap-orientation-only-v1.js",
-      "image": "",
-      "author": "BlackMortimer-13",
-      "homepage": "",
-      "github": "",
-      "version": "1.0.0",
-      "affinity": "",
-      "verified": false,
-      "tags": [],
-      "translations": {
-        "es": {
-          "title": "Intercambiar solo orientacion",
-          "description": "Intercambia posicion y rotacion de 2 objetos o grupos seleccionados, manteniendo su tamano. Selecciona exactamente 2 objetos o grupos y ejecuta el script."
-        },
-        "fr": {
-          "title": "Echanger seulement l orientation",
-          "description": "Echange la position et la rotation de 2 objets ou groupes selectionnes tout en conservant leur taille. Selectionnez exactement 2 objets ou groupes puis lancez le script."
-        },
-        "de": {
-          "title": "Nur Orientierung tauschen",
-          "description": "Tauscht Position und Drehung von 2 ausgewaehlten Objekten oder Gruppen, ohne ihre Groesse zu aendern. Waehle genau 2 Objekte oder Gruppen aus."
-        },
-        "ja": {
-          "title": "向きだけ入れ替え",
-          "description": "2つの選択オブジェクトまたはグループの位置と回転を入れ替え、サイズは変更しません。"
+          "title": "SwapObjects",
+          "description": "選択した2つのオブジェクトまたはグループの位置と回転を入れ替え、サイズは変更しません。"
         }
       }
     },
@@ -1550,34 +1504,37 @@
       }
     },
     {
-      "id": "twist-effect-v1",
-      "title": "Twist Effect",
-      "description": "This script applies a progressive polar rotation (twist) to selected curves, shapes, or groups, mimicking Adobe Illustrator's twist effect. Select your vector elements first; the script subdivides Bezier curves, twists points radially based on distance from the center, and reconstructs the path.",
-      "path": "scripts/twist-effect-v1.js",
-      "image": "",
+      "id": "twist",
+      "title": "Twist",
+      "description": "Applies a live-preview polar twist to selected curves, shapes, or groups, subdividing paths and rotating points based on distance from the center.",
+      "path": "scripts/twist-effect-v2.js",
+      "image": "images/Twist.png",
       "author": "BlackMortimer-13",
       "homepage": "",
       "github": "",
-      "version": "1.0.0",
-      "affinity": "",
+      "version": "2.5",
+      "affinity": "3.2+",
       "verified": false,
-      "tags": [],
+      "tags": [
+        "effect",
+        "vector"
+      ],
       "translations": {
         "es": {
-          "title": "Efecto giro",
-          "description": "Aplica una rotacion polar progresiva a curvas, formas o grupos seleccionados, imitando el efecto Twist de Adobe Illustrator."
+          "title": "Twist",
+          "description": "Aplica un giro polar con vista previa en vivo a curvas, formas o grupos seleccionados, subdividiendo trazados y rotando puntos segun su distancia al centro."
         },
         "fr": {
-          "title": "Effet de torsion",
-          "description": "Applique une rotation polaire progressive aux courbes, formes ou groupes selectionnes, en imitant l effet Twist d Adobe Illustrator."
+          "title": "Twist",
+          "description": "Applique une torsion polaire avec apercu en direct aux courbes, formes ou groupes selectionnes, en subdivisant les traces et en faisant tourner les points selon leur distance au centre."
         },
         "de": {
-          "title": "Twist-Effekt",
-          "description": "Wendet eine progressive polare Drehung auf ausgewaehlte Kurven, Formen oder Gruppen an und ahmt den Twist-Effekt von Adobe Illustrator nach."
+          "title": "Twist",
+          "description": "Wendet eine polare Drehung mit Live-Vorschau auf ausgewaehlte Kurven, Formen oder Gruppen an, unterteilt Pfade und dreht Punkte entsprechend ihrer Entfernung vom Zentrum."
         },
         "ja": {
-          "title": "ツイスト効果",
-          "description": "選択した曲線、形状、グループに、Adobe Illustratorのツイスト効果に似た段階的な極座標回転を適用します。ベジェ曲線を分割し、中心からの距離に基づいて点をねじり、パスを再構築します。"
+          "title": "Twist",
+          "description": "選択した曲線、形状、グループにライブプレビュー付きの極座標ツイストを適用し、パスを分割して中心からの距離に応じて点を回転します。"
         }
       }
     },
@@ -1650,34 +1607,37 @@
       }
     },
     {
-      "id": "zigzageffect",
-      "title": "Zig Zag Effect",
-      "description": "This script transforms a selected shape or line into a zig zag pattern. Simply select a shape or path, run the script, and it will automatically apply a zig zag effect to it.",
-      "path": "scripts/zigzageffect.js",
-      "image": "",
+      "id": "zigzag",
+      "title": "Zigzag",
+      "description": "Converts selected curves, shapes, or groups into a live-preview zigzag path effect, including support for closed paths.",
+      "path": "scripts/zig-zag-effect-v2.js",
+      "image": "images/ZigZag.png",
       "author": "BlackMortimer-13",
       "homepage": "",
       "github": "",
-      "version": "1.0",
-      "affinity": "",
+      "version": "2.5",
+      "affinity": "3.2+",
       "verified": false,
-      "tags": [],
+      "tags": [
+        "effect",
+        "vector"
+      ],
       "translations": {
         "es": {
-          "title": "Efecto zig zag",
-          "description": "Este script transforma una forma o linea seleccionada en un patron zig zag. Selecciona una forma o trazado, ejecuta el script y aplicara automaticamente el efecto zig zag."
+          "title": "Zigzag",
+          "description": "Convierte curvas, formas o grupos seleccionados en un efecto de trazado zigzag con vista previa en vivo, incluyendo soporte para trazados cerrados."
         },
         "fr": {
-          "title": "Effet zig zag",
-          "description": "Ce script transforme une forme ou une ligne selectionnee en motif zig zag. Selectionnez une forme ou un trace, lancez le script, et l effet zig zag sera applique automatiquement."
+          "title": "Zigzag",
+          "description": "Convertit les courbes, formes ou groupes selectionnes en effet de trace zigzag avec apercu en direct, avec prise en charge des traces fermes."
         },
         "de": {
-          "title": "Zickzack-Effekt",
-          "description": "Dieses Script verwandelt eine ausgewaehlte Form oder Linie in ein Zickzack-Muster. Waehle eine Form oder einen Pfad aus, fuehre das Script aus, und der Effekt wird automatisch angewendet."
+          "title": "Zigzag",
+          "description": "Wandelt ausgewaehlte Kurven, Formen oder Gruppen mit Live-Vorschau in einen Zickzack-Pfadeffekt um, einschliesslich Unterstuetzung fuer geschlossene Pfade."
         },
         "ja": {
-          "title": "ジグザグ効果",
-          "description": "選択した形状や線をジグザグパターンに変換します。形状またはパスを選択して実行すると、自動でジグザグ効果が適用されます。"
+          "title": "Zigzag",
+          "description": "選択した曲線、形状、グループをライブプレビュー付きのジグザグパス効果に変換します。閉じたパスにも対応します。"
         }
       }
     }

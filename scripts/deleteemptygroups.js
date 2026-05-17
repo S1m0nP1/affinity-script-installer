@@ -7,7 +7,7 @@
 // @homepage 
 // @github 
 // @tags 
-// @image 
+// @image images/DeleteEmptyFolders.png
 
 // Delete Empty Groups, Folders & Containers
 // Scans all spreads and deletes empty groups, folders, and containers.

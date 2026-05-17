@@ -7,7 +7,7 @@
 // @homepage 
 // @github 
 // @tags 
-// @image 
+// @image images/SeparateStroke&Fill.png
 
 'use strict';
 const { Document } = require('/document');

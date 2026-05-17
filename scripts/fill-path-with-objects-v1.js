@@ -7,7 +7,7 @@
 // @homepage 
 // @github 
 // @tags 
-// @image 
+// @image images/FillPathWithObjects.png
 
 'use strict';
 // FILL PATH WITH OBJECTS v1.7

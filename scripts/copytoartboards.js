@@ -7,7 +7,7 @@
 // @homepage 
 // @github 
 // @tags 
-// @image 
+// @image images/CopytoAllArtboards.png
 
 'use strict';
 
