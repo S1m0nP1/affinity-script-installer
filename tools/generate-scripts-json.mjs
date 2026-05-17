@@ -8,6 +8,7 @@ const scriptsDir = new URL("scripts/", rootDir);
 const manifestUrl = new URL("scripts.json", rootDir);
 const scriptExtensions = new Set([".js", ".mjs"]);
 const execFileAsync = promisify(execFile);
+const today = new Date().toISOString().slice(0, 10);
 
 function titleFromFileName(fileName) {
   return path
@@ -111,7 +112,7 @@ async function main() {
         homepage: metadata.homepage || previous?.homepage || "",
         github: metadata.github || previous?.github || "",
         version: metadata.version || previous?.version || "",
-        updated: metadata.updated || previous?.updated || gitUpdated,
+        updated: metadata.updated || (gitUpdated === today ? gitUpdated : ""),
         changelog: Array.isArray(metadata.changelog)
           ? metadata.changelog
           : Array.isArray(previous?.changelog)
