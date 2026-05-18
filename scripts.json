@@ -1531,6 +1531,45 @@
       }
     },
     {
+      "id": "syntax-highlight-number-lines",
+      "title": "Syntax Highlight and Number Code",
+      "description": "Adds line numbers and syntax highlighting to the selected Affinity text frame.",
+      "path": "scripts/syntax-highlight-number-lines.js",
+      "image": "images/syntax.png",
+      "author": "S1m0nP1",
+      "homepage": "https://affinityhub.js.org/",
+      "github": "https://github.com/S1m0nP1/affinity-script-installer",
+      "version": "1.0.0",
+      "updated": "2026-05-18",
+      "changelog": [],
+      "affinity": "3.2+",
+      "verified": true,
+      "tags": [
+        "code",
+        "syntax",
+        "text",
+        "line numbers"
+      ],
+      "translations": {
+        "es": {
+          "title": "Resaltar sintaxis y numerar codigo",
+          "description": "Anade numeros de linea y resaltado de sintaxis al marco de texto seleccionado en Affinity."
+        },
+        "fr": {
+          "title": "Colorer la syntaxe et numeroter le code",
+          "description": "Ajoute des numeros de ligne et une coloration syntaxique au bloc de texte Affinity selectionne."
+        },
+        "de": {
+          "title": "Syntax hervorheben und Code nummerieren",
+          "description": "Fuegt dem ausgewaehlten Affinity-Textrahmen Zeilennummern und Syntaxhervorhebung hinzu."
+        },
+        "ja": {
+          "title": "構文ハイライトと行番号",
+          "description": "選択したAffinityのテキストフレームに行番号と構文ハイライトを追加します。"
+        }
+      }
+    },
+    {
       "id": "tile-generator",
       "title": "Tile Generator",
       "description": "This script generates tile-based patterns from a selected object. It supports multiple layout styles, including a basic grid, brick offset, half-drop, diamond, hexagonal, radial burst, spiral, wave, pinwheel, and random scatter. It also includes progressive hue shifting, which reads the source object’s solid fill color and shifts the hue across all tiles, for example by 180° to create complementary colors.",
