@@ -15,9 +15,18 @@ Use this checklist when adding a new community script from a GitHub issue.
 - Prefer a lowercase, hyphenated filename, for example `my-script-name.js`.
 - Preserve useful metadata comments at the top of the script, such as `@title`, `@description`, `@author`, `@version`, `@affinity`, and `@tags`.
 
-## 3. Update `scripts.json`
+## 3. Generate `scripts.json`
 
-Add a new entry to the `scripts` array:
+Use the metadata comments in the script file as the source of truth, then run:
+
+```sh
+node tools/generate-scripts-json.mjs
+```
+
+For the full add/update workflow, including thumbnail optimization, translation
+checks, and validation commands, see `NEW_SCRIPT_WORKFLOW.md`.
+
+The generated entry should have this shape:
 
 ```json
 {
@@ -67,7 +76,7 @@ Add a new entry to the `scripts` array:
 Run:
 
 ```sh
-node -e "JSON.parse(require('fs').readFileSync('scripts.json','utf8')); console.log('scripts.json ok')"
+node -e "const fs=require('fs'); const data=JSON.parse(fs.readFileSync('scripts.json','utf8')); const missing=[]; for (const s of data.scripts) { if (!fs.existsSync(s.path)) missing.push('script '+s.path); if (s.image && !fs.existsSync(s.image)) missing.push('image '+s.image+' for '+s.id); } if (missing.length) { console.error(missing.join('\n')); process.exit(1); } console.log(data.scripts.length+' entries validated');"
 ```
 
 Then serve the site locally and switch between `EN`, `ES`, `FR`, `DE`, and `JA` to confirm:
