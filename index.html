@@ -744,8 +744,11 @@ const recent = isRecentlyUpdated(script) ? `<span class="update-badge">${escapeH
 const affinity = script.affinity ? `<span>${escapeHtml(t("affinityVersion", { version: script.affinity }))}</span>` : "";
 const installs = Number.isFinite(script.installs) ? `<span>${escapeHtml(t("successfulInstalls", { count: script.installs }))}</span>` : "";
 const installedMeta = installed && installState !== "installed" ? `<span>${escapeHtml(t("installedVersionDetail", { version: installed }).replace(/\.$/, ""))}</span>` : "";
+const isVideoThumb = script.image && /\.(mp4|webm|mov)(?:[?#].*)?$/i.test(script.image);
 const thumb = script.image
-? `<img class="script-thumb" src="${escapeHtml(script.image)}" alt="">`
+? isVideoThumb
+? `<video class="script-thumb" src="${escapeHtml(script.image)}" muted autoplay loop playsinline preload="metadata" aria-hidden="true"></video>`
+: `<img class="script-thumb" src="${escapeHtml(script.image)}" alt="">`
 : '<span class="script-thumb placeholder" aria-hidden="true">JS</span>';
 return `
 <button class="script-card${active}" type="button" data-id="${escapeHtml(script.id)}">

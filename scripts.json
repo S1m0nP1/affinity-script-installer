@@ -173,36 +173,94 @@
       }
     },
     {
+      "id": "bento",
+      "title": "bento+",
+      "description": "Generates a Bento Grid/Box on the current page or artboard with live preview, Randomise layout, spacing and palette modes.",
+      "path": "scripts/bento+.js",
+      "image": "images/bento.mp4",
+      "author": "S1m0nP1",
+      "homepage": "",
+      "github": "",
+      "version": "1.0.0",
+      "updated": "2026-05-18",
+      "changelog": [
+        "Added live preview that rebuilds a temporary Bento Box group as settings change.",
+        "Cancel now removes the preview group; OK keeps it as the final result.",
+        "Added regenerate seed control, stable random layouts, automatic spacing clamps and palette modes.",
+        "Simplified the dialog by hiding seeds, renamed regenerate to Randomise layout and made the dialog resizable.",
+        "Fixed rounded corners and changed block count to a dropdown to avoid accidental keyboard increments.",
+        "Restored block count as a popup slider and replaced No fill with Soft pastels.",
+        "Added High contrast, Brand accents and Muted editorial palette modes.",
+        "Removed target UI and fixed artboard-aware local coordinate insertion.",
+        "Fixed artboard placement by using artboard baseBox coordinates with artboard insertion.",
+        "Fixed selected artboard detection and artboard preview placement."
+      ],
+      "affinity": "3.2+",
+      "verified": true,
+      "tags": [
+        "utility"
+      ],
+      "translations": {
+        "es": {
+          "title": "bento+",
+          "description": "Genera una cuadricula o caja Bento en la pagina o mesa de trabajo actual con vista previa en vivo, boton para aleatorizar el diseno, ajuste automatico de espaciado y modos de paleta."
+        },
+        "fr": {
+          "title": "bento+",
+          "description": "Genere une grille ou boite Bento sur la page ou le plan de travail actif avec apercu en direct, bouton pour randomiser la mise en page, ajustement automatique de l espacement et modes de palette."
+        },
+        "de": {
+          "title": "bento+",
+          "description": "Erzeugt ein Bento-Raster oder eine Bento-Box auf der aktuellen Seite oder dem aktuellen Artboard mit Live-Vorschau, Zufallsbutton fuer das Layout, automatischer Abstandsbegrenzung und Palettenmodi."
+        },
+        "ja": {
+          "title": "bento+",
+          "description": "現在のページまたはアートボードに、ライブプレビュー、レイアウトのランダム化、自動スペース調整、パレットモード付きのBentoグリッド/ボックスを生成します。"
+        }
+      }
+    },
+    {
       "id": "bentoboxgenerator",
       "title": "Bento Box Generator",
-      "description": "Generates Bento Grid/Box on the current page/artboard",
+      "description": "Generates a Bento Grid/Box on the current page or artboard with live preview, Randomise layout, spacing clamps and palette modes.",
       "path": "scripts/bentoboxgenerator.js",
       "image": "images/bento.png",
       "author": "JiriKrblich",
       "homepage": "",
       "github": "",
-      "version": "1.0",
-      "updated": "",
-      "changelog": [],
-      "affinity": "",
-      "verified": false,
+      "version": "1.2.7",
+      "updated": "2026-05-18",
+      "changelog": [
+        "Added live preview that rebuilds a temporary Bento Box group as settings change.",
+        "Cancel now removes the preview group; OK keeps it as the final result.",
+        "Added regenerate seed control, stable random layouts, automatic spacing clamps and palette modes.",
+        "Simplified the dialog by hiding seeds, renamed regenerate to Randomise layout and made the dialog resizable.",
+        "Fixed rounded corners and changed block count to a dropdown to avoid accidental keyboard increments.",
+        "Restored block count as a popup slider and replaced No fill with Soft pastels.",
+        "Added High contrast, Brand accents and Muted editorial palette modes.",
+        "Removed target UI and fixed artboard-aware local coordinate insertion.",
+        "Fixed artboard placement by using artboard baseBox coordinates with artboard insertion.",
+        "Fixed selected artboard detection and artboard preview placement."
+      ],
+      "affinity": "3.2+",
+      "verified": true,
       "tags": [],
       "translations": {
         "es": {
           "title": "Generador Bento Box",
-          "description": "Genera una cuadricula o caja Bento en la pagina o mesa de trabajo actual."
+          "description": "Genera una cuadricula o caja Bento en la pagina o mesa de trabajo actual con vista previa en vivo, boton para aleatorizar el diseno, ajuste automatico de espaciado y modos de paleta."
         },
         "fr": {
           "title": "Generateur Bento Box",
-          "description": "Genere une grille ou boite Bento sur la page ou le plan de travail actif."
+          "description": "Genere une grille ou boite Bento sur la page ou le plan de travail actif avec apercu en direct, bouton pour randomiser la mise en page, ajustement automatique de l espacement et modes de palette."
         },
         "de": {
           "title": "Bento-Box-Generator",
-          "description": "Erzeugt ein Bento-Raster oder eine Bento-Box auf der aktuellen Seite oder dem aktuellen Artboard."
+          "description": "Erzeugt ein Bento-Raster oder eine Bento-Box auf der aktuellen Seite oder dem aktuellen Artboard mit Live-Vorschau, Zufallsbutton fuer das Layout, automatischer Abstandsbegrenzung und Palettenmodi."
         },
         "ja": {
           "title": "Bento Boxジェネレーター",
-          "description": "現在のページまたはアートボードにBentoグリッド/ボックスを生成します。"
+          "description": "現在のページまたはアートボードに、ライブプレビュー、レイアウトのランダム化、自動スペース調整、パレットモード付きのBentoグリッド/ボックスを生成します。"
         }
       }
     },

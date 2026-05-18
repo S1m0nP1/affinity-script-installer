@@ -107,7 +107,7 @@ async function main() {
         title: metadata.title || previous?.title || titleFromFileName(entry.name),
         description: metadata.description || previous?.description || "No description provided yet.",
         path: scriptPath,
-        image: metadata.image || previous?.image || "",
+        image: Object.hasOwn(metadata, "image") ? metadata.image : previous?.image || "",
         author: metadata.author || previous?.author || "",
         homepage: metadata.homepage || previous?.homepage || "",
         github: metadata.github || previous?.github || "",

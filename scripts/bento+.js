@@ -1,31 +1,15 @@
-// @title Bento Box Generator
-// @description Generates a Bento Grid/Box on the current page or artboard with live preview, Randomise layout, spacing clamps and palette modes.
-// @author JiriKrblich
-// @version 1.2.7
+// @title bento+
+// @description Generates a Bento Grid/Box on the current page or artboard with live preview, Randomise layout, spacing and palette modes.
+// @author S1m0nP1
+// @version 1.0.0
 // @updated 2026-05-18
-// @changelog Added live preview that rebuilds a temporary Bento Box group as settings change.
-// @changelog Cancel now removes the preview group; OK keeps it as the final result.
-// @changelog Added regenerate seed control, stable random layouts, automatic spacing clamps and palette modes.
-// @changelog Simplified the dialog by hiding seeds, renamed regenerate to Randomise layout and made the dialog resizable.
-// @changelog Fixed rounded corners and changed block count to a dropdown to avoid accidental keyboard increments.
-// @changelog Restored block count as a popup slider and replaced No fill with Soft pastels.
-// @changelog Added High contrast, Brand accents and Muted editorial palette modes.
-// @changelog Removed target UI and fixed artboard-aware local coordinate insertion.
-// @changelog Fixed artboard placement by using artboard baseBox coordinates with artboard insertion.
-// @changelog Fixed selected artboard detection and artboard preview placement.
 // @affinity 3.2+
 // @verified true
 // @homepage 
 // @github 
-// @tags 
-// @image images/bento.png
+// @tags utility
+// @image images/bento.mp4
 
-/**
- * name: Bento Box generator
- * description: Generates Bento Grid/Box on the current page/artboard
- * version: 1.0.0
- * author: JiriKrblich
- */
 
 'use strict';
 const { Document } = require('/document');
