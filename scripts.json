@@ -183,18 +183,7 @@
       "github": "",
       "version": "1.0.0",
       "updated": "2026-05-18",
-      "changelog": [
-        "Added live preview that rebuilds a temporary Bento Box group as settings change.",
-        "Cancel now removes the preview group; OK keeps it as the final result.",
-        "Added regenerate seed control, stable random layouts, automatic spacing clamps and palette modes.",
-        "Simplified the dialog by hiding seeds, renamed regenerate to Randomise layout and made the dialog resizable.",
-        "Fixed rounded corners and changed block count to a dropdown to avoid accidental keyboard increments.",
-        "Restored block count as a popup slider and replaced No fill with Soft pastels.",
-        "Added High contrast, Brand accents and Muted editorial palette modes.",
-        "Removed target UI and fixed artboard-aware local coordinate insertion.",
-        "Fixed artboard placement by using artboard baseBox coordinates with artboard insertion.",
-        "Fixed selected artboard detection and artboard preview placement."
-      ],
+      "changelog": [],
       "affinity": "3.2+",
       "verified": true,
       "tags": [
