@@ -1608,18 +1608,24 @@
     {
       "id": "tile-generator",
       "title": "Tile Generator",
-      "description": "This script generates tile-based patterns from a selected object. It supports multiple layout styles, including a basic grid, brick offset, half-drop, diamond, hexagonal, radial burst, spiral, wave, pinwheel, and random scatter. It also includes progressive hue shifting, which reads the source object’s solid fill color and shifts the hue across all tiles, for example by 180° to create complementary colors.",
+      "description": "Generates tile-based patterns from the selected object with live dialog preview. Supports grid, brick, half-drop, diamond, hexagonal, radial burst, spiral, wave, pinwheel, and random scatter layouts. The generated pattern is fitted back inside the current artboard/page boundaries.",
       "path": "scripts/tile-generator.js",
-      "image": "",
+      "image": "images/tile.png",
       "author": "S1m0nP1",
-      "homepage": "",
-      "github": "",
-      "version": "1.0.0",
-      "updated": "",
-      "changelog": [],
-      "affinity": "",
-      "verified": false,
-      "tags": [],
+      "homepage": "https://affinityhub.js.org/",
+      "github": "https://github.com/S1m0nP1/affinity-script-installer",
+      "version": "1.1.5",
+      "updated": "2026-05-19",
+      "changelog": [
+        "Add single-command live preview, optional colour shift preview, improved pinwheel layout, and fitted page/artboard output."
+      ],
+      "affinity": "3.2+",
+      "verified": true,
+      "tags": [
+        "pattern",
+        "tiles",
+        "layout"
+      ],
       "translations": {
         "es": {
           "title": "Generador de mosaicos",
