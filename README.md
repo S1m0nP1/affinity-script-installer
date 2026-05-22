@@ -1,5 +1,7 @@
 # Affinity Hub
 
+buymeacoffee.com/s1m0np/t/6194853
+
 https://affinityhub.js.org/
 
 ## Connection Problems? Try This First
