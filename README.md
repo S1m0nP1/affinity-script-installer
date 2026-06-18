@@ -149,7 +149,7 @@ Deployment outline:
 2. Copy `workers/wrangler.example.toml` to `workers/wrangler.toml`.
 3. Replace the KV namespace IDs.
 4. Deploy with Wrangler from the `workers/` folder.
-5. Set `STATS_ENDPOINT` in `index.pretty.html` to the deployed Worker URL.
+5. Set `STATS_ENDPOINT` in `index.html` to the deployed stats API URL.
 6. Regenerate the minified `index.html`.
 
 The Worker exposes:
@@ -164,7 +164,7 @@ Install events are counted by script ID only.
 This repository currently points at:
 
 ```text
-https://affinity-script-installer-stats.s1m0np1.workers.dev
+https://affinityhub-simon.duckdns.org
 ```
 
 ## Publish On GitHub Pages
