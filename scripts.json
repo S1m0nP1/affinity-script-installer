@@ -315,6 +315,47 @@
       }
     },
     {
+      "id": "blendtoolprov2",
+      "title": "Blend Tool Pro V2",
+      "description": "Generates smooth morphing transitions between two shapes or groups, interpolating their position, form, fill, stroke, and scale across a configurable number of intermediate steps. Steps can follow a custom path, and every blend automatically receives an editable spine line you can reshape and re-apply later.",
+      "path": "scripts/BlendToolProV2.js",
+      "image": "images/blendtoolpro.png",
+      "author": "S1m0nP1",
+      "homepage": "https://s1m0np1.github.io/Blend-Tool-for-Affinity/",
+      "github": "https://github.com/S1m0nP1/Blend-Tool-for-Affinity",
+      "version": "2.0.0",
+      "updated": "2026-06-25",
+      "changelog": [
+        "Updated for the June 2026 Affinity scripting SDK.",
+        "Added a redesigned Basic and Advanced dialog with stable compound live previews."
+      ],
+      "affinity": "3.2+",
+      "verified": true,
+      "tags": [
+        "vector",
+        "design",
+        "illustration"
+      ],
+      "translations": {
+        "es": {
+          "title": "Blend Tool Pro V2",
+          "description": "Genera transiciones de fusión suaves entre dos formas o grupos, interpolando posición, forma, relleno, trazo y escala mediante un número configurable de pasos intermedios. Los pasos pueden seguir un trazado personalizado y cada fusión recibe una línea espina editable que puede modificarse y volver a aplicarse más tarde."
+        },
+        "fr": {
+          "title": "Blend Tool Pro V2",
+          "description": "Génère des transitions de fusion fluides entre deux formes ou groupes, en interpolant leur position, leur forme, leur remplissage, leur contour et leur échelle avec un nombre configurable d’étapes intermédiaires. Les étapes peuvent suivre un tracé personnalisé et chaque fusion reçoit une ligne d’axe modifiable qui peut être remodelée et réappliquée ultérieurement."
+        },
+        "de": {
+          "title": "Blend Tool Pro V2",
+          "description": "Erzeugt weiche Blend-Übergänge zwischen zwei Formen oder Gruppen und interpoliert Position, Form, Füllung, Kontur und Skalierung über eine frei einstellbare Anzahl von Zwischenschritten. Die Schritte können einem benutzerdefinierten Pfad folgen; jeder Blend erhält zudem eine bearbeitbare Achsenlinie, die später angepasst und erneut angewendet werden kann."
+        },
+        "ja": {
+          "title": "Blend Tool Pro V2",
+          "description": "2つのシェイプまたはグループ間に滑らかなブレンドを生成し、位置、形状、塗り、線、拡大率を設定可能な中間ステップ数で補間します。ステップはカスタムパスに沿わせることができ、各ブレンドには後から変形して再適用できる編集可能なスパイン線が追加されます。"
+        }
+      }
+    },
+    {
       "id": "chartspro",
       "title": "ChartsPro",
       "description": "Create charts from CSV files",
