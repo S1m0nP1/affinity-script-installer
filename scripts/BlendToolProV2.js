@@ -2,8 +2,9 @@
 // @title Blend Tool Pro V2
 // @description Generates smooth morphing transitions between two shapes or groups, interpolating their position, form, fill, stroke, and scale across a configurable number of intermediate steps. Steps can follow a custom path, and every blend automatically receives an editable spine line you can reshape and re-apply later.
 // @author S1m0nP1
-// @version 2.0.0
+// @version 2.0.1
 // @updated 2026-06-25
+// @changelog Fixed the protected loader so scripts with top-level early returns execute correctly.
 // @changelog Updated for the June 2026 Affinity scripting SDK.
 // @changelog Added a redesigned Basic and Advanced dialog with stable compound live previews.
 // @affinity 3.2+
@@ -1202,5 +1203,5 @@ var _0x4b7c="J3VzZSBzdHJpY3QnOwovLyDilZDilZDilZDilZDilZDilZDilZDilZDilZDilZDilZD
 var _0x2d91='ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=';
 function _0x59ae(_0x42df){var _0x338a='',_0x1d8c,_0x2afb,_0x46df,_0x4d77,_0x42c8,_0x37c5,_0x31f1,_0x2f0a=0;_0x42df=String(_0x42df).replace(/[^A-Za-z0-9+/=]/g,'');while(_0x2f0a<_0x42df.length){_0x4d77=_0x2d91.indexOf(_0x42df.charAt(_0x2f0a++));_0x42c8=_0x2d91.indexOf(_0x42df.charAt(_0x2f0a++));_0x37c5=_0x2d91.indexOf(_0x42df.charAt(_0x2f0a++));_0x31f1=_0x2d91.indexOf(_0x42df.charAt(_0x2f0a++));_0x1d8c=(_0x4d77<<2)|(_0x42c8>>4);_0x2afb=((_0x42c8&15)<<4)|(_0x37c5>>2);_0x46df=((_0x37c5&3)<<6)|_0x31f1;_0x338a+=String.fromCharCode(_0x1d8c);if(_0x37c5!==64)_0x338a+=String.fromCharCode(_0x2afb);if(_0x31f1!==64)_0x338a+=String.fromCharCode(_0x46df);}return _0x338a;}
 function _0x36ef(_0x48aa){var _0x1337='',_0x16b9=0,_0x20ac=0,_0x3a6e=0;for(_0x16b9=0;_0x16b9<_0x48aa.length;_0x16b9++){_0x20ac=_0x48aa.charCodeAt(_0x16b9);if(_0x20ac<128){_0x1337+=String.fromCharCode(_0x20ac);}else if(_0x20ac>191&&_0x20ac<224){_0x3a6e=_0x48aa.charCodeAt(++_0x16b9);_0x1337+=String.fromCharCode(((_0x20ac&31)<<6)|(_0x3a6e&63));}else if(_0x20ac>239){var _0x27d0=_0x48aa.charCodeAt(++_0x16b9),_0x531c=_0x48aa.charCodeAt(++_0x16b9),_0x5bb8=_0x48aa.charCodeAt(++_0x16b9),_0x4bd2=((_0x20ac&7)<<18)|((_0x27d0&63)<<12)|((_0x531c&63)<<6)|(_0x5bb8&63);_0x4bd2-=65536;_0x1337+=String.fromCharCode(55296+(_0x4bd2>>10),56320+(_0x4bd2&1023));}else{_0x3a6e=_0x48aa.charCodeAt(++_0x16b9);var _0x28ef=_0x48aa.charCodeAt(++_0x16b9);_0x1337+=String.fromCharCode(((_0x20ac&15)<<12)|((_0x3a6e&63)<<6)|(_0x28ef&63));}}return _0x1337;}
-eval(_0x36ef(_0x59ae(_0x4b7c)));
+Function('require',_0x36ef(_0x59ae(_0x4b7c)))(require);
 })();

@@ -251,9 +251,10 @@
       "author": "S1m0nP1",
       "homepage": "https://s1m0np1.github.io/Blend-Tool-for-Affinity/",
       "github": "https://github.com/S1m0nP1/Blend-Tool-for-Affinity",
-      "version": "2.0.0",
+      "version": "2.0.1",
       "updated": "2026-06-25",
       "changelog": [
+        "Fixed the protected loader so scripts with top-level early returns execute correctly.",
         "Updated for the June 2026 Affinity scripting SDK.",
         "Added a redesigned Basic and Advanced dialog with stable compound live previews."
       ],
